@@ -10,7 +10,7 @@ import {
   mostRecentFetchedRate,
   setPreferredCurrency,
 } from '../../blue_modules/currency';
-import { BlueCard, BlueSpacing10, BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadCard, NomadSpacing10, NomadSpacing20, NomadText } from '../../NomadComponents';
 import presentAlert from '../../components/Alert';
 import ListItem from '../../components/ListItem';
 import { useTheme } from '../../components/themes';
@@ -124,20 +124,20 @@ const Currency: React.FC = () => {
         renderItem={renderItem}
       />
       {!isSearchFocused || selectedCurrencyVisible ? (
-        <BlueCard>
-          <BlueText>
+        <NomadCard>
+          <NomadText>
             {loc.settings.currency_source} {selectedCurrency?.source ?? FiatUnitSource.CoinDesk}
-          </BlueText>
-          <BlueSpacing10 />
-          <BlueText>
+          </NomadText>
+          <NomadSpacing10 />
+          <NomadText>
             {loc.settings.rate}: {currencyRate.Rate ?? loc._.never}
-          </BlueText>
-          <BlueSpacing10 />
-          <BlueText>
+          </NomadText>
+          <NomadSpacing10 />
+          <NomadText>
             {loc.settings.last_updated}: {dayjs(currencyRate.LastUpdated).calendar() ?? loc._.never}
-          </BlueText>
-          <BlueSpacing20 />
-        </BlueCard>
+          </NomadText>
+          <NomadSpacing20 />
+        </NomadCard>
       ) : null}
     </View>
   );

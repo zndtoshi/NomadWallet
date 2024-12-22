@@ -19,7 +19,7 @@ import {
 import * as RNLocalize from 'react-native-localize';
 
 import debounce from '../../blue_modules/debounce';
-import { BlueSpacing10, BlueSpacing20 } from '../../BlueComponents';
+import { NomadSpacing10, NomadSpacing20 } from '../../NomadComponents';
 import { TWallet, Utxo } from '../../class/wallets/types';
 import BottomModal, { BottomModalHandle } from '../../components/BottomModal';
 import Button from '../../components/Button';
@@ -170,11 +170,11 @@ const OutputModal: React.FC<TOutputModalProps> = ({
         {memo ? (
           <>
             <RNElementsListItem.Subtitle style={oStyles.memo}>{memo}</RNElementsListItem.Subtitle>
-            <BlueSpacing10 />
+            <NomadSpacing10 />
           </>
         ) : null}
         <RNElementsListItem.Subtitle style={oStyles.memo}>{address}</RNElementsListItem.Subtitle>
-        <BlueSpacing10 />
+        <NomadSpacing10 />
         <RNElementsListItem.Subtitle style={oStyles.memo}>{fullId}</RNElementsListItem.Subtitle>
       </RNElementsListItem.Content>
     </RNElementsListItem>
@@ -232,7 +232,7 @@ const OutputModalContent: React.FC<TOutputModalContentProps> = ({ output, wallet
   return (
     <View>
       <OutputModal item={output} balanceUnit={wallet.getPreferredBalanceUnit()} />
-      <BlueSpacing20 />
+      <NomadSpacing20 />
       <TextInput
         testID="OutputMemo"
         placeholder={loc.send.details_note_placeholder}
@@ -254,7 +254,7 @@ const OutputModalContent: React.FC<TOutputModalContentProps> = ({ output, wallet
         Component={TouchableWithoutFeedback}
         switch={switchValue}
       />
-      <BlueSpacing20 />
+      <NomadSpacing20 />
     </View>
   );
 };

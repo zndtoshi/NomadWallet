@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigationState, useRoute, RouteProp } from '@react-navigation/native';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadSpacing20, NomadText } from '../../NomadComponents';
 import SafeArea from '../../components/SafeArea';
 import { useTheme } from '../../components/themes';
 import loc from '../../loc';
@@ -101,9 +101,9 @@ const SelectWallet: React.FC = () => {
     return (
       <SafeArea>
         <View style={styles.noWallets}>
-          <BlueText style={styles.center}>{loc.wallets.select_no_bitcoin}</BlueText>
-          <BlueSpacing20 />
-          <BlueText style={styles.center}>{noWalletExplanationText || loc.wallets.select_no_bitcoin_exp}</BlueText>
+          <NomadText style={styles.center}>{loc.wallets.select_no_bitcoin}</NomadText>
+          <NomadSpacing20 />
+          <NomadText style={styles.center}>{noWalletExplanationText || loc.wallets.select_no_bitcoin_exp}</NomadText>
         </View>
       </SafeArea>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ActivityIndicator, ScrollView, StyleSheet, View } from 'react-native';
-import { BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadSpacing20, NomadText } from '../../NomadComponents';
 import { HDSegwitBech32Transaction, HDSegwitBech32Wallet } from '../../class';
 import presentAlert from '../../components/Alert';
 import SafeArea from '../../components/SafeArea';
@@ -87,13 +87,13 @@ export default class RBFBumpFee extends CPFP {
     if (this.state.nonReplaceable) {
       return (
         <SafeArea style={styles.root}>
-          <BlueSpacing20 />
-          <BlueSpacing20 />
-          <BlueSpacing20 />
-          <BlueSpacing20 />
-          <BlueSpacing20 />
+          <NomadSpacing20 />
+          <NomadSpacing20 />
+          <NomadSpacing20 />
+          <NomadSpacing20 />
+          <NomadSpacing20 />
 
-          <BlueText h4>{loc.transactions.cpfp_no_bump}</BlueText>
+          <NomadText h4>{loc.transactions.cpfp_no_bump}</NomadText>
         </SafeArea>
       );
     }

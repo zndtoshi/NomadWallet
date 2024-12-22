@@ -3,7 +3,7 @@ import { useRoute, RouteProp } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Icon } from '@rneui/themed';
-import { BlueSpacing20 } from '../../BlueComponents';
+import { NomadSpacing20 } from '../../NomadComponents';
 import { MultisigHDWallet } from '../../class';
 import BottomModal, { BottomModalHandle } from '../../components/BottomModal';
 import Button from '../../components/Button';
@@ -129,10 +129,10 @@ const WalletsAddMultisig: React.FC = () => {
           </View>
         </View>
 
-        <BlueSpacing20 />
+        <NomadSpacing20 />
 
         <Text style={[styles.textHeader, stylesHook.textHeader]}>{loc.multisig.wallet_type}</Text>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <ListItem
           bottomDivider={false}
           onPress={setFormatP2wsh}
@@ -179,7 +179,7 @@ const WalletsAddMultisig: React.FC = () => {
         <View style={styles.imageWrapper}>
           <LottieView source={require('../../img/msvault.json')} style={styles.lottie} autoPlay loop={false} />
         </View>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <Text style={[styles.textdesc, stylesHook.textdesc]}>
           {loc.multisig.what_is_vault}
           <Text style={[styles.textdescBold, stylesHook.textdesc]}>
@@ -188,7 +188,7 @@ const WalletsAddMultisig: React.FC = () => {
           <Text style={[styles.textdesc, stylesHook.textdesc]}>{loc.multisig.what_is_vault_wallet}</Text>
         </Text>
 
-        <BlueSpacing20 />
+        <NomadSpacing20 />
 
         <Text style={[styles.textdesc, stylesHook.textdesc]}>
           {loc.multisig.needs}

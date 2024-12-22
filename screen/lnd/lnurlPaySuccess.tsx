@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Image, Linking, ScrollView, StyleSheet, View } from 'react-native';
-import { BlueButtonLink, BlueCard, BlueLoading, BlueSpacing20, BlueSpacing40, BlueText } from '../../BlueComponents';
+import { NomadButtonLink, NomadCard, NomadLoading, NomadSpacing20, NomadSpacing40, NomadText } from '../../NomadComponents';
 import Lnurl from '../../class/lnurl';
 import Button from '../../components/Button';
 import SafeArea from '../../components/SafeArea';
@@ -67,7 +67,7 @@ const LnurlPaySuccess: React.FC = () => {
   }, [paymentHash]);
 
   if (isLoading || !LN) {
-    return <BlueLoading />;
+    return <NomadLoading />;
   }
 
   const domain = LN.getDomain();
@@ -81,31 +81,31 @@ const LnurlPaySuccess: React.FC = () => {
       <ScrollView style={styles.container}>
         {justPaid && <SuccessView />}
 
-        <BlueSpacing40 />
-        <BlueText style={styles.alignSelfCenter}>{domain}</BlueText>
-        <BlueText style={[styles.alignSelfCenter, styles.description]}>{description}</BlueText>
+        <NomadSpacing40 />
+        <NomadText style={styles.alignSelfCenter}>{domain}</NomadText>
+        <NomadText style={[styles.alignSelfCenter, styles.description]}>{description}</NomadText>
         {image && <Image style={styles.img} source={{ uri: image }} />}
-        <BlueSpacing20 />
+        <NomadSpacing20 />
 
         {(preamble || url || message) && (
-          <BlueCard>
+          <NomadCard>
             <View style={styles.successContainer}>
-              <BlueText style={styles.successText}>{preamble}</BlueText>
+              <NomadText style={styles.successText}>{preamble}</NomadText>
               {url ? (
-                <BlueButtonLink
+                <NomadButtonLink
                   title={url}
                   onPress={() => {
                     Linking.openURL(url);
                   }}
                 />
               ) : (
-                <BlueText selectable>{message}</BlueText>
+                <NomadText selectable>{message}</NomadText>
               )}
             </View>
-          </BlueCard>
+          </NomadCard>
         )}
 
-        <BlueCard>
+        <NomadCard>
           {repeatable ? (
             <Button
               onPress={() => {
@@ -129,7 +129,7 @@ const LnurlPaySuccess: React.FC = () => {
               title={loc.send.success_done}
             />
           )}
-        </BlueCard>
+        </NomadCard>
       </ScrollView>
     </SafeArea>
   );

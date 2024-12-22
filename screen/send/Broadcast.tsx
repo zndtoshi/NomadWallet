@@ -3,17 +3,17 @@ import { useRoute, RouteProp } from '@react-navigation/native';
 import * as bitcoin from 'bitcoinjs-lib';
 import { ActivityIndicator, Keyboard, Linking, StyleSheet, TextInput, View } from 'react-native';
 
-import * as BlueElectrum from '../../blue_modules/BlueElectrum';
+import * as NomadElectrum from '../../blue_modules/NomadElectrum';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
 import {
-  BlueBigCheckmark,
-  BlueButtonLink,
-  BlueCard,
-  BlueFormLabel,
-  BlueSpacing10,
-  BlueSpacing20,
-  BlueTextCentered,
-} from '../../BlueComponents';
+  NomadBigCheckmark,
+  NomadButtonLink,
+  NomadCard,
+  NomadFormLabel,
+  NomadSpacing10,
+  NomadSpacing20,
+  NomadTextCentered,
+} from '../../NomadComponents';
 import { HDSegwitBech32Wallet } from '../../class';
 import presentAlert from '../../components/Alert';
 import Button from '../../components/Button';
@@ -64,8 +64,8 @@ const Broadcast: React.FC = () => {
     Keyboard.dismiss();
     setBroadcastResult(BROADCAST_RESULT.pending);
     try {
-      await BlueElectrum.ping();
-      await BlueElectrum.waitTillConnected();
+      await NomadElectrum.ping();
+      await NomadElectrum.waitTillConnected();
       const walletObj = new HDSegwitBech32Wallet();
       if (txHex) {
         const result = await walletObj.broadcastTx(txHex);
@@ -127,9 +127,9 @@ const Broadcast: React.FC = () => {
     <SafeArea>
       <View style={styles.wrapper} testID="BroadcastView">
         {BROADCAST_RESULT.success !== broadcastResult && (
-          <BlueCard style={styles.mainCard}>
+          <NomadCard style={styles.mainCard}>
             <View style={styles.topFormRow}>
-              <BlueFormLabel>{status}</BlueFormLabel>
+              <NomadFormLabel>{status}</NomadFormLabel>
               {BROADCAST_RESULT.pending === broadcastResult && <ActivityIndicator size="small" />}
             </View>
 
@@ -145,10 +145,10 @@ const Broadcast: React.FC = () => {
                 testID="TxHex"
               />
             </View>
-            <BlueSpacing20 />
+            <NomadSpacing20 />
 
             <Button title={loc.multisig.scan_or_open_file} onPress={handleQRScan} />
-            <BlueSpacing20 />
+            <NomadSpacing20 />
 
             <Button
               title={loc.send.broadcastButton}
@@ -156,8 +156,8 @@ const Broadcast: React.FC = () => {
               disabled={broadcastResult === BROADCAST_RESULT.pending || txHex?.length === 0 || txHex === undefined}
               testID="BroadcastButton"
             />
-            <BlueSpacing20 />
-          </BlueCard>
+            <NomadSpacing20 />
+          </NomadCard>
         )}
         {BROADCAST_RESULT.success === broadcastResult && tx && <SuccessScreen tx={tx} url={`${selectedBlockExplorer.url}/tx/${tx}`} />}
       </View>
@@ -172,15 +172,15 @@ const SuccessScreen: React.FC<{ tx: string; url: string }> = ({ tx, url }) => {
 
   return (
     <View style={styles.wrapper}>
-      <BlueCard>
+      <NomadCard>
         <View style={styles.broadcastResultWrapper}>
-          <BlueBigCheckmark />
-          <BlueSpacing20 />
-          <BlueTextCentered>{loc.settings.success_transaction_broadcasted}</BlueTextCentered>
-          <BlueSpacing10 />
-          <BlueButtonLink title={loc.settings.open_link_in_explorer} onPress={() => Linking.openURL(url)} />
+          <NomadBigCheckmark />
+          <NomadSpacing20 />
+          <NomadTextCentered>{loc.settings.success_transaction_broadcasted}</NomadTextCentered>
+          <NomadSpacing10 />
+          <NomadButtonLink title={loc.settings.open_link_in_explorer} onPress={() => Linking.openURL(url)} />
         </View>
-      </BlueCard>
+      </NomadCard>
     </View>
   );
 };

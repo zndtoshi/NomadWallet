@@ -6,7 +6,7 @@ import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native
 import { Icon } from '@rneui/themed';
 
 import { satoshiToBTC, satoshiToLocalCurrency } from '../../blue_modules/currency';
-import { BlueCard, BlueText } from '../../BlueComponents';
+import { NomadCard, NomadText } from '../../NomadComponents';
 import presentAlert from '../../components/Alert';
 import Button from '../../components/Button';
 import SafeArea from '../../components/SafeArea';
@@ -236,13 +236,13 @@ const PsbtMultisig = () => {
   const header = (
     <View style={stylesHook.root}>
       <View style={styles.containerText}>
-        <BlueText style={[styles.textBtc, stylesHook.textBtc]}>{totalBtc}</BlueText>
+        <NomadText style={[styles.textBtc, stylesHook.textBtc]}>{totalBtc}</NomadText>
         <View style={styles.textBtcUnit}>
-          <BlueText style={[styles.textBtcUnitValue, stylesHook.textBtcUnitValue]}> {BitcoinUnit.BTC}</BlueText>
+          <NomadText style={[styles.textBtcUnitValue, stylesHook.textBtcUnitValue]}> {BitcoinUnit.BTC}</NomadText>
         </View>
       </View>
       <View style={styles.containerText}>
-        <BlueText style={[styles.textFiat, stylesHook.textFiat]}>{totalFiat}</BlueText>
+        <NomadText style={[styles.textFiat, stylesHook.textFiat]}>{totalFiat}</NomadText>
       </View>
       <View>{destinationAddress()}</View>
     </View>
@@ -251,10 +251,10 @@ const PsbtMultisig = () => {
     <>
       <View style={styles.bottomWrapper}>
         <View style={styles.bottomFeesWrapper}>
-          <BlueText style={[styles.feeFiatText, stylesHook.feeFiatText]}>
+          <NomadText style={[styles.feeFiatText, stylesHook.feeFiatText]}>
             {loc.formatString(loc.multisig.fee, { number: satoshiToLocalCurrency(getFee()) })} -{' '}
-          </BlueText>
-          <BlueText>{loc.formatString(loc.multisig.fee_btc, { number: satoshiToBTC(getFee()) })}</BlueText>
+          </NomadText>
+          <NomadText>{loc.formatString(loc.multisig.fee_btc, { number: satoshiToBTC(getFee()) })}</NomadText>
         </View>
       </View>
       <View style={styles.marginConfirmButton}>
@@ -275,7 +275,7 @@ const PsbtMultisig = () => {
             <View style={[styles.msleft, { height: flatListHeight - 260 }]} />
           </View>
           <View style={styles.msright}>
-            <BlueCard>
+            <NomadCard>
               <FlatList
                 data={data}
                 onLayout={onLayout}
@@ -298,7 +298,7 @@ const PsbtMultisig = () => {
                   </TouchableOpacity>
                 </View>
               )}
-            </BlueCard>
+            </NomadCard>
           </View>
         </View>
       </View>

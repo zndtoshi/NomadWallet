@@ -14,10 +14,10 @@ import {
 } from 'react-native';
 import Share from 'react-native-share';
 
-import * as BlueElectrum from '../../blue_modules/BlueElectrum';
+import * as NomadElectrum from '../../blue_modules/NomadElectrum';
 import { fiatToBTC, satoshiToBTC } from '../../blue_modules/currency';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueButtonLink, BlueCard, BlueLoading, BlueSpacing20, BlueSpacing40, BlueText } from '../../BlueComponents';
+import { NomadButtonLink, NomadCard, NomadLoading, NomadSpacing20, NomadSpacing40, NomadText } from '../../NomadComponents';
 import DeeplinkSchemaMatch from '../../class/deeplink-schema-match';
 import AmountInput from '../../components/AmountInput';
 import BottomModal from '../../components/BottomModal';
@@ -221,7 +221,7 @@ const ReceiveDetails = () => {
         if (!addressToUse) return;
 
         console.debug('checking address', addressToUse, 'for balance...');
-        const balance = await BlueElectrum.getBalanceByAddress(addressToUse);
+        const balance = await NomadElectrum.getBalanceByAddress(addressToUse);
         console.debug('...got', balance);
 
         if (balance.unconfirmed > 0) {
@@ -232,13 +232,13 @@ const ReceiveDetails = () => {
             triggerHapticFeedback(HapticFeedbackTypes.ImpactHeavy);
           }
 
-          const txs = await BlueElectrum.getMempoolTransactionsByAddress(addressToUse);
+          const txs = await NomadElectrum.getMempoolTransactionsByAddress(addressToUse);
           const tx = txs.pop();
           if (tx) {
-            const rez = await BlueElectrum.multiGetTransactionByTxid([tx.tx_hash], true, 10);
+            const rez = await NomadElectrum.multiGetTransactionByTxid([tx.tx_hash], true, 10);
             if (rez && rez[tx.tx_hash] && rez[tx.tx_hash].vsize) {
               const satPerVbyte = Math.round(tx.fee / rez[tx.tx_hash].vsize);
-              const fees = await BlueElectrum.estimateFees();
+              const fees = await NomadElectrum.estimateFees();
               if (satPerVbyte >= fees.fast) {
                 setEta(loc.formatString(loc.transactions.eta_10m));
               } else if (satPerVbyte >= fees.medium) {
@@ -294,15 +294,15 @@ const ReceiveDetails = () => {
       <View style={styles.scrollBody}>
         {isCustom && (
           <>
-            <BlueText style={[styles.label, stylesHook.label]} numberOfLines={1}>
+            <NomadText style={[styles.label, stylesHook.label]} numberOfLines={1}>
               {customLabel}
-            </BlueText>
+            </NomadText>
           </>
         )}
         <SuccessView />
-        <BlueText style={[styles.label, stylesHook.label]} numberOfLines={1}>
+        <NomadText style={[styles.label, stylesHook.label]} numberOfLines={1}>
           {displayBalance}
-        </BlueText>
+        </NomadText>
       </View>
     );
   };
@@ -312,19 +312,19 @@ const ReceiveDetails = () => {
       <View style={styles.scrollBody}>
         {isCustom && (
           <>
-            <BlueText style={[styles.label, stylesHook.label]} numberOfLines={1}>
+            <NomadText style={[styles.label, stylesHook.label]} numberOfLines={1}>
               {customLabel}
-            </BlueText>
+            </NomadText>
           </>
         )}
         <TransactionPendingIconBig />
-        <BlueSpacing40 />
-        <BlueText style={[styles.label, stylesHook.label]} numberOfLines={1}>
+        <NomadSpacing40 />
+        <NomadText style={[styles.label, stylesHook.label]} numberOfLines={1}>
           {displayBalance}
-        </BlueText>
-        <BlueText style={[styles.label, stylesHook.label]} numberOfLines={1}>
+        </NomadText>
+        <NomadText style={[styles.label, stylesHook.label]} numberOfLines={1}>
           {eta}
-        </BlueText>
+        </NomadText>
       </View>
     );
   };
@@ -352,14 +352,14 @@ const ReceiveDetails = () => {
           {isCustom && (
             <>
               {getDisplayAmount() && (
-                <BlueText testID="BitcoinAmountText" style={[styles.amount, stylesHook.amount]} numberOfLines={1}>
+                <NomadText testID="BitcoinAmountText" style={[styles.amount, stylesHook.amount]} numberOfLines={1}>
                   {getDisplayAmount()}
-                </BlueText>
+                </NomadText>
               )}
               {customLabel?.length > 0 && (
-                <BlueText testID="CustomAmountDescriptionText" style={[styles.label, stylesHook.label]} numberOfLines={1}>
+                <NomadText testID="CustomAmountDescriptionText" style={[styles.label, stylesHook.label]} numberOfLines={1}>
                   {customLabel}
-                </BlueText>
+                </NomadText>
               )}
             </>
           )}
@@ -508,11 +508,11 @@ const ReceiveDetails = () => {
         )}
         {showConfirmedBalance ? renderConfirmedBalance() : null}
         {showPendingBalance ? renderPendingBalance() : null}
-        {!showAddress && !showPendingBalance && !showConfirmedBalance ? <BlueLoading /> : null}
+        {!showAddress && !showPendingBalance && !showConfirmedBalance ? <NomadLoading /> : null}
         <View style={styles.share}>
-          <BlueCard>
+          <NomadCard>
             {showAddress && currentTab === loc.wallets.details_address && (
-              <BlueButtonLink
+              <NomadButtonLink
                 style={styles.link}
                 testID="SetCustomAmountButton"
                 title={loc.receive.details_setAmount}
@@ -520,7 +520,7 @@ const ReceiveDetails = () => {
               />
             )}
             <Button onPress={handleShareButtonPressed} title={loc.receive.details_share} />
-          </BlueCard>
+          </NomadCard>
         </View>
       </ScrollView>
       <BottomModal
@@ -562,9 +562,9 @@ const ReceiveDetails = () => {
             testID="CustomAmountDescription"
           />
         </View>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
 
-        <BlueSpacing20 />
+        <NomadSpacing20 />
       </BottomModal>
     </>
   );

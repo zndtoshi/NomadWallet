@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useRoute, useNavigation, RouteProp } from '@react-navigation/native';
 import { Keyboard, StyleSheet, TextInput, View, ScrollView, TouchableOpacity, Text } from 'react-native';
-import { BlueButtonLink, BlueCard, BlueSpacing10, BlueSpacing20, BlueSpacing40, BlueText } from '../../BlueComponents';
+import { NomadButtonLink, NomadCard, NomadSpacing10, NomadSpacing20, NomadSpacing40, NomadText } from '../../NomadComponents';
 import Button from '../../components/Button';
 import { useTheme } from '../../components/themes';
 import { scanQrHelper } from '../../helpers/scan-qr';
@@ -170,7 +170,7 @@ const IsItMyAddress: React.FC = () => {
       automaticallyAdjustKeyboardInsets
       contentInsetAdjustmentBehavior="automatic"
     >
-      <BlueCard style={styles.mainCard}>
+      <NomadCard style={styles.mainCard}>
         <View style={[styles.input, stylesHooks.input]}>
           <TextInput
             style={styles.textInput}
@@ -189,36 +189,36 @@ const IsItMyAddress: React.FC = () => {
           )}
         </View>
 
-        <BlueSpacing10 />
-        <BlueButtonLink ref={scanButtonRef} title={loc.wallets.import_scan_qr} onPress={importScan} />
-        <BlueSpacing20 />
+        <NomadSpacing10 />
+        <NomadButtonLink ref={scanButtonRef} title={loc.wallets.import_scan_qr} onPress={importScan} />
+        <NomadSpacing20 />
         {resultCleanAddress && (
           <>
             <Button title={loc.is_it_my_address.view_qrcode} onPress={viewQRCode} />
-            <BlueSpacing20 />
+            <NomadSpacing20 />
           </>
         )}
         <Button disabled={isCheckAddressDisabled} title={loc.is_it_my_address.check_address} onPress={checkAddress} testID="CheckAddress" />
-        <BlueSpacing40 />
+        <NomadSpacing40 />
 
         {matchingWallets !== undefined && matchingWallets.length > 0 && (
           <>
             <Divider />
-            <BlueSpacing40 />
+            <NomadSpacing40 />
           </>
         )}
         {matchingWallets !== undefined &&
           matchingWallets.length > 0 &&
           matchingWallets.map((wallet, index) => (
             <View key={wallet.getID()} ref={index === 0 ? firstWalletRef : undefined} style={styles.walletContainer}>
-              <BlueText selectable style={styles.resultText}>
+              <NomadText selectable style={styles.resultText}>
                 {resultCleanAddress &&
                   renderFormattedText(loc.is_it_my_address.owns, {
                     label: wallet.getLabel(),
                     address: resultCleanAddress,
                   })}
-              </BlueText>
-              <BlueSpacing10 />
+              </NomadText>
+              <NomadSpacing10 />
               <WalletCarouselItem
                 item={wallet}
                 onPress={item => {
@@ -228,10 +228,10 @@ const IsItMyAddress: React.FC = () => {
                   });
                 }}
               />
-              <BlueSpacing20 />
+              <NomadSpacing20 />
             </View>
           ))}
-      </BlueCard>
+      </NomadCard>
     </ScrollView>
   );
 };

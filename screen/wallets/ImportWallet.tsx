@@ -3,7 +3,7 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import Clipboard from '@react-native-clipboard/clipboard';
 import { Keyboard, Platform, ScrollView, StyleSheet, TouchableWithoutFeedback, View, TouchableOpacity, Image } from 'react-native';
 import { disallowScreenshot } from 'react-native-screen-capture';
-import { BlueButtonLink, BlueFormLabel, BlueFormMultiInput, BlueSpacing20 } from '../../BlueComponents';
+import { NomadButtonLink, NomadFormLabel, NomadFormMultiInput, NomadSpacing20 } from '../../NomadComponents';
 import Button from '../../components/Button';
 import {
   DoneAndDismissKeyboardInputAccessory,
@@ -191,12 +191,12 @@ const ImportWallet = () => {
 
   const renderOptionsAndImportButton = (
     <>
-      <BlueSpacing20 />
+      <NomadSpacing20 />
       <View style={styles.center}>
         <>
           <Button disabled={importText.trim().length === 0} title={loc.wallets.import_do_import} testID="DoImport" onPress={handleImport} />
-          <BlueSpacing20 />
-          <BlueButtonLink title={loc.wallets.import_scan_qr} onPress={importScan} testID="ScanImport" />
+          <NomadSpacing20 />
+          <NomadButtonLink title={loc.wallets.import_scan_qr} onPress={importScan} testID="ScanImport" />
         </>
       </View>
     </>
@@ -211,12 +211,12 @@ const ImportWallet = () => {
       automaticallyAdjustKeyboardInsets
       contentInsetAdjustmentBehavior="automatic"
     >
-      <BlueSpacing20 />
+      <NomadSpacing20 />
       <TouchableWithoutFeedback accessibilityRole="button" onPress={speedBackdoorTap} testID="SpeedBackdoor">
-        <BlueFormLabel>{loc.wallets.import_explanation}</BlueFormLabel>
+        <NomadFormLabel>{loc.wallets.import_explanation}</NomadFormLabel>
       </TouchableWithoutFeedback>
-      <BlueSpacing20 />
-      <BlueFormMultiInput
+      <NomadSpacing20 />
+      <NomadFormMultiInput
         value={importText}
         onBlur={onBlur}
         onChangeText={setImportText}

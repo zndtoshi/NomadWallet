@@ -27,7 +27,7 @@ import RNFS from 'react-native-fs';
 import { btcToSatoshi, fiatToBTC } from '../../blue_modules/currency';
 import * as fs from '../../blue_modules/fs';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueText } from '../../BlueComponents';
+import { NomadText } from '../../NomadComponents';
 import { HDSegwitBech32Wallet, MultisigHDWallet, WatchOnlyWallet } from '../../class';
 import DeeplinkSchemaMatch from '../../class/deeplink-schema-match';
 import { AbstractHDElectrumWallet } from '../../class/wallets/abstract-hd-electrum-wallet';
@@ -1238,9 +1238,9 @@ const SendDetails = () => {
 
         {frozenBalance > 0 && (
           <TouchableOpacity accessibilityRole="button" style={styles.frozenContainer} onPress={handleCoinControl}>
-            <BlueText>
+            <NomadText>
               {loc.formatString(loc.send.details_frozen, { amount: formatBalanceWithoutSuffix(frozenBalance, BitcoinUnit.BTC, true) })}
-            </BlueText>
+            </NomadText>
           </TouchableOpacity>
         )}
 

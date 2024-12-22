@@ -5,9 +5,9 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import assert from 'assert';
 import createHash from 'create-hash';
 import { SectionList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import * as BlueElectrum from '../../blue_modules/BlueElectrum';
+import * as NomadElectrum from '../../blue_modules/NomadElectrum';
 import { satoshiToLocalCurrency } from '../../blue_modules/currency';
-import { BlueLoading } from '../../BlueComponents';
+import { NomadLoading } from '../../NomadComponents';
 import { HDSegwitBech32Wallet } from '../../class';
 import { ContactList } from '../../class/contact-list';
 import { AbstractHDElectrumWallet } from '../../class/wallets/abstract-hd-electrum-wallet';
@@ -307,7 +307,7 @@ export default function PaymentCodesList() {
     setLoadingText('Fetching UTXO...');
     await foundWallet.fetchUtxo();
     setLoadingText('Fetching fees...');
-    const fees = await BlueElectrum.estimateFees();
+    const fees = await NomadElectrum.estimateFees();
     setLoadingText('Fetching change address...');
     const changeAddress = await foundWallet.getChangeAddressAsync();
     setLoadingText('Crafting notification transaction...');
@@ -348,7 +348,7 @@ export default function PaymentCodesList() {
   if (isLoading) {
     return (
       <View style={styles.container}>
-        <BlueLoading />
+        <NomadLoading />
         <Text>{loadingText}</Text>
       </View>
     );

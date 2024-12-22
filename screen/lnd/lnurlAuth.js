@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { I18nManager, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Icon } from '@rneui/themed';
 import URL from 'url';
-import { BlueCard, BlueLoading, BlueSpacing20, BlueSpacing40, BlueText } from '../../BlueComponents';
+import { NomadCard, NomadLoading, NomadSpacing20, NomadSpacing40, NomadText } from '../../NomadComponents';
 import Lnurl from '../../class/lnurl';
 import Button from '../../components/Button';
 import SafeArea from '../../components/SafeArea';
@@ -64,7 +64,7 @@ const LnurlAuth = () => {
   if (!parsedLnurl || !wallet || authState === AuthState.IN_PROGRESS)
     return (
       <View style={[styles.root, stylesHook.root]}>
-        <BlueLoading />
+        <NomadLoading />
       </View>
     );
 
@@ -89,14 +89,14 @@ const LnurlAuth = () => {
       {authState === AuthState.USER_PROMPT && (
         <>
           <ScrollView>
-            <BlueCard>
-              <BlueText style={styles.alignSelfCenter}>{loc.lnurl_auth[`${parsedLnurl.query.action || 'auth'}_question_part_1`]}</BlueText>
-              <BlueText style={styles.domainName}>{parsedLnurl.hostname}</BlueText>
-              <BlueText style={styles.alignSelfCenter}>{loc.lnurl_auth[`${parsedLnurl.query.action || 'auth'}_question_part_2`]}</BlueText>
-              <BlueSpacing40 />
+            <NomadCard>
+              <NomadText style={styles.alignSelfCenter}>{loc.lnurl_auth[`${parsedLnurl.query.action || 'auth'}_question_part_1`]}</NomadText>
+              <NomadText style={styles.domainName}>{parsedLnurl.hostname}</NomadText>
+              <NomadText style={styles.alignSelfCenter}>{loc.lnurl_auth[`${parsedLnurl.query.action || 'auth'}_question_part_2`]}</NomadText>
+              <NomadSpacing40 />
               <Button title={loc.lnurl_auth.authenticate} onPress={authenticate} />
-              <BlueSpacing40 />
-            </BlueCard>
+              <NomadSpacing40 />
+            </NomadCard>
           </ScrollView>
           {renderWalletSelectionButton}
         </>
@@ -105,23 +105,23 @@ const LnurlAuth = () => {
       {authState === AuthState.SUCCESS && (
         <>
           <SuccessView />
-          <BlueSpacing20 />
-          <BlueText style={styles.alignSelfCenter}>
+          <NomadSpacing20 />
+          <NomadText style={styles.alignSelfCenter}>
             {loc.formatString(loc.lnurl_auth[`${parsedLnurl.query.action || 'auth'}_answer`], { hostname: parsedLnurl.hostname })}
-          </BlueText>
-          <BlueSpacing20 />
+          </NomadText>
+          <NomadSpacing20 />
         </>
       )}
 
       {authState === AuthState.ERROR && (
-        <BlueCard>
-          <BlueSpacing20 />
-          <BlueText style={styles.alignSelfCenter}>
+        <NomadCard>
+          <NomadSpacing20 />
+          <NomadText style={styles.alignSelfCenter}>
             {loc.formatString(loc.lnurl_auth.could_not_auth, { hostname: parsedLnurl.hostname })}
-          </BlueText>
-          <BlueText style={styles.alignSelfCenter}>{errMsg}</BlueText>
-          <BlueSpacing20 />
-        </BlueCard>
+          </NomadText>
+          <NomadText style={styles.alignSelfCenter}>{errMsg}</NomadText>
+          <NomadSpacing20 />
+        </NomadCard>
       )}
     </SafeArea>
   );

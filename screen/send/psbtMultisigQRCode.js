@@ -3,7 +3,7 @@ import * as bitcoin from 'bitcoinjs-lib';
 import React, { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, ScrollView, StyleSheet, View } from 'react-native';
 
-import { BlueSpacing20 } from '../../BlueComponents';
+import { NomadSpacing20 } from '../../NomadComponents';
 import presentAlert from '../../components/Alert';
 import { DynamicQRCode } from '../../components/DynamicQRCode';
 import SafeArea from '../../components/SafeArea';
@@ -81,7 +81,7 @@ const PsbtMultisigQRCode = () => {
           <DynamicQRCode value={psbt.toHex()} ref={dynamicQRCode} />
           {!isShowOpenScanner && (
             <>
-              <BlueSpacing20 />
+              <NomadSpacing20 />
               <SquareButton
                 testID="CosignedScanOrImportFile"
                 style={[styles.exportButton, stylesHook.exportButton]}
@@ -91,7 +91,7 @@ const PsbtMultisigQRCode = () => {
               />
             </>
           )}
-          <BlueSpacing20 />
+          <NomadSpacing20 />
           {isLoading ? (
             <ActivityIndicator />
           ) : (

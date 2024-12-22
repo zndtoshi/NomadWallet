@@ -14,7 +14,7 @@ if (!Error.captureStackTrace) {
 
 LogBox.ignoreLogs(['Require cycle:', 'Battery state `unknown` and monitoring disabled, this is normal for simulators and tvOS.']);
 
-const BlueAppComponent = () => {
+const NomadAppComponent = () => {
   useEffect(() => {
     restoreSavedPreferredFiatCurrencyAndExchangeFromStorage();
     A(A.ENUM.INIT);
@@ -23,4 +23,4 @@ const BlueAppComponent = () => {
   return <App />;
 };
 
-AppRegistry.registerComponent('BlueWallet', () => BlueAppComponent);
+AppRegistry.registerComponent('NomadWallet', () => NomadAppComponent);

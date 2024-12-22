@@ -4,7 +4,7 @@ import { Text } from '@rneui/themed';
 import { PayjoinClient } from 'payjoin-client';
 import BigNumber from 'bignumber.js';
 import * as bitcoin from 'bitcoinjs-lib';
-import { BlueText, BlueCard } from '../../BlueComponents';
+import { NomadText, NomadCard } from '../../NomadComponents';
 import { BitcoinUnit } from '../../models/bitcoinUnits';
 import loc, { formatBalance, formatBalanceWithoutSuffix } from '../../loc';
 import { useRoute, RouteProp } from '@react-navigation/native';
@@ -14,7 +14,7 @@ import Button from '../../components/Button';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
 import SafeArea from '../../components/SafeArea';
 import { satoshiToBTC, satoshiToLocalCurrency } from '../../blue_modules/currency';
-import * as BlueElectrum from '../../blue_modules/BlueElectrum';
+import * as NomadElectrum from '../../blue_modules/NomadElectrum';
 import { unlockWithBiometrics, useBiometrics } from '../../hooks/useBiometrics';
 import { TWallet, CreateTransactionTarget } from '../../class/wallets/types';
 import PayjoinTransaction from '../../class/payjoin-transaction';
@@ -245,8 +245,8 @@ const Confirm: React.FC = () => {
   };
 
   const broadcastTransaction = async (transaction: string) => {
-    await BlueElectrum.ping();
-    await BlueElectrum.waitTillConnected();
+    await NomadElectrum.ping();
+    await NomadElectrum.waitTillConnected();
 
     const result = await wallet.broadcastTx(transaction);
     if (!result) {
@@ -289,15 +289,15 @@ const Confirm: React.FC = () => {
         <Text style={[styles.transactionAmountFiat, stylesHook.transactionAmountFiat]}>
           {item.value && satoshiToLocalCurrency(item.value)}
         </Text>
-        <BlueCard>
+        <NomadCard>
           <Text style={[styles.transactionDetailsTitle, stylesHook.transactionDetailsTitle]}>{loc.send.create_to}</Text>
           <Text testID="TransactionAddress" style={[styles.transactionDetailsSubtitle, stylesHook.transactionDetailsSubtitle]}>
             {item.address}
           </Text>
           {contact ? <Text style={[styles.transactionDetailsSubtitle, stylesHook.transactionDetailsSubtitle]}>[{contact}]</Text> : null}
-        </BlueCard>
+        </NomadCard>
         {recipients.length > 1 && (
-          <BlueText style={styles.valueOf}>{loc.formatString(loc._.of, { number: index + 1, total: recipients.length })}</BlueText>
+          <NomadText style={styles.valueOf}>{loc.formatString(loc._.of, { number: index + 1, total: recipients.length })}</NomadText>
         )}
       </>
     );
@@ -320,7 +320,7 @@ const Confirm: React.FC = () => {
         />
         {!!payjoinUrl && (
           <View style={styles.cardContainer}>
-            <BlueCard>
+            <NomadCard>
               <View style={[styles.payjoinWrapper, stylesHook.payjoinWrapper]}>
                 <Text style={styles.payjoinText}>Payjoin</Text>
                 <Switch
@@ -329,12 +329,12 @@ const Confirm: React.FC = () => {
                   onValueChange={value => dispatch({ type: ActionType.SET_PAYJOIN_ENABLED, payload: value })}
                 />
               </View>
-            </BlueCard>
+            </NomadCard>
           </View>
         )}
       </View>
       <View style={styles.cardBottom}>
-        <BlueCard>
+        <NomadCard>
           <Text style={styles.cardText} testID="TransactionFee">
             {loc.send.create_fee}: {formatBalance(feeSatoshi, BitcoinUnit.BTC)} ({satoshiToLocalCurrency(feeSatoshi)})
           </Text>
@@ -347,7 +347,7 @@ const Confirm: React.FC = () => {
               title={loc.send.confirm_sendNow}
             />
           )}
-        </BlueCard>
+        </NomadCard>
       </View>
     </SafeArea>
   );

@@ -12,7 +12,7 @@ import Share from 'react-native-share';
 
 import { satoshiToBTC } from '../../blue_modules/currency';
 import { isDesktop } from '../../blue_modules/environment';
-import { BlueText } from '../../BlueComponents';
+import { NomadText } from '../../NomadComponents';
 import presentAlert from '../../components/Alert';
 import { DynamicQRCode } from '../../components/DynamicQRCode';
 import { useTheme } from '../../components/themes';
@@ -120,7 +120,7 @@ const SendCreate = () => {
             {satoshiToBTC(item.value)} {BitcoinUnit.BTC}
           </Text>
           {recipients.length > 1 && (
-            <BlueText style={styles.itemOf}>{loc.formatString(loc._.of, { number: index + 1, total: recipients.length })}</BlueText>
+            <NomadText style={styles.itemOf}>{loc.formatString(loc._.of, { number: index + 1, total: recipients.length })}</NomadText>
           )}
         </View>
       </>
@@ -141,7 +141,7 @@ const SendCreate = () => {
   const ListHeaderComponent = (
     <View>
       {showAnimatedQr && psbt ? <DynamicQRCode value={psbt.toHex()} /> : null}
-      <BlueText style={[styles.cardText, styleHooks.cardText]}>{loc.send.create_this_is_hex}</BlueText>
+      <NomadText style={[styles.cardText, styleHooks.cardText]}>{loc.send.create_this_is_hex}</NomadText>
       <TextInput testID="TxhexInput" style={styles.cardTx} height={72} multiline editable={false} value={tx} />
 
       <TouchableOpacity accessibilityRole="button" style={styles.actionTouch} onPress={() => Clipboard.setString(tx)}>

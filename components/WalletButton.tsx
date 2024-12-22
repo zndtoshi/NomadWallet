@@ -37,7 +37,7 @@ const buttonDetails: Record<string, ButtonDetails> = {
     image: require('../img/addWallet/bitcoin.png'),
     title: loc.wallets.add_bitcoin,
     explain: loc.wallets.add_bitcoin_explain,
-    borderColorActive: 'newBlue',
+    borderColorActive: 'newNomad',
   },
   Vault: {
     image: require('../img/addWallet/vault.png'),

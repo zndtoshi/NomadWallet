@@ -7,7 +7,7 @@ import { disallowScreenshot } from 'react-native-screen-capture';
 
 import { validateMnemonic } from '../../blue_modules/bip39';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueText } from '../../BlueComponents';
+import { NomadText } from '../../NomadComponents';
 import { LightningCustodianWallet, WatchOnlyWallet } from '../../class';
 import HandOffComponent from '../../components/HandOffComponent';
 import QRCodeComponent from '../../components/QRCodeComponent';
@@ -34,9 +34,9 @@ const CopyBox: React.FC<{ text: string; onPress: () => void }> = ({ text, onPres
   return (
     <TouchableOpacity onPress={onPress} style={[styles.copyRoot, stylesHook.copyRoot]}>
       <View style={styles.copyLeft}>
-        <BlueText textBreakStrategy="balanced" style={styles.copyText}>
+        <NomadText textBreakStrategy="balanced" style={styles.copyText}>
           {text}
-        </BlueText>
+        </NomadText>
       </View>
       <View style={styles.copyRight}>
         <Icon name="copy" type="font-awesome-5" color={colors.foregroundColor} />
@@ -51,7 +51,7 @@ const DoNotDisclose: React.FC = () => {
   return (
     <View style={[styles.warningBox, { backgroundColor: colors.changeText }]}>
       <Icon type="font-awesome-5" name="exclamation-circle" color="white" />
-      <BlueText style={styles.warning}>{loc.wallets.warning_do_not_disclose}</BlueText>
+      <NomadText style={styles.warning}>{loc.wallets.warning_do_not_disclose}</NomadText>
     </View>
   );
 };
@@ -151,18 +151,18 @@ const WalletExport: React.FC = () => {
         <DoNotDisclose />
 
         <View>
-          <BlueText style={styles.manualText}>{loc.wallets.write_down_header}</BlueText>
-          <BlueText style={styles.writeText}>{loc.wallets.write_down}</BlueText>
+          <NomadText style={styles.manualText}>{loc.wallets.write_down_header}</NomadText>
+          <NomadText style={styles.writeText}>{loc.wallets.write_down}</NomadText>
         </View>
 
         {secrets.map((secret, index) => (
           <React.Fragment key={secret}>
-            <BlueText style={styles.scanText}>{loc.formatString(loc.wallets.share_number, { number: index + 1 })}</BlueText>
+            <NomadText style={styles.scanText}>{loc.formatString(loc.wallets.share_number, { number: index + 1 })}</NomadText>
             <SeedWords seed={secret} />
           </React.Fragment>
         ))}
 
-        <BlueText style={styles.typeText}>{loc.formatString(loc.wallets.wallet_type_this, { type: wallet.typeReadable })}</BlueText>
+        <NomadText style={styles.typeText}>{loc.formatString(loc.wallets.wallet_type_this, { type: wallet.typeReadable })}</NomadText>
       </Scroll>
     );
   }
@@ -181,7 +181,7 @@ const WalletExport: React.FC = () => {
     >
       {wallet.type !== WatchOnlyWallet.type && <DoNotDisclose />}
 
-      <BlueText style={styles.scanText}>{loc.wallets.scan_import}</BlueText>
+      <NomadText style={styles.scanText}>{loc.wallets.scan_import}</NomadText>
 
       <QRCodeComponent isMenuAvailable={false} value={secret} size={qrCodeSize} logoSize={70} />
 
@@ -189,16 +189,16 @@ const WalletExport: React.FC = () => {
       {secretIsMnemonic ? (
         <>
           <View>
-            <BlueText style={styles.manualText}>{loc.wallets.write_down_header}</BlueText>
-            <BlueText style={styles.writeText}>{loc.wallets.write_down}</BlueText>
+            <NomadText style={styles.manualText}>{loc.wallets.write_down_header}</NomadText>
+            <NomadText style={styles.writeText}>{loc.wallets.write_down}</NomadText>
           </View>
           <SeedWords seed={secret} />
         </>
       ) : (
         <>
-          <BlueText style={styles.writeText}>
+          <NomadText style={styles.writeText}>
             {wallet.type === LightningCustodianWallet.type ? loc.wallets.copy_ln_url : loc.wallets.copy_ln_public}
-          </BlueText>
+          </NomadText>
           <CopyBox text={secret} onPress={handleCopy} />
         </>
       )}
@@ -207,7 +207,7 @@ const WalletExport: React.FC = () => {
         <HandOffComponent title={loc.wallets.xpub_title} type={HandOffActivityType.Xpub} userInfo={{ xpub: secret }} />
       )}
 
-      <BlueText style={styles.typeText}>{loc.formatString(loc.wallets.wallet_type_this, { type: wallet.typeReadable })}</BlueText>
+      <NomadText style={styles.typeText}>{loc.formatString(loc.wallets.wallet_type_this, { type: wallet.typeReadable })}</NomadText>
     </ScrollView>
   );
 };

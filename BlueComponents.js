@@ -18,7 +18,7 @@ if (aspectRatio > 1.6) {
  *
  * @type {React.FC<any>}
  */
-export const BlueButtonLink = forwardRef((props, ref) => {
+export const NomadButtonLink = forwardRef((props, ref) => {
   const { colors } = useTheme();
   return (
     <TouchableOpacity
@@ -36,22 +36,22 @@ export const BlueButtonLink = forwardRef((props, ref) => {
   );
 });
 
-export const BlueCard = props => {
+export const NomadCard = props => {
   return <View {...props} style={{ padding: 20 }} />;
 };
 
-export const BlueText = props => {
+export const NomadText = props => {
   const { colors } = useTheme();
   const style = StyleSheet.compose({ color: colors.foregroundColor, writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr' }, props.style);
   return <Text {...props} style={style} />;
 };
 
-export const BlueTextCentered = props => {
+export const NomadTextCentered = props => {
   const { colors } = useTheme();
   return <Text {...props} style={{ color: colors.foregroundColor, textAlign: 'center' }} />;
 };
 
-export const BlueFormLabel = props => {
+export const NomadFormLabel = props => {
   const { colors } = useTheme();
 
   return (
@@ -67,7 +67,7 @@ export const BlueFormLabel = props => {
   );
 };
 
-export const BlueFormMultiInput = props => {
+export const NomadFormMultiInput = props => {
   const { colors } = useTheme();
 
   return (
@@ -100,11 +100,11 @@ export const BlueFormMultiInput = props => {
   );
 };
 
-export const BlueSpacing = props => {
+export const NomadSpacing = props => {
   return <View {...props} style={{ height: 60 }} />;
 };
 
-export const BlueSpacing40 = props => {
+export const NomadSpacing40 = props => {
   return <View {...props} style={{ height: 50 }} />;
 };
 
@@ -114,16 +114,16 @@ export class is {
   }
 }
 
-export const BlueSpacing20 = props => {
+export const NomadSpacing20 = props => {
   const { horizontal = false } = props;
   return <View {...props} style={{ height: horizontal ? 0 : 20, width: horizontal ? 20 : 0, opacity: 0 }} />;
 };
 
-export const BlueSpacing10 = props => {
+export const NomadSpacing10 = props => {
   return <View {...props} style={{ height: 10, opacity: 0 }} />;
 };
 
-export const BlueLoading = props => {
+export const NomadLoading = props => {
   return (
     <View style={{ flex: 1, justifyContent: 'center' }} {...props}>
       <ActivityIndicator />
@@ -131,7 +131,7 @@ export const BlueLoading = props => {
   );
 };
 
-export function BlueBigCheckmark({ style = {} }) {
+export function NomadBigCheckmark({ style = {} }) {
   const defaultStyles = {
     backgroundColor: '#ccddf9',
     width: 120,

@@ -1,14 +1,14 @@
 //
-//  BlueWalletUITest.swift
-//  BlueWalletUITests
+//  NomadWalletUITest.swift
+//  NomadWalletUITests
 //
 //  Created by Marcos Rodriguez on 2/28/24.
-//  Copyright © 2024 BlueWallet. All rights reserved.
+//  Copyright © 2024 NomadWallet. All rights reserved.
 //
 
 import XCTest
 
-final class BlueWalletUITest: XCTestCase {
+final class NomadWalletUITest: XCTestCase {
   
   override func setUpWithError() throws {
         continueAfterFailure = false

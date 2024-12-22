@@ -13,7 +13,7 @@ import PromptPasswordConfirmationModal, {
 import { popToTop } from '../../NavigationService';
 import presentAlert from '../../components/Alert';
 import { Header } from '../../components/Header';
-import { BlueSpacing20 } from '../../BlueComponents';
+import { NomadSpacing20 } from '../../NomadComponents';
 
 enum ActionType {
   SetLoading = 'SET_LOADING',
@@ -168,7 +168,7 @@ const EncryptStorage = () => {
           />
         </>
       )}
-      <BlueSpacing20 />
+      <NomadSpacing20 />
       <Header leftText={loc.settings.encrypt_tstorage} />
       <ListItem
         testID="EncyptedAndPasswordProtected"

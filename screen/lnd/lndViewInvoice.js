@@ -4,7 +4,7 @@ import { BackHandler, I18nManager, Image, ScrollView, StyleSheet, Text, Touchabl
 import { Icon } from '@rneui/themed';
 import Share from 'react-native-share';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueLoading, BlueSpacing20, BlueText, BlueTextCentered } from '../../BlueComponents';
+import { NomadLoading, NomadSpacing20, NomadText, NomadTextCentered } from '../../NomadComponents';
 import Button from '../../components/Button';
 import CopyTextToClipboard from '../../components/CopyTextToClipboard';
 import QRCodeComponent from '../../components/QRCodeComponent';
@@ -183,7 +183,7 @@ const LNDViewInvoice = () => {
     if (isLoading) {
       return (
         <View style={[styles.root, stylesHook.root]}>
-          <BlueLoading />
+          <NomadLoading />
         </View>
       );
     }
@@ -233,7 +233,7 @@ const LNDViewInvoice = () => {
             <View style={[styles.expired, stylesHook.expired]}>
               <Icon name="times" size={50} type="font-awesome" color={colors.successCheck} />
             </View>
-            <BlueTextCentered>{loc.lndViewInvoice.wasnt_paid_and_expired}</BlueTextCentered>
+            <NomadTextCentered>{loc.lndViewInvoice.wasnt_paid_and_expired}</NomadTextCentered>
           </View>
         );
       }
@@ -244,20 +244,20 @@ const LNDViewInvoice = () => {
             <View style={styles.activeQrcode}>
               <QRCodeComponent value={invoice.payment_request} size={qrCodeSize} />
             </View>
-            <BlueSpacing20 />
-            <BlueText>
+            <NomadSpacing20 />
+            <NomadText>
               {loc.lndViewInvoice.please_pay} {invoice.amt} {loc.lndViewInvoice.sats}
-            </BlueText>
+            </NomadText>
             {'description' in invoice && invoice.description.length > 0 && (
-              <BlueText>
+              <NomadText>
                 {loc.lndViewInvoice.for} {invoice.description}
-              </BlueText>
+              </NomadText>
             )}
             <CopyTextToClipboard truncated text={invoice.payment_request} />
 
             <Button onPress={handleOnSharePressed} title={loc.receive.details_share} />
 
-            <BlueSpacing20 />
+            <NomadSpacing20 />
             <Button
               style={stylesHook.additionalInfo}
               onPress={handleOnViewAdditionalInformationPressed}

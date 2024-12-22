@@ -3,7 +3,7 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import { Alert, I18nManager, Linking, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { Button as ButtonRNElements } from '@rneui/themed';
 import DefaultPreference from 'react-native-default-preference';
-import { BlueButtonLink, BlueCard, BlueLoading, BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadButtonLink, NomadCard, NomadLoading, NomadSpacing20, NomadText } from '../../NomadComponents';
 import DeeplinkSchemaMatch from '../../class/deeplink-schema-match';
 import { LightningCustodianWallet } from '../../class/wallets/lightning-custodian-wallet';
 import presentAlert, { AlertType } from '../../components/Alert';
@@ -140,9 +140,9 @@ const LightningSettings: React.FC = () => {
 
   return (
     <ScrollView automaticallyAdjustContentInsets contentInsetAdjustmentBehavior="automatic">
-      <BlueCard>
-        <BlueText>{loc.settings.lightning_settings_explain}</BlueText>
-      </BlueCard>
+      <NomadCard>
+        <NomadText>{loc.settings.lightning_settings_explain}</NomadText>
+      </NomadCard>
 
       <ButtonRNElements
         icon={{
@@ -150,15 +150,15 @@ const LightningSettings: React.FC = () => {
           type: 'font-awesome',
           color: colors.foregroundColor,
         }}
-        onPress={() => Linking.openURL('https://github.com/BlueWallet/LndHub')}
+        onPress={() => Linking.openURL('https://github.com/NomadWallet/LndHub')}
         titleStyle={{ color: colors.buttonAlternativeTextColor }}
-        title="github.com/BlueWallet/LndHub"
+        title="github.com/NomadWallet/LndHub"
         // TODO: looks like there's no `color` prop on `Button`, does this make any sense?
         // color={colors.buttonTextColor}
         buttonStyle={styles.buttonStyle}
       />
 
-      <BlueCard>
+      <NomadCard>
         <View style={[styles.uri, styleHook.uri]}>
           <TextInput
             value={URI}
@@ -175,11 +175,11 @@ const LightningSettings: React.FC = () => {
             testID="URIInput"
           />
         </View>
-        <BlueSpacing20 />
-        <BlueButtonLink title={loc.wallets.import_scan_qr} testID="ImportScan" onPress={importScan} />
-        <BlueSpacing20 />
-        {isLoading ? <BlueLoading /> : <Button testID="Save" onPress={save} title={loc.settings.save} />}
-      </BlueCard>
+        <NomadSpacing20 />
+        <NomadButtonLink title={loc.wallets.import_scan_qr} testID="ImportScan" onPress={importScan} />
+        <NomadSpacing20 />
+        {isLoading ? <NomadLoading /> : <Button testID="Save" onPress={save} title={loc.settings.save} />}
+      </NomadCard>
     </ScrollView>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ActivityIndicator, ScrollView, View } from 'react-native';
-import { BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadSpacing20, NomadText } from '../../NomadComponents';
 import { HDSegwitBech32Transaction, HDSegwitBech32Wallet } from '../../class';
 import presentAlert from '../../components/Alert';
 import SafeArea from '../../components/SafeArea';
@@ -90,13 +90,13 @@ export default class RBFCancel extends CPFP {
     if (this.state.nonReplaceable) {
       return (
         <SafeArea>
-          <BlueSpacing20 />
-          <BlueSpacing20 />
-          <BlueSpacing20 />
-          <BlueSpacing20 />
-          <BlueSpacing20 />
+          <NomadSpacing20 />
+          <NomadSpacing20 />
+          <NomadSpacing20 />
+          <NomadSpacing20 />
+          <NomadSpacing20 />
 
-          <BlueText h4>{loc.transactions.cancel_no}</BlueText>
+          <NomadText h4>{loc.transactions.cancel_no}</NomadText>
         </SafeArea>
       );
     }

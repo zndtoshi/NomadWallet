@@ -57,7 +57,7 @@ platform :android do
       branch_name = 'master' if branch_name.nil? || branch_name.empty?
 
       # Define APK name based on branch
-      signed_apk_name = branch_name != 'master' ? "BlueWallet-#{version_name}-#{build_number}-#{branch_name}.apk" : "BlueWallet-#{version_name}-#{build_number}.apk"
+      signed_apk_name = branch_name != 'master' ? "NomadWallet-#{version_name}-#{build_number}-#{branch_name}.apk" : "NomadWallet-#{version_name}-#{build_number}.apk"
 
       # Build APK
       UI.message("Building APK...")
@@ -66,8 +66,8 @@ platform :android do
 
       # Define APK name based on branch
       signed_apk_name = branch_name != 'master' ? 
-      "BlueWallet-#{version_name}-#{build_number}-#{branch_name}".gsub(/[\/\\:?*"<>|]/, '_') + ".apk" : 
-      "BlueWallet-#{version_name}-#{build_number}.apk"
+      "NomadWallet-#{version_name}-#{build_number}-#{branch_name}".gsub(/[\/\\:?*"<>|]/, '_') + ".apk" : 
+      "NomadWallet-#{version_name}-#{build_number}.apk"
 
       # Define paths
       unsigned_apk_path = "android/app/build/outputs/apk/release/app-release-unsigned.apk"
@@ -314,7 +314,7 @@ platform :ios do
     
     # Set the new build number
     increment_build_number(
-      xcodeproj: "ios/BlueWallet.xcodeproj", 
+      xcodeproj: "ios/NomadWallet.xcodeproj", 
       build_number: ENV["NEW_BUILD_NUMBER"]
     )
   
@@ -404,14 +404,14 @@ lane :build_app_lane do
   Dir.chdir(project_root) do
     UI.message("Building the application from: #{Dir.pwd}")
 
-    workspace_path = File.join(project_root, "ios", "BlueWallet.xcworkspace")
+    workspace_path = File.join(project_root, "ios", "NomadWallet.xcworkspace")
     export_options_path = File.join(project_root, "ios", "export_options.plist")
 
     clear_derived_data_lane
     
     begin
       build_ios_app(
-        scheme: "BlueWallet",
+        scheme: "NomadWallet",
         workspace: workspace_path,
         export_method: "app-store",
         include_bitcode: false,
@@ -421,7 +421,7 @@ lane :build_app_lane do
         export_team_id: ENV["ITC_TEAM_ID"],
         export_options: export_options_path,
         output_directory: File.join(project_root, "ios", "build"),
-        output_name: "BlueWallet_#{ENV['PROJECT_VERSION']}_#{ENV['NEW_BUILD_NUMBER']}.ipa",
+        output_name: "NomadWallet_#{ENV['PROJECT_VERSION']}_#{ENV['NEW_BUILD_NUMBER']}.ipa",
         buildlog_path: File.join(project_root, "ios", "build_logs"),
         silent: false,
         clean: true

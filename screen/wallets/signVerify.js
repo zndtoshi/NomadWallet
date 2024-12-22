@@ -4,7 +4,7 @@ import { ActivityIndicator, Keyboard, LayoutAnimation, Platform, ScrollView, Sty
 import { Icon } from '@rneui/themed';
 import Share from 'react-native-share';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueFormLabel, BlueSpacing10, BlueSpacing20, BlueSpacing40 } from '../../BlueComponents';
+import { NomadFormLabel, NomadSpacing10, NomadSpacing20, NomadSpacing40 } from '../../NomadComponents';
 import presentAlert from '../../components/Alert';
 import { FButton, FContainer } from '../../components/FloatButtons';
 import { useTheme } from '../../components/themes';
@@ -118,9 +118,9 @@ const SignVerify = () => {
     >
       {!isKeyboardVisible && (
         <>
-          <BlueSpacing20 />
-          <BlueFormLabel>{loc.addresses.sign_help}</BlueFormLabel>
-          <BlueSpacing20 />
+          <NomadSpacing20 />
+          <NomadFormLabel>{loc.addresses.sign_help}</NomadFormLabel>
+          <NomadSpacing20 />
         </>
       )}
 
@@ -139,7 +139,7 @@ const SignVerify = () => {
         spellCheck={false}
         editable={!loading}
       />
-      <BlueSpacing10 />
+      <NomadSpacing10 />
 
       <TextInput
         multiline
@@ -156,7 +156,7 @@ const SignVerify = () => {
         spellCheck={false}
         editable={!loading}
       />
-      <BlueSpacing10 />
+      <NomadSpacing10 />
 
       <TextInput
         multiline
@@ -174,7 +174,7 @@ const SignVerify = () => {
         onFocus={() => handleFocus(true)}
         onBlur={() => handleFocus(false)}
       />
-      <BlueSpacing40 />
+      <NomadSpacing40 />
 
       {isShareVisible && !isKeyboardVisible && (
         <>
@@ -189,7 +189,7 @@ const SignVerify = () => {
               }
             />
           </FContainer>
-          <BlueSpacing10 />
+          <NomadSpacing10 />
         </>
       )}
 
@@ -199,7 +199,7 @@ const SignVerify = () => {
             <FButton onPress={handleSign} text={loc.addresses.sign_sign} disabled={loading} />
             <FButton onPress={handleVerify} text={loc.addresses.sign_verify} disabled={loading} />
           </FContainer>
-          <BlueSpacing10 />
+          <NomadSpacing10 />
         </>
       )}
 

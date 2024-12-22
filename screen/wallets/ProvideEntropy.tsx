@@ -16,12 +16,12 @@ import {
   useWindowDimensions,
 } from 'react-native';
 
-import { BlueSpacing20 } from '../../BlueComponents';
+import { NomadSpacing20 } from '../../NomadComponents';
 import { randomBytes } from '../../class/rng';
 import { FButton, FContainer } from '../../components/FloatButtons';
 import SafeArea from '../../components/SafeArea';
 import { Tabs } from '../../components/Tabs';
-import { BlueCurrentTheme, useTheme } from '../../components/themes';
+import { NomadCurrentTheme, useTheme } from '../../components/themes';
 import loc from '../../loc';
 import { AddWalletStackParamList } from '../../navigation/AddWalletStack';
 
@@ -339,7 +339,7 @@ const ProvideEntropy = () => {
 
   return (
     <SafeArea>
-      <BlueSpacing20 />
+      <NomadSpacing20 />
       <TouchableOpacity accessibilityRole="button" onPress={() => setShow(!show)}>
         <View style={[styles.entropy, stylesHook.entropy]}>
           <Text style={[styles.entropyText, stylesHook.entropyText]}>
@@ -388,7 +388,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     borderWidth: 1,
     borderRadius: 5,
-    borderColor: BlueCurrentTheme.colors.lightButton,
+    borderColor: NomadCurrentTheme.colors.lightButton,
     margin: 10,
     padding: 10,
     maxWidth: 100,
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     aspectRatio: 1,
-    borderColor: BlueCurrentTheme.colors.buttonBackgroundColor,
+    borderColor: NomadCurrentTheme.colors.buttonBackgroundColor,
   },
   diceIcon: {
     margin: 3,

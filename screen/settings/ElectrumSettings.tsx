@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Alert, Keyboard, LayoutAnimation, Platform, ScrollView, StyleSheet, Switch, TextInput, View } from 'react-native';
-import * as BlueElectrum from '../../blue_modules/BlueElectrum';
+import * as NomadElectrum from '../../blue_modules/NomadElectrum';
 import triggerHapticFeedback, { HapticFeedbackTypes, triggerSelectionHapticFeedback } from '../../blue_modules/hapticFeedback';
-import { BlueCard, BlueSpacing10, BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadCard, NomadSpacing10, NomadSpacing20, NomadText } from '../../NomadComponents';
 import DeeplinkSchemaMatch from '../../class/deeplink-schema-match';
 import presentAlert from '../../components/Alert';
 import Button from '../../components/Button';
@@ -82,10 +82,10 @@ const ElectrumSettings: React.FC = () => {
   useEffect(() => {
     let configInterval: NodeJS.Timeout | null = null;
     const fetchData = async () => {
-      const savedHost = await AsyncStorage.getItem(BlueElectrum.ELECTRUM_HOST);
-      const savedPort = await AsyncStorage.getItem(BlueElectrum.ELECTRUM_TCP_PORT);
-      const savedSslPort = await AsyncStorage.getItem(BlueElectrum.ELECTRUM_SSL_PORT);
-      const serverHistoryStr = await AsyncStorage.getItem(BlueElectrum.ELECTRUM_SERVER_HISTORY);
+      const savedHost = await AsyncStorage.getItem(NomadElectrum.ELECTRUM_HOST);
+      const savedPort = await AsyncStorage.getItem(NomadElectrum.ELECTRUM_TCP_PORT);
+      const savedSslPort = await AsyncStorage.getItem(NomadElectrum.ELECTRUM_SSL_PORT);
+      const serverHistoryStr = await AsyncStorage.getItem(NomadElectrum.ELECTRUM_SERVER_HISTORY);
 
       const parsedServerHistory: ElectrumServerItem[] = serverHistoryStr ? JSON.parse(serverHistoryStr) : [];
 
@@ -94,9 +94,9 @@ const ElectrumSettings: React.FC = () => {
       setSslPort(savedSslPort ? Number(savedSslPort) : undefined);
       setServerHistory(parsedServerHistory);
 
-      setConfig(await BlueElectrum.getConfig());
+      setConfig(await NomadElectrum.getConfig());
       configInterval = setInterval(async () => {
-        setConfig(await BlueElectrum.getConfig());
+        setConfig(await NomadElectrum.getConfig());
       }, 500);
 
       setIsLoading(false);
@@ -132,7 +132,7 @@ const ElectrumSettings: React.FC = () => {
 
   const clearHistory = useCallback(async () => {
     setIsLoading(true);
-    await AsyncStorage.setItem(BlueElectrum.ELECTRUM_SERVER_HISTORY, JSON.stringify([]));
+    await AsyncStorage.setItem(NomadElectrum.ELECTRUM_SERVER_HISTORY, JSON.stringify([]));
     setServerHistory([]);
     setIsLoading(false);
   }, []);
@@ -150,26 +150,26 @@ const ElectrumSettings: React.FC = () => {
 
     try {
       if (!host && !port && !sslPort) {
-        await AsyncStorage.removeItem(BlueElectrum.ELECTRUM_HOST);
-        await AsyncStorage.removeItem(BlueElectrum.ELECTRUM_TCP_PORT);
-        await AsyncStorage.removeItem(BlueElectrum.ELECTRUM_SSL_PORT);
+        await AsyncStorage.removeItem(NomadElectrum.ELECTRUM_HOST);
+        await AsyncStorage.removeItem(NomadElectrum.ELECTRUM_TCP_PORT);
+        await AsyncStorage.removeItem(NomadElectrum.ELECTRUM_SSL_PORT);
         await DefaultPreference.setName(GROUP_IO_BLUEWALLET);
-        await DefaultPreference.clear(BlueElectrum.ELECTRUM_HOST);
-        await DefaultPreference.clear(BlueElectrum.ELECTRUM_TCP_PORT);
-        await DefaultPreference.clear(BlueElectrum.ELECTRUM_SSL_PORT);
+        await DefaultPreference.clear(NomadElectrum.ELECTRUM_HOST);
+        await DefaultPreference.clear(NomadElectrum.ELECTRUM_TCP_PORT);
+        await DefaultPreference.clear(NomadElectrum.ELECTRUM_SSL_PORT);
       } else {
-        await AsyncStorage.setItem(BlueElectrum.ELECTRUM_HOST, host);
-        await AsyncStorage.setItem(BlueElectrum.ELECTRUM_TCP_PORT, port?.toString() || '');
-        await AsyncStorage.setItem(BlueElectrum.ELECTRUM_SSL_PORT, sslPort?.toString() || '');
+        await AsyncStorage.setItem(NomadElectrum.ELECTRUM_HOST, host);
+        await AsyncStorage.setItem(NomadElectrum.ELECTRUM_TCP_PORT, port?.toString() || '');
+        await AsyncStorage.setItem(NomadElectrum.ELECTRUM_SSL_PORT, sslPort?.toString() || '');
         if (!serverExists({ host, port, sslPort })) {
           const newServerHistory = [...serverHistory, { host, port, sslPort }];
-          await AsyncStorage.setItem(BlueElectrum.ELECTRUM_SERVER_HISTORY, JSON.stringify(newServerHistory));
+          await AsyncStorage.setItem(NomadElectrum.ELECTRUM_SERVER_HISTORY, JSON.stringify(newServerHistory));
           setServerHistory(newServerHistory);
         }
         await DefaultPreference.setName(GROUP_IO_BLUEWALLET);
-        await DefaultPreference.set(BlueElectrum.ELECTRUM_HOST, host);
-        await DefaultPreference.set(BlueElectrum.ELECTRUM_TCP_PORT, port?.toString() || '');
-        await DefaultPreference.set(BlueElectrum.ELECTRUM_SSL_PORT, sslPort?.toString() || '');
+        await DefaultPreference.set(NomadElectrum.ELECTRUM_HOST, host);
+        await DefaultPreference.set(NomadElectrum.ELECTRUM_TCP_PORT, port?.toString() || '');
+        await DefaultPreference.set(NomadElectrum.ELECTRUM_SSL_PORT, sslPort?.toString() || '');
       }
       triggerHapticFeedback(HapticFeedbackTypes.NotificationSuccess);
       presentAlert({ message: loc.settings.electrum_saved });
@@ -275,7 +275,7 @@ const ElectrumSettings: React.FC = () => {
   const checkServer = async () => {
     setIsLoading(true);
     try {
-      const features = await BlueElectrum.serverFeatures();
+      const features = await NomadElectrum.serverFeatures();
       triggerHapticFeedback(HapticFeedbackTypes.NotificationWarning);
       presentAlert({ message: JSON.stringify(features, null, 2) });
     } catch (error) {
@@ -323,7 +323,7 @@ const ElectrumSettings: React.FC = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     try {
       triggerSelectionHapticFeedback();
-      await BlueElectrum.setDisabled(value);
+      await NomadElectrum.setDisabled(value);
       setIsElectrumDisabled(value);
     } catch (error) {
       triggerHapticFeedback(HapticFeedbackTypes.NotificationError);
@@ -335,35 +335,35 @@ const ElectrumSettings: React.FC = () => {
     return (
       <>
         <Divider />
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <Header leftText={loc.settings.electrum_status} />
-        <BlueSpacing20 />
+        <NomadSpacing20 />
 
-        <BlueCard>
+        <NomadCard>
           <View style={styles.connectWrap}>
             <View style={[styles.container, config.connected === 1 ? stylesHook.containerConnected : stylesHook.containerDisconnected]}>
-              <BlueText
+              <NomadText
                 style={[styles.textConnectionStatus, config.connected === 1 ? stylesHook.textConnected : stylesHook.textDisconnected]}
               >
                 {config.connected === 1 ? loc.settings.electrum_connected : loc.settings.electrum_connected_not}
-              </BlueText>
+              </NomadText>
             </View>
           </View>
-          <BlueSpacing10 />
-          <BlueText style={[styles.hostname, stylesHook.hostname]} onPress={checkServer} selectable>
+          <NomadSpacing10 />
+          <NomadText style={[styles.hostname, stylesHook.hostname]} onPress={checkServer} selectable>
             {config.host}:{config.port}
-          </BlueText>
-        </BlueCard>
-        <BlueSpacing20 />
+          </NomadText>
+        </NomadCard>
+        <NomadSpacing20 />
 
         <Divider />
-        <BlueSpacing10 />
-        <BlueSpacing20 />
+        <NomadSpacing10 />
+        <NomadSpacing20 />
 
         <Header leftText={loc.settings.electrum_preferred_server} />
-        <BlueCard>
-          <BlueText>{loc.settings.electrum_preferred_server_description}</BlueText>
-          <BlueSpacing20 />
+        <NomadCard>
+          <NomadText>{loc.settings.electrum_preferred_server_description}</NomadText>
+          <NomadSpacing20 />
           <AddressInput
             testID="HostInput"
             placeholder={loc.formatString(loc.settings.electrum_host, { example: '10.20.30.40' })}
@@ -377,7 +377,7 @@ const ElectrumSettings: React.FC = () => {
             inputAccessoryViewID={DoneAndDismissKeyboardInputAccessoryViewID}
             isLoading={isLoading}
           />
-          <BlueSpacing20 />
+          <NomadSpacing20 />
           <View style={styles.portWrap}>
             <View style={[styles.inputWrap, stylesHook.inputWrap]}>
               <TextInput
@@ -406,7 +406,7 @@ const ElectrumSettings: React.FC = () => {
                 onBlur={() => setIsAndroidNumericKeyboardFocused(false)}
               />
             </View>
-            <BlueText style={[styles.usePort, stylesHook.usePort]}>{loc.settings.use_ssl}</BlueText>
+            <NomadText style={[styles.usePort, stylesHook.usePort]}>{loc.settings.use_ssl}</NomadText>
             <Switch
               testID="SSLPortInput"
               value={sslPort !== undefined}
@@ -414,11 +414,11 @@ const ElectrumSettings: React.FC = () => {
               disabled={host?.endsWith('.onion') ?? false}
             />
           </View>
-        </BlueCard>
-        <BlueCard>
-          <BlueSpacing20 />
+        </NomadCard>
+        <NomadCard>
+          <NomadSpacing20 />
           <Button showActivityIndicator={isLoading} disabled={isLoading} testID="Save" onPress={save} title={loc.settings.save} />
-        </BlueCard>
+        </NomadCard>
 
         {Platform.select({
           ios: <DismissKeyboardInputAccessory />,

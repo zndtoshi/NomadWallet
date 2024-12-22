@@ -2,7 +2,7 @@ import { NavigationProp, RouteProp, useFocusEffect, useNavigation, useRoute } fr
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, InteractionManager, View } from 'react-native';
 import Share from 'react-native-share';
-import { BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadSpacing20, NomadText } from '../../NomadComponents';
 import Button from '../../components/Button';
 import CopyTextToClipboard from '../../components/CopyTextToClipboard';
 import HandOffComponent from '../../components/HandOffComponent';
@@ -87,14 +87,14 @@ const WalletXpub: React.FC = () => {
             {wallet && (
               <>
                 <View>
-                  <BlueText>{wallet.typeReadable}</BlueText>
+                  <NomadText>{wallet.typeReadable}</NomadText>
                 </View>
-                <BlueSpacing20 />
+                <NomadSpacing20 />
               </>
             )}
             <QRCodeComponent value={xpub} size={qrCodeSize} />
 
-            <BlueSpacing20 />
+            <NomadSpacing20 />
             {xPubText && <CopyTextToClipboard text={xPubText} />}
           </View>
           <HandOffComponent title={loc.wallets.xpub_title} type={HandOffActivityType.Xpub} userInfo={{ xpub: xPubText }} />

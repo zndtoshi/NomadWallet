@@ -10,7 +10,7 @@
 #import "MenuElementsEmitter.h"
 #import <React/RCTRootView.h>
 #import <Bugsnag/Bugsnag.h>
-#import "BlueWallet-Swift.h"
+#import "NomadWallet-Swift.h"
 #import "CustomSegmentedControlManager.h"
 
 @interface AppDelegate() <UNUserNotificationCenterDelegate>
@@ -47,7 +47,7 @@
     [NSUserDefaults.standardUserDefaults setValue:@"" forKey:@"deviceUIDCopy"];
   }
 
-  self.moduleName = @"BlueWallet";
+  self.moduleName = @"NomadWallet";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
@@ -234,7 +234,7 @@
         [builder replaceMenuForIdentifier:UIMenuFile withMenu:newFileMenu];
     }
     
-    // BlueWallet -> Settings (Command + ,)
+    // NomadWallet -> Settings (Command + ,)
     UIKeyCommand *settingsCommand = [UIKeyCommand keyCommandWithInput:@"," modifierFlags:UIKeyModifierCommand action:@selector(openSettings:)];
     [settingsCommand setTitle:@"Settings..."];
     UIMenu *settings = [UIMenu menuWithTitle:@"" image:nil identifier:nil options:UIMenuOptionsDisplayInline children:@[settingsCommand]];

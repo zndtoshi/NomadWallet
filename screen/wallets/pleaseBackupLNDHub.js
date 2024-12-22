@@ -1,7 +1,7 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useCallback, useEffect, useState } from 'react';
 import { BackHandler, ScrollView, StyleSheet, View } from 'react-native';
-import { BlueSpacing20, BlueTextCentered } from '../../BlueComponents';
+import { NomadSpacing20, NomadTextCentered } from '../../NomadComponents';
 import Button from '../../components/Button';
 import CopyTextToClipboard from '../../components/CopyTextToClipboard';
 import QRCodeComponent from '../../components/QRCodeComponent';
@@ -59,13 +59,13 @@ const PleaseBackupLNDHub = () => {
     <SafeArea style={styles.root} onLayout={onLayout}>
       <ScrollView centerContent contentContainerStyle={styles.scrollViewContent}>
         <View>
-          <BlueTextCentered>{loc.pleasebackup.text_lnd}</BlueTextCentered>
-          <BlueSpacing20 />
+          <NomadTextCentered>{loc.pleasebackup.text_lnd}</NomadTextCentered>
+          <NomadSpacing20 />
         </View>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <QRCodeComponent value={wallet.getSecret()} size={qrCodeSize} />
         <CopyTextToClipboard text={wallet.getSecret()} />
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <Button onPress={pop} title={loc.pleasebackup.ok_lnd} />
       </ScrollView>
     </SafeArea>

@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Platform, ScrollView, StyleSheet } from 'react-native';
-import { BlueSpacing20 } from '../../BlueComponents';
+import { NomadSpacing20 } from '../../NomadComponents';
 import ListItem, { PressableWrapper } from '../../components/ListItem';
 import { useTheme } from '../../components/themes';
 import loc from '../../loc';
@@ -59,7 +59,7 @@ const GeneralSettings: React.FC = () => {
         title="Legacy URv1 QR"
         switch={{ onValueChange: setIsLegacyURv1EnabledStorage, value: isLegacyURv1Enabled }}
       />
-      <BlueSpacing20 />
+      <NomadSpacing20 />
     </ScrollView>
   );
 };

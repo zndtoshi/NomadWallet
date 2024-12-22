@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { ActivityIndicator, StyleSheet, TextInput, View } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { BlueFormLabel, BlueFormMultiInput, BlueSpacing20 } from '../../BlueComponents';
+import { NomadFormLabel, NomadFormMultiInput, NomadSpacing20 } from '../../NomadComponents';
 import { HDSegwitBech32Wallet, WatchOnlyWallet } from '../../class';
 import presentAlert from '../../components/Alert';
 import Button from '../../components/Button';
@@ -85,15 +85,15 @@ const ImportSpeed = () => {
 
   return (
     <SafeArea style={styles.root}>
-      <BlueSpacing20 />
-      <BlueFormLabel>Mnemonic</BlueFormLabel>
-      <BlueSpacing20 />
-      <BlueFormMultiInput testID="SpeedMnemonicInput" value={importText} onChangeText={setImportText} />
-      <BlueFormLabel>Wallet type</BlueFormLabel>
+      <NomadSpacing20 />
+      <NomadFormLabel>Mnemonic</NomadFormLabel>
+      <NomadSpacing20 />
+      <NomadFormMultiInput testID="SpeedMnemonicInput" value={importText} onChangeText={setImportText} />
+      <NomadFormLabel>Wallet type</NomadFormLabel>
       <TextInput testID="SpeedWalletTypeInput" value={walletType} style={styles.pathInput} onChangeText={setWalletType} />
-      <BlueFormLabel>Passphrase</BlueFormLabel>
+      <NomadFormLabel>Passphrase</NomadFormLabel>
       <TextInput testID="SpeedPassphraseInput" value={passphrase} style={styles.pathInput} onChangeText={setPassphrase} />
-      <BlueSpacing20 />
+      <NomadSpacing20 />
       <View style={styles.center}>
         <Button testID="SpeedDoImport" title="Import" onPress={importMnemonic} />
         {loading && <ActivityIndicator />}

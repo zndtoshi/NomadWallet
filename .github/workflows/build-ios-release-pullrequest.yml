@@ -102,7 +102,7 @@ jobs:
       - name: Determine Marketing Version
         id: determine_marketing_version
         run: |
-          MARKETING_VERSION=$(grep MARKETING_VERSION BlueWallet.xcodeproj/project.pbxproj | awk -F '= ' '{print $2}' | tr -d ' ;' | head -1)
+          MARKETING_VERSION=$(grep MARKETING_VERSION NomadWallet.xcodeproj/project.pbxproj | awk -F '= ' '{print $2}' | tr -d ' ;' | head -1)
           echo "PROJECT_VERSION=$MARKETING_VERSION" >> $GITHUB_ENV
           echo "project_version=$MARKETING_VERSION" >> $GITHUB_OUTPUT
         working-directory: ios
@@ -156,7 +156,7 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: BlueWallet_${{env.PROJECT_VERSION}}_${{env.NEW_BUILD_NUMBER}}.ipa
+          name: NomadWallet_${{env.PROJECT_VERSION}}_${{env.NEW_BUILD_NUMBER}}.ipa
           path: ${{ env.IPA_OUTPUT_PATH }}  # Directly from Fastfile `IPA_OUTPUT_PATH`
 
   testflight-upload:
@@ -186,7 +186,7 @@ jobs:
       - name: Download IPA from Artifact
         uses: actions/download-artifact@v4
         with:
-          name: BlueWallet_${{ needs.build.outputs.project_version }}_${{ needs.build.outputs.new_build_number }}.ipa
+          name: NomadWallet_${{ needs.build.outputs.project_version }}_${{ needs.build.outputs.new_build_number }}.ipa
           path: ./
 
       - name: Create App Store Connect API Key JSON
@@ -200,7 +200,7 @@ jobs:
           ls -la ./
 
       - name: Set IPA Path Environment Variable
-        run: echo "IPA_OUTPUT_PATH=$(pwd)/BlueWallet_${{ needs.build.outputs.project_version }}_${{ needs.build.outputs.new_build_number }}.ipa" >> $GITHUB_ENV
+        run: echo "IPA_OUTPUT_PATH=$(pwd)/NomadWallet_${{ needs.build.outputs.project_version }}_${{ needs.build.outputs.new_build_number }}.ipa" >> $GITHUB_ENV
 
       - name: Verify IPA Path Before Upload
         run: |

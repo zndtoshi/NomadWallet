@@ -15,7 +15,7 @@ import {
 
 import A from '../../blue_modules/analytics';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueButtonLink, BlueFormLabel, BlueSpacing20, BlueSpacing40, BlueText } from '../../BlueComponents';
+import { NomadButtonLink, NomadFormLabel, NomadSpacing20, NomadSpacing40, NomadText } from '../../NomadComponents';
 import { HDSegwitBech32Wallet, HDSegwitP2SHWallet, LightningCustodianWallet, SegwitP2SHWallet } from '../../class';
 import presentAlert from '../../components/Alert';
 import Button from '../../components/Button';
@@ -464,8 +464,8 @@ const WalletsAdd: React.FC = () => {
 
   return (
     <ScrollView style={stylesHook.root} testID="ScrollView" automaticallyAdjustKeyboardInsets>
-      <BlueSpacing20 />
-      <BlueFormLabel>{loc.wallets.add_wallet_name}</BlueFormLabel>
+      <NomadSpacing20 />
+      <NomadFormLabel>{loc.wallets.add_wallet_name}</NomadFormLabel>
       <View style={[styles.label, stylesHook.label]}>
         <TextInput
           testID="WalletNameInput"
@@ -478,7 +478,7 @@ const WalletsAdd: React.FC = () => {
           underlineColorAndroid="transparent"
         />
       </View>
-      <BlueFormLabel>{loc.wallets.add_wallet_type}</BlueFormLabel>
+      <NomadFormLabel>{loc.wallets.add_wallet_type}</NomadFormLabel>
       <View style={styles.buttons}>
         <WalletButton
           buttonType="Bitcoin"
@@ -499,10 +499,10 @@ const WalletsAdd: React.FC = () => {
       <View style={styles.advanced}>
         {selectedWalletType === ButtonSelected.OFFCHAIN && (
           <>
-            <BlueSpacing20 />
+            <NomadSpacing20 />
             <View style={styles.lndhubTitle}>
-              <BlueText>{loc.wallets.add_lndhub}</BlueText>
-              <BlueButtonLink title={loc.wallets.learn_more} onPress={onLearnMorePressed} />
+              <NomadText>{loc.wallets.add_lndhub}</NomadText>
+              <NomadButtonLink title={loc.wallets.learn_more} onPress={onLearnMorePressed} />
             </View>
 
             <View style={[styles.lndUri, stylesHook.lndUri]}>
@@ -524,7 +524,7 @@ const WalletsAdd: React.FC = () => {
           </>
         )}
 
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         {!isLoading ? (
           <>
             <Button
@@ -536,13 +536,13 @@ const WalletsAdd: React.FC = () => {
               onPress={createWallet}
             />
 
-            <BlueButtonLink
+            <NomadButtonLink
               testID="ImportWallet"
               style={styles.import}
               title={loc.wallets.add_import_wallet}
               onPress={navigateToImportWallet}
             />
-            <BlueSpacing40 />
+            <NomadSpacing40 />
           </>
         ) : (
           <ActivityIndicator />

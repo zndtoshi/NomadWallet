@@ -3,8 +3,8 @@ import { Dimensions, LayoutAnimation, StyleSheet, TouchableOpacity, View } from 
 import { Text } from '@rneui/themed';
 
 import { encodeUR } from '../blue_modules/ur';
-import { BlueSpacing20 } from '../BlueComponents';
-import { BlueCurrentTheme } from '../components/themes';
+import { NomadSpacing20 } from '../NomadComponents';
+import { NomadCurrentTheme } from '../components/themes';
 import loc from '../loc';
 import QRCodeComponent from './QRCodeComponent';
 
@@ -143,13 +143,13 @@ export class DynamicQRCode extends Component<DynamicQRCodeProps, DynamicQRCodeSt
 
         {!this.state.hideControls && (
           <View style={animatedQRCodeStyle.container}>
-            <BlueSpacing20 />
+            <NomadSpacing20 />
             <View>
               <Text style={animatedQRCodeStyle.text}>
                 {loc.formatString(loc._.of, { number: this.state.index + 1, total: this.state.total })}
               </Text>
             </View>
-            <BlueSpacing20 />
+            <NomadSpacing20 />
             <View style={animatedQRCodeStyle.controller}>
               <TouchableOpacity
                 accessibilityRole="button"
@@ -217,7 +217,7 @@ const animatedQRCodeStyle = StyleSheet.create({
   },
   text: {
     fontSize: 14,
-    color: BlueCurrentTheme.colors.foregroundColor,
+    color: NomadCurrentTheme.colors.foregroundColor,
     fontWeight: 'bold',
   },
 });

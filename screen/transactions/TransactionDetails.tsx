@@ -6,7 +6,7 @@ import assert from 'assert';
 import dayjs from 'dayjs';
 import { InteractionManager, Linking, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueCard, BlueLoading, BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadCard, NomadLoading, NomadSpacing20, NomadText } from '../../NomadComponents';
 import { Transaction, TWallet } from '../../class/wallets/types';
 import presentAlert from '../../components/Alert';
 import CopyToClipboardButton from '../../components/CopyToClipboardButton';
@@ -187,7 +187,7 @@ const TransactionDetails = () => {
   };
 
   if (isLoading || !tx) {
-    return <BlueLoading />;
+    return <NomadLoading />;
   }
 
   const weOwnAddress = (address: string): TWallet | null => {
@@ -238,10 +238,10 @@ const TransactionDetails = () => {
 
       fromArray.push(
         <ToolTipMenu key={address} isButton title={address} isMenuPrimaryAction actions={actions} onPressMenuItem={onPressMenuItem}>
-          <BlueText style={isWeOwnAddress ? [styles.rowValue, styles.weOwnAddress] : styles.rowValue}>
+          <NomadText style={isWeOwnAddress ? [styles.rowValue, styles.weOwnAddress] : styles.rowValue}>
             {address}
             {index === array.length - 1 ? null : ','}
-          </BlueText>
+          </NomadText>
         </ToolTipMenu>,
       );
     }
@@ -256,7 +256,7 @@ const TransactionDetails = () => {
         type={HandOffActivityType.ViewInBlockExplorer}
         url={`${selectedBlockExplorer.url}/tx/${tx.hash}`}
       />
-      <BlueCard>
+      <NomadCard>
         <View>
           <TextInput
             placeholder={loc.send.details_note_placeholder}
@@ -270,7 +270,7 @@ const TransactionDetails = () => {
           />
           {isCounterpartyLabelVisible ? (
             <View>
-              <BlueSpacing20 />
+              <NomadSpacing20 />
               <TextInput
                 placeholder={loc.send.counterparty_label_placeholder}
                 value={counterpartyLabel}
@@ -279,7 +279,7 @@ const TransactionDetails = () => {
                 style={[styles.memoTextInput, stylesHooks.memoTextInput]}
                 onChangeText={setCounterpartyLabel}
               />
-              <BlueSpacing20 />
+              <NomadSpacing20 />
             </View>
           ) : null}
         </View>
@@ -287,7 +287,7 @@ const TransactionDetails = () => {
         {from && (
           <>
             <View style={styles.rowHeader}>
-              <BlueText style={styles.rowCaption}>{loc.transactions.details_from}</BlueText>
+              <NomadText style={styles.rowCaption}>{loc.transactions.details_from}</NomadText>
               <CopyToClipboardButton stringToCopy={from.filter(onlyUnique).join(', ')} />
             </View>
             {renderSection(from.filter(onlyUnique))}
@@ -298,7 +298,7 @@ const TransactionDetails = () => {
         {to && (
           <>
             <View style={styles.rowHeader}>
-              <BlueText style={styles.rowCaption}>{loc.transactions.details_to}</BlueText>
+              <NomadText style={styles.rowCaption}>{loc.transactions.details_to}</NomadText>
               <CopyToClipboardButton stringToCopy={to.filter(onlyUnique).join(', ')} />
             </View>
             {renderSection(arrDiff(from, to.filter(onlyUnique)))}
@@ -309,34 +309,34 @@ const TransactionDetails = () => {
         {tx.hash && (
           <>
             <View style={styles.rowHeader}>
-              <BlueText style={styles.txid}>{loc.transactions.txid}</BlueText>
+              <NomadText style={styles.txid}>{loc.transactions.txid}</NomadText>
               <CopyToClipboardButton stringToCopy={tx.hash} />
             </View>
-            <BlueText style={styles.rowValue}>{tx.hash}</BlueText>
+            <NomadText style={styles.rowValue}>{tx.hash}</NomadText>
             <View style={styles.marginBottom18} />
           </>
         )}
 
         {tx.received && (
           <>
-            <BlueText style={styles.rowCaption}>{loc.transactions.details_received}</BlueText>
-            <BlueText style={styles.rowValue}>{dayjs(tx.received).format('LLL')}</BlueText>
+            <NomadText style={styles.rowCaption}>{loc.transactions.details_received}</NomadText>
+            <NomadText style={styles.rowValue}>{dayjs(tx.received).format('LLL')}</NomadText>
             <View style={styles.marginBottom18} />
           </>
         )}
 
         {tx.inputs && (
           <>
-            <BlueText style={styles.rowCaption}>{loc.transactions.details_inputs}</BlueText>
-            <BlueText style={styles.rowValue}>{tx.inputs.length}</BlueText>
+            <NomadText style={styles.rowCaption}>{loc.transactions.details_inputs}</NomadText>
+            <NomadText style={styles.rowValue}>{tx.inputs.length}</NomadText>
             <View style={styles.marginBottom18} />
           </>
         )}
 
         {tx.outputs?.length > 0 && (
           <>
-            <BlueText style={styles.rowCaption}>{loc.transactions.details_outputs}</BlueText>
-            <BlueText style={styles.rowValue}>{tx.outputs.length}</BlueText>
+            <NomadText style={styles.rowCaption}>{loc.transactions.details_outputs}</NomadText>
+            <NomadText style={styles.rowValue}>{tx.outputs.length}</NomadText>
             <View style={styles.marginBottom18} />
           </>
         )}
@@ -349,7 +349,7 @@ const TransactionDetails = () => {
         >
           <Text style={[styles.Link, stylesHooks.Link]}>{loc.transactions.details_view_in_browser}</Text>
         </ToolTipMenu>
-      </BlueCard>
+      </NomadCard>
     </ScrollView>
   );
 };

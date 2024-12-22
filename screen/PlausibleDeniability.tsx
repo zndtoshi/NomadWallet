@@ -1,7 +1,7 @@
 import React, { useReducer, useRef } from 'react';
 import { ScrollView } from 'react-native';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../blue_modules/hapticFeedback';
-import { BlueCard, BlueLoading, BlueSpacing20, BlueText } from '../BlueComponents';
+import { NomadCard, NomadLoading, NomadSpacing20, NomadText } from '../NomadComponents';
 import presentAlert from '../components/Alert';
 import Button from '../components/Button';
 import loc from '../loc';
@@ -91,20 +91,20 @@ const PlausibleDeniability: React.FC = () => {
   return (
     <ScrollView centerContent={state.isLoading} automaticallyAdjustContentInsets contentInsetAdjustmentBehavior="automatic">
       {state.isLoading ? (
-        <BlueLoading />
+        <NomadLoading />
       ) : (
-        <BlueCard>
-          <BlueText>{loc.plausibledeniability.help}</BlueText>
-          <BlueText />
-          <BlueText>{loc.plausibledeniability.help2}</BlueText>
-          <BlueSpacing20 />
+        <NomadCard>
+          <NomadText>{loc.plausibledeniability.help}</NomadText>
+          <NomadText />
+          <NomadText>{loc.plausibledeniability.help2}</NomadText>
+          <NomadSpacing20 />
           <Button
             testID="CreateFakeStorageButton"
             title={loc.plausibledeniability.create_fake_storage}
             onPress={handleOnCreateFakeStorageButtonPressed}
             disabled={state.isLoading}
           />
-        </BlueCard>
+        </NomadCard>
       )}
       <PromptPasswordConfirmationModal
         ref={promptRef}

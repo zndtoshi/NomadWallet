@@ -16,7 +16,7 @@ import {
   checkNotificationPermissionStatus,
   NOTIFICATIONS_NO_AND_DONT_ASK_FLAG,
 } from '../../blue_modules/notifications';
-import { BlueCard, BlueSpacing20, BlueSpacing40, BlueText } from '../../BlueComponents';
+import { NomadCard, NomadSpacing20, NomadSpacing40, NomadText } from '../../NomadComponents';
 import presentAlert from '../../components/Alert';
 import { Button } from '../../components/Button';
 import CopyToClipboardButton from '../../components/CopyToClipboardButton';
@@ -207,17 +207,17 @@ const NotificationSettings: React.FC = () => {
       />
 
       <Pressable onPress={handleTap}>
-        <BlueCard>
-          <BlueText style={styles.multilineText}>{loc.settings.push_notifications_explanation}</BlueText>
-        </BlueCard>
+        <NomadCard>
+          <NomadText style={styles.multilineText}>{loc.settings.push_notifications_explanation}</NomadText>
+        </NomadCard>
       </Pressable>
 
       {tapCount >= 10 && (
         <>
           <Divider />
-          <BlueCard>
-            <BlueText>{loc.settings.groundcontrol_explanation}</BlueText>
-          </BlueCard>
+          <NomadCard>
+            <NomadText>{loc.settings.groundcontrol_explanation}</NomadText>
+          </NomadCard>
 
           <ButtonRNElements
             icon={{
@@ -225,14 +225,14 @@ const NotificationSettings: React.FC = () => {
               type: 'font-awesome',
               color: colors.foregroundColor,
             }}
-            onPress={() => Linking.openURL('https://github.com/BlueWallet/GroundControl')}
+            onPress={() => Linking.openURL('https://github.com/NomadWallet/GroundControl')}
             titleStyle={{ color: colors.buttonAlternativeTextColor }}
-            title="github.com/BlueWallet/GroundControl"
+            title="github.com/NomadWallet/GroundControl"
             color={colors.buttonTextColor}
             buttonStyle={styles.buttonStyle}
           />
 
-          <BlueCard>
+          <NomadCard>
             <View style={[styles.uri, stylesWithThemeHook.uri]}>
               <TextInput
                 placeholder={getDefaultUri()}
@@ -248,24 +248,24 @@ const NotificationSettings: React.FC = () => {
               />
             </View>
 
-            <BlueSpacing20 />
-            <BlueText style={styles.centered} onPress={() => setTapCount(tapCount + 1)}>
+            <NomadSpacing20 />
+            <NomadText style={styles.centered} onPress={() => setTapCount(tapCount + 1)}>
               ♪ Ground Control to Major Tom ♪
-            </BlueText>
-            <BlueText style={styles.centered} onPress={() => setTapCount(tapCount + 1)}>
+            </NomadText>
+            <NomadText style={styles.centered} onPress={() => setTapCount(tapCount + 1)}>
               ♪ Commencing countdown, engines on ♪
-            </BlueText>
+            </NomadText>
 
             <View>
               <CopyToClipboardButton stringToCopy={tokenInfo} displayText={tokenInfo} />
             </View>
 
-            <BlueSpacing20 />
+            <NomadSpacing20 />
             <Button onPress={save} title={loc.settings.save} />
-          </BlueCard>
+          </NomadCard>
         </>
       )}
-      <BlueSpacing40 />
+      <NomadSpacing40 />
       <ListItem title={loc.settings.privacy_system_settings} onPress={onSystemSettings} chevron />
     </ScrollView>
   );

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Keyboard, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 
 import { generateChecksumWords } from '../../blue_modules/checksumWords';
-import { BlueCard, BlueSpacing10, BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadCard, NomadSpacing10, NomadSpacing20, NomadText } from '../../NomadComponents';
 import { randomBytes } from '../../class/rng';
 import Button from '../../components/Button';
 import loc from '../../loc';
@@ -60,7 +60,7 @@ const GenerateWord = () => {
       contentInsetAdjustmentBehavior="automatic"
     >
       <View style={styles.wrapper}>
-        <BlueCard style={styles.mainCard}>
+        <NomadCard style={styles.mainCard}>
           <View style={[styles.input, stylesHooks.input]}>
             <TextInput
               style={styles.text}
@@ -78,13 +78,13 @@ const GenerateWord = () => {
             />
           </View>
 
-          <BlueSpacing10 />
+          <NomadSpacing10 />
           <Button title={loc.send.input_clear} onPress={clearMnemonicInput} />
-          <BlueSpacing20 />
-          <BlueText style={styles.center} testID="Result">
+          <NomadSpacing20 />
+          <NomadText style={styles.center} testID="Result">
             {result}
-          </BlueText>
-          <BlueSpacing20 />
+          </NomadText>
+          <NomadSpacing20 />
           <View>
             <Button
               disabled={mnemonic.trim().length === 0}
@@ -93,8 +93,8 @@ const GenerateWord = () => {
               testID="GenerateWord"
             />
           </View>
-          <BlueSpacing20 />
-        </BlueCard>
+          <NomadSpacing20 />
+        </NomadCard>
       </View>
     </ScrollView>
   );

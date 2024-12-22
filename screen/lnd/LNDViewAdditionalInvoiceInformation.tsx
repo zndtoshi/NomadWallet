@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRoute, RouteProp } from '@react-navigation/native';
 import { Share, StyleSheet, View } from 'react-native';
-import { BlueLoading, BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadLoading, NomadSpacing20, NomadText } from '../../NomadComponents';
 import presentAlert from '../../components/Alert';
 import Button from '../../components/Button';
 import CopyTextToClipboard from '../../components/CopyTextToClipboard';
@@ -58,14 +58,14 @@ const LNDViewAdditionalInvoiceInformation: React.FC = () => {
   return (
     <SafeArea style={[styles.loading, stylesHook.root]}>
       {!walletInfo ? (
-        <BlueLoading />
+        <NomadLoading />
       ) : (
         <View style={styles.wrapper}>
           <View style={styles.qrcode}>
             <QRCodeComponent value={walletInfo.uris?.[0] ?? ''} size={300} />
           </View>
-          <BlueSpacing20 />
-          <BlueText>{loc.lndViewInvoice.open_direct_channel}</BlueText>
+          <NomadSpacing20 />
+          <NomadText>{loc.lndViewInvoice.open_direct_channel}</NomadText>
           <CopyTextToClipboard text={walletInfo.uris?.[0] ?? ''} />
           <View style={styles.share}>
             <Button

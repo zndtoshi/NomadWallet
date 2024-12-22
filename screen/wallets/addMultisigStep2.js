@@ -16,7 +16,7 @@ import { Icon } from '@rneui/themed';
 import A from '../../blue_modules/analytics';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
 import { encodeUR } from '../../blue_modules/ur';
-import { BlueButtonLink, BlueFormMultiInput, BlueSpacing10, BlueSpacing20, BlueTextCentered } from '../../BlueComponents';
+import { NomadButtonLink, NomadFormMultiInput, NomadSpacing10, NomadSpacing20, NomadTextCentered } from '../../NomadComponents';
 import { HDSegwitBech32Wallet, MultisigCosigner, MultisigHDWallet } from '../../class';
 import presentAlert from '../../components/Alert';
 import BottomModal from '../../components/BottomModal';
@@ -602,13 +602,13 @@ const WalletsAddMultisigStep2 = () => {
             </Text>
           </View>
         </View>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <Text style={[styles.headerText, stylesHook.textDestination]}>{loc.multisig.wallet_key_created}</Text>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <Text style={[styles.textDestination, stylesHook.textDestination]}>{loc._.seed}</Text>
-        <BlueSpacing10 />
+        <NomadSpacing10 />
         <View style={styles.secretContainer}>{renderSecret(vaultKeyData.seed.split(' '))}</View>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
       </BottomModal>
     );
   };
@@ -635,7 +635,7 @@ const WalletsAddMultisigStep2 = () => {
                     title={loc.wallets.import_do_import}
                     onPress={useMnemonicPhrase}
                   />
-                  <BlueButtonLink
+                  <NomadButtonLink
                     testID="ScanOrOpenFile"
                     ref={openScannerButton}
                     disabled={isLoading}
@@ -672,11 +672,11 @@ const WalletsAddMultisigStep2 = () => {
           </ToolTipMenu>
         }
       >
-        <BlueTextCentered>{loc.multisig.type_your_mnemonics}</BlueTextCentered>
-        <BlueSpacing20 />
+        <NomadTextCentered>{loc.multisig.type_your_mnemonics}</NomadTextCentered>
+        <NomadSpacing20 />
         <View style={styles.multiLineTextInput}>
-          <BlueFormMultiInput value={importText} onChangeText={setImportText} />
-          <BlueSpacing20 />
+          <NomadFormMultiInput value={importText} onChangeText={setImportText} />
+          <NomadSpacing20 />
         </View>
       </BottomModal>
     );
@@ -701,11 +701,11 @@ const WalletsAddMultisigStep2 = () => {
         <Text style={[styles.headerText, stylesHook.textDestination]}>
           {loc.multisig.this_is_cosigners_xpub} {Platform.OS === 'ios' ? loc.multisig.this_is_cosigners_xpub_airdrop : ''}
         </Text>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <View style={styles.qrContainer}>
           <QRCodeComponent value={cosignerXpubURv2} size={260} />
         </View>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
       </BottomModal>
     );
   };

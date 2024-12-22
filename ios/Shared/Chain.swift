@@ -1,9 +1,9 @@
 //
 //  Chain.swift
-//  BlueWallet
+//  NomadWallet
 //
 //  Created by Marcos Rodriguez on 11/16/24.
-//  Copyright © 2024 BlueWallet. All rights reserved.
+//  Copyright © 2024 NomadWallet. All rights reserved.
 //
 
 import Foundation

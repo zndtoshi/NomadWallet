@@ -18,14 +18,14 @@ import { Badge, Icon } from '@rneui/themed';
 import { isDesktop } from '../../blue_modules/environment';
 import { encodeUR } from '../../blue_modules/ur';
 import {
-  BlueButtonLink,
-  BlueCard,
-  BlueFormMultiInput,
-  BlueLoading,
-  BlueSpacing10,
-  BlueSpacing20,
-  BlueTextCentered,
-} from '../../BlueComponents';
+  NomadButtonLink,
+  NomadCard,
+  NomadFormMultiInput,
+  NomadLoading,
+  NomadSpacing10,
+  NomadSpacing20,
+  NomadTextCentered,
+} from '../../NomadComponents';
 import { HDSegwitBech32Wallet, MultisigCosigner, MultisigHDWallet } from '../../class';
 import presentAlert from '../../components/Alert';
 import BottomModal, { BottomModalHandle } from '../../components/BottomModal';
@@ -240,7 +240,7 @@ const ViewEditMultisigCosigners: React.FC = () => {
         {vaultKeyData.xpub.length > 1 && (
           <>
             <Text style={[styles.textDestination, stylesHook.textDestination]}>{loc._.wallet_key}</Text>
-            <BlueSpacing10 />
+            <NomadSpacing10 />
             <SquareEnumeratedWords
               contentAlign={SquareEnumeratedWordsContentAlign.left}
               entries={[vaultKeyData.xpub, vaultKeyData.fp, vaultKeyData.path]}
@@ -250,9 +250,9 @@ const ViewEditMultisigCosigners: React.FC = () => {
         )}
         {vaultKeyData.seed.length > 1 && (
           <>
-            <BlueSpacing20 />
+            <NomadSpacing20 />
             <Text style={[styles.textDestination, stylesHook.textDestination]}>{loc._.seed}</Text>
-            <BlueSpacing10 />
+            <NomadSpacing10 />
             <SquareEnumeratedWords
               contentAlign={SquareEnumeratedWordsContentAlign.left}
               entries={vaultKeyData.seed.split(' ')}
@@ -543,17 +543,17 @@ const ViewEditMultisigCosigners: React.FC = () => {
               <Button disabled={importText.trim().length === 0} title={loc.wallets.import_do_import} onPress={handleUseMnemonicPhrase} />
             )}
             <>
-              <BlueButtonLink ref={openScannerButtonRef} disabled={isLoading} onPress={scanOrOpenFile} title={loc.wallets.import_scan_qr} />
-              <BlueSpacing20 />
+              <NomadButtonLink ref={openScannerButtonRef} disabled={isLoading} onPress={scanOrOpenFile} title={loc.wallets.import_scan_qr} />
+              <NomadSpacing20 />
             </>
           </>
         }
       >
         <>
-          <BlueTextCentered>{loc.multisig.type_your_mnemonics}</BlueTextCentered>
-          <BlueSpacing20 />
+          <NomadTextCentered>{loc.multisig.type_your_mnemonics}</NomadTextCentered>
+          <NomadSpacing20 />
           <View style={styles.multiLineTextInput}>
-            <BlueFormMultiInput value={importText} onChangeText={setImportText} />
+            <NomadFormMultiInput value={importText} onChangeText={setImportText} />
           </View>
         </>
       </BottomModal>
@@ -574,7 +574,7 @@ const ViewEditMultisigCosigners: React.FC = () => {
             {loc.multisig.this_is_cosigners_xpub} {Platform.OS === 'ios' ? loc.multisig.this_is_cosigners_xpub_airdrop : ''}
           </Text>
           <QRCodeComponent value={exportStringURv2} size={260} isLogoRendered={false} />
-          <BlueSpacing20 />
+          <NomadSpacing20 />
         </View>
       </BottomModal>
     );
@@ -583,7 +583,7 @@ const ViewEditMultisigCosigners: React.FC = () => {
   if (isLoading)
     return (
       <View style={[styles.root, stylesHook.root]}>
-        <BlueLoading />
+        <NomadLoading />
       </View>
     );
 
@@ -606,13 +606,13 @@ const ViewEditMultisigCosigners: React.FC = () => {
   const tipKeys = () => {
     return (
       <View>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <Text style={[styles.tipKeys, stylesHook.tipKeys]}>
           {loc.formatString(loc.multisig.signatures_required_to_spend, { number: howMany })}
           {loc.formatString(loc.multisig.signatures_we_can_make, { number: andHere })}
         </Text>
-        <BlueSpacing10 />
-        <BlueSpacing20 />
+        <NomadSpacing10 />
+        <NomadSpacing20 />
       </View>
     );
   };
@@ -632,9 +632,9 @@ const ViewEditMultisigCosigners: React.FC = () => {
         keyExtractor={(_item, index) => `${index}`}
         contentContainerStyle={styles.contentContainerStyle}
       />
-      <BlueSpacing10 />
-      <BlueCard>{footer}</BlueCard>
-      <BlueSpacing20 />
+      <NomadSpacing10 />
+      <NomadCard>{footer}</NomadCard>
+      <NomadSpacing20 />
 
       {renderProvideMnemonicsModal()}
 

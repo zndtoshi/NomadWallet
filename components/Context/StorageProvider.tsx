@@ -1,16 +1,16 @@
 import React, { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { InteractionManager } from 'react-native';
 import A from '../../blue_modules/analytics';
-import { BlueApp as BlueAppClass, LegacyWallet, TCounterpartyMetadata, TTXMetadata, WatchOnlyWallet } from '../../class';
+import { NomadApp as NomadAppClass, LegacyWallet, TCounterpartyMetadata, TTXMetadata, WatchOnlyWallet } from '../../class';
 import type { TWallet } from '../../class/wallets/types';
 import presentAlert from '../../components/Alert';
 import loc from '../../loc';
-import * as BlueElectrum from '../../blue_modules/BlueElectrum';
+import * as NomadElectrum from '../../blue_modules/NomadElectrum';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
 import { startAndDecrypt } from '../../blue_modules/start-and-decrypt';
 import { majorTomToGroundControl } from '../../blue_modules/notifications';
 
-const BlueApp = BlueAppClass.getInstance();
+const NomadApp = NomadAppClass.getInstance();
 
 // hashmap of timestamps we _started_ refetching some wallet
 const _lastTimeTriedToRefetchWallet: { [walletID: string]: number } = {};
@@ -35,20 +35,20 @@ interface StorageContextType {
   resetWallets: () => void;
   walletTransactionUpdateStatus: WalletTransactionsStatus | string;
   setWalletTransactionUpdateStatus: (status: WalletTransactionsStatus | string) => void;
-  getTransactions: typeof BlueApp.getTransactions;
-  fetchWalletBalances: typeof BlueApp.fetchWalletBalances;
-  fetchWalletTransactions: typeof BlueApp.fetchWalletTransactions;
-  getBalance: typeof BlueApp.getBalance;
-  isStorageEncrypted: typeof BlueApp.storageIsEncrypted;
+  getTransactions: typeof NomadApp.getTransactions;
+  fetchWalletBalances: typeof NomadApp.fetchWalletBalances;
+  fetchWalletTransactions: typeof NomadApp.fetchWalletTransactions;
+  getBalance: typeof NomadApp.getBalance;
+  isStorageEncrypted: typeof NomadApp.storageIsEncrypted;
   startAndDecrypt: typeof startAndDecrypt;
-  encryptStorage: typeof BlueApp.encryptStorage;
-  sleep: typeof BlueApp.sleep;
-  createFakeStorage: typeof BlueApp.createFakeStorage;
-  decryptStorage: typeof BlueApp.decryptStorage;
-  isPasswordInUse: typeof BlueApp.isPasswordInUse;
-  cachedPassword: typeof BlueApp.cachedPassword;
-  getItem: typeof BlueApp.getItem;
-  setItem: typeof BlueApp.setItem;
+  encryptStorage: typeof NomadApp.encryptStorage;
+  sleep: typeof NomadApp.sleep;
+  createFakeStorage: typeof NomadApp.createFakeStorage;
+  decryptStorage: typeof NomadApp.decryptStorage;
+  isPasswordInUse: typeof NomadApp.isPasswordInUse;
+  cachedPassword: typeof NomadApp.cachedPassword;
+  getItem: typeof NomadApp.getItem;
+  setItem: typeof NomadApp.setItem;
 }
 
 export enum WalletTransactionsStatus {
@@ -60,8 +60,8 @@ export enum WalletTransactionsStatus {
 export const StorageContext = createContext<StorageContextType>(undefined);
 
 export const StorageProvider = ({ children }: { children: React.ReactNode }) => {
-  const txMetadata = useRef<TTXMetadata>(BlueApp.tx_metadata);
-  const counterpartyMetadata = useRef<TCounterpartyMetadata>(BlueApp.counterparty_metadata || {}); // init
+  const txMetadata = useRef<TTXMetadata>(NomadApp.tx_metadata);
+  const counterpartyMetadata = useRef<TCounterpartyMetadata>(NomadApp.counterparty_metadata || {}); // init
 
   const [wallets, setWallets] = useState<TWallet[]>([]);
   const [selectedWalletID, setSelectedWalletID] = useState<string | undefined>();
@@ -73,15 +73,15 @@ export const StorageProvider = ({ children }: { children: React.ReactNode }) => 
 
   const saveToDisk = useCallback(
     async (force: boolean = false) => {
-      if (!force && BlueApp.getWallets().length === 0) {
+      if (!force && NomadApp.getWallets().length === 0) {
         console.debug('Not saving empty wallets array');
         return;
       }
       await InteractionManager.runAfterInteractions(async () => {
-        BlueApp.tx_metadata = txMetadata.current;
-        BlueApp.counterparty_metadata = counterpartyMetadata.current;
-        await BlueApp.saveToDisk();
-        const w: TWallet[] = [...BlueApp.getWallets()];
+        NomadApp.tx_metadata = txMetadata.current;
+        NomadApp.counterparty_metadata = counterpartyMetadata.current;
+        await NomadApp.saveToDisk();
+        const w: TWallet[] = [...NomadApp.getWallets()];
         setWallets(w);
       });
     },
@@ -90,22 +90,22 @@ export const StorageProvider = ({ children }: { children: React.ReactNode }) => 
   );
 
   const addWallet = useCallback((wallet: TWallet) => {
-    BlueApp.wallets.push(wallet);
-    setWallets([...BlueApp.getWallets()]);
+    NomadApp.wallets.push(wallet);
+    setWallets([...NomadApp.getWallets()]);
   }, []);
 
   const deleteWallet = useCallback((wallet: TWallet) => {
-    BlueApp.deleteWallet(wallet);
-    setWallets([...BlueApp.getWallets()]);
+    NomadApp.deleteWallet(wallet);
+    setWallets([...NomadApp.getWallets()]);
   }, []);
 
   const resetWallets = useCallback(() => {
-    setWallets(BlueApp.getWallets());
+    setWallets(NomadApp.getWallets());
   }, []);
 
   const setWalletsWithNewOrder = useCallback(
     (wlts: TWallet[]) => {
-      BlueApp.wallets = wlts;
+      NomadApp.wallets = wlts;
       saveToDisk();
     },
     [saveToDisk],
@@ -114,9 +114,9 @@ export const StorageProvider = ({ children }: { children: React.ReactNode }) => 
   // Initialize wallets and connect to Electrum
   useEffect(() => {
     if (walletsInitialized) {
-      txMetadata.current = BlueApp.tx_metadata;
-      counterpartyMetadata.current = BlueApp.counterparty_metadata;
-      setWallets(BlueApp.getWallets());
+      txMetadata.current = NomadApp.tx_metadata;
+      counterpartyMetadata.current = NomadApp.counterparty_metadata;
+      setWallets(NomadApp.getWallets());
     }
   }, [walletsInitialized]);
 
@@ -134,22 +134,22 @@ export const StorageProvider = ({ children }: { children: React.ReactNode }) => 
         InteractionManager.runAfterInteractions(async () => {
           let noErr = true;
           try {
-            await BlueElectrum.waitTillConnected();
+            await NomadElectrum.waitTillConnected();
             if (showUpdateStatusIndicator) {
               setWalletTransactionUpdateStatus(WalletTransactionsStatus.ALL);
             }
             const paymentCodesStart = Date.now();
-            await BlueApp.fetchSenderPaymentCodes(lastSnappedTo);
+            await NomadApp.fetchSenderPaymentCodes(lastSnappedTo);
             const paymentCodesEnd = Date.now();
             console.debug('fetch payment codes took', (paymentCodesEnd - paymentCodesStart) / 1000, 'sec');
 
             const balanceStart = Date.now();
-            await BlueApp.fetchWalletBalances(lastSnappedTo);
+            await NomadApp.fetchWalletBalances(lastSnappedTo);
             const balanceEnd = Date.now();
             console.debug('fetch balance took', (balanceEnd - balanceStart) / 1000, 'sec');
 
             const start = Date.now();
-            await BlueApp.fetchWalletTransactions(lastSnappedTo);
+            await NomadApp.fetchWalletTransactions(lastSnappedTo);
             const end = Date.now();
             console.debug('fetch tx took', (end - start) / 1000, 'sec');
           } catch (err) {
@@ -187,14 +187,14 @@ export const StorageProvider = ({ children }: { children: React.ReactNode }) => 
           }
           _lastTimeTriedToRefetchWallet[walletID] = Date.now();
 
-          await BlueElectrum.waitTillConnected();
+          await NomadElectrum.waitTillConnected();
           setWalletTransactionUpdateStatus(walletID);
           const balanceStart = Date.now();
-          await BlueApp.fetchWalletBalances(index);
+          await NomadApp.fetchWalletBalances(index);
           const balanceEnd = Date.now();
           console.debug('fetch balance took', (balanceEnd - balanceStart) / 1000, 'sec');
           const start = Date.now();
-          await BlueApp.fetchWalletTransactions(index);
+          await NomadApp.fetchWalletTransactions(index);
           const end = Date.now();
           console.debug('fetch tx took', (end - start) / 1000, 'sec');
         } catch (err) {
@@ -246,7 +246,7 @@ export const StorageProvider = ({ children }: { children: React.ReactNode }) => 
       txMetadata: txMetadata.current,
       counterpartyMetadata: counterpartyMetadata.current,
       saveToDisk,
-      getTransactions: BlueApp.getTransactions,
+      getTransactions: NomadApp.getTransactions,
       selectedWalletID,
       setSelectedWalletID,
       addWallet,
@@ -254,24 +254,24 @@ export const StorageProvider = ({ children }: { children: React.ReactNode }) => 
       currentSharedCosigner,
       setSharedCosigner: setCurrentSharedCosigner,
       addAndSaveWallet,
-      setItem: BlueApp.setItem,
-      getItem: BlueApp.getItem,
-      fetchWalletBalances: BlueApp.fetchWalletBalances,
-      fetchWalletTransactions: BlueApp.fetchWalletTransactions,
+      setItem: NomadApp.setItem,
+      getItem: NomadApp.getItem,
+      fetchWalletBalances: NomadApp.fetchWalletBalances,
+      fetchWalletTransactions: NomadApp.fetchWalletTransactions,
       fetchAndSaveWalletTransactions,
-      isStorageEncrypted: BlueApp.storageIsEncrypted,
-      encryptStorage: BlueApp.encryptStorage,
+      isStorageEncrypted: NomadApp.storageIsEncrypted,
+      encryptStorage: NomadApp.encryptStorage,
       startAndDecrypt,
-      cachedPassword: BlueApp.cachedPassword,
-      getBalance: BlueApp.getBalance,
+      cachedPassword: NomadApp.cachedPassword,
+      getBalance: NomadApp.getBalance,
       walletsInitialized,
       setWalletsInitialized,
       refreshAllWalletTransactions,
-      sleep: BlueApp.sleep,
-      createFakeStorage: BlueApp.createFakeStorage,
+      sleep: NomadApp.sleep,
+      createFakeStorage: NomadApp.createFakeStorage,
       resetWallets,
-      decryptStorage: BlueApp.decryptStorage,
-      isPasswordInUse: BlueApp.isPasswordInUse,
+      decryptStorage: NomadApp.decryptStorage,
+      isPasswordInUse: NomadApp.isPasswordInUse,
       walletTransactionUpdateStatus,
       setWalletTransactionUpdateStatus,
     }),

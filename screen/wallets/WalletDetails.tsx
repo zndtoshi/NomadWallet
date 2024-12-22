@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import { writeFileAndExport } from '../../blue_modules/fs';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueCard, BlueLoading, BlueSpacing10, BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadCard, NomadLoading, NomadSpacing10, NomadSpacing20, NomadText } from '../../NomadComponents';
 import {
   HDAezeedWallet,
   HDSegwitBech32Wallet,
@@ -435,10 +435,10 @@ const WalletDetails: React.FC = () => {
       testID="WalletDetailsScroll"
     >
       {isLoading ? (
-        <BlueLoading />
+        <NomadLoading />
       ) : (
         <View>
-          <BlueCard style={styles.address}>
+          <NomadCard style={styles.address}>
             {(() => {
               if (
                 [LegacyWallet.type, SegwitBech32Wallet.type, SegwitP2SHWallet.type].includes(wallet.type) ||
@@ -481,7 +481,7 @@ const WalletDetails: React.FC = () => {
                 testID="WalletNameInput"
               />
             </View>
-            <BlueSpacing20 />
+            <NomadSpacing20 />
             <Text style={[styles.textLabel1, stylesHook.textLabel1]}>{loc.wallets.details_type.toLowerCase()}</Text>
             <Text style={[styles.textValue, stylesHook.textValue]} selectable>
               {wallet.typeReadable}
@@ -490,40 +490,40 @@ const WalletDetails: React.FC = () => {
             {wallet.type === MultisigHDWallet.type && (
               <>
                 <Text style={[styles.textLabel2, stylesHook.textLabel2]}>{loc.wallets.details_multisig_type}</Text>
-                <BlueText>
+                <NomadText>
                   {`${wallet.getM()} / ${wallet.getN()} (${
                     wallet.isNativeSegwit() ? 'native segwit' : wallet.isWrappedSegwit() ? 'wrapped segwit' : 'legacy'
                   })`}
-                </BlueText>
+                </NomadText>
               </>
             )}
             {wallet.type === MultisigHDWallet.type && (
               <>
                 <Text style={[styles.textLabel2, stylesHook.textLabel2]}>{loc.multisig.how_many_signatures_can_bluewallet_make}</Text>
-                <BlueText>{wallet.howManySignaturesCanWeMake()}</BlueText>
+                <NomadText>{wallet.howManySignaturesCanWeMake()}</NomadText>
               </>
             )}
 
             {wallet.type === LightningCustodianWallet.type && (
               <>
                 <Text style={[styles.textLabel1, stylesHook.textLabel1]}>{loc.wallets.details_connected_to.toLowerCase()}</Text>
-                <BlueText>{wallet.getBaseURI()}</BlueText>
+                <NomadText>{wallet.getBaseURI()}</NomadText>
               </>
             )}
 
             {wallet.type === HDAezeedWallet.type && (
               <>
                 <Text style={[styles.textLabel1, stylesHook.textLabel1]}>{loc.wallets.identity_pubkey.toLowerCase()}</Text>
-                <BlueText>{wallet.getIdentityPubkey()}</BlueText>
+                <NomadText>{wallet.getIdentityPubkey()}</NomadText>
               </>
             )}
-            <BlueSpacing20 />
+            <NomadSpacing20 />
             <>
               <Text onPress={exportInternals} style={[styles.textLabel2, stylesHook.textLabel2]}>
                 {loc.transactions.list_title.toLowerCase()}
               </Text>
               <View style={styles.hardware}>
-                <BlueText>{loc.wallets.details_display}</BlueText>
+                <NomadText>{loc.wallets.details_display}</NomadText>
                 <Switch
                   value={hideTransactionsInWalletsList}
                   onValueChange={async (value: boolean) => {
@@ -546,14 +546,14 @@ const WalletDetails: React.FC = () => {
               <Text onPress={purgeTransactions} style={[styles.textLabel2, stylesHook.textLabel2]}>
                 {loc.transactions.transactions_count.toLowerCase()}
               </Text>
-              <BlueText>{wallet.getTransactions().length}</BlueText>
+              <NomadText>{wallet.getTransactions().length}</NomadText>
             </>
 
             {wallet.allowBIP47 && wallet.allowBIP47() ? (
               <>
                 <Text style={[styles.textLabel2, stylesHook.textLabel2]}>{loc.bip47.payment_code}</Text>
                 <View style={styles.hardware}>
-                  <BlueText>{loc.bip47.purpose}</BlueText>
+                  <NomadText>{loc.bip47.purpose}</NomadText>
                   <Switch
                     value={isBIP47Enabled}
                     onValueChange={async (value: boolean) => {
@@ -578,10 +578,10 @@ const WalletDetails: React.FC = () => {
             <View>
               {wallet.type === WatchOnlyWallet.type && wallet.isHd && wallet.isHd() && (
                 <>
-                  <BlueSpacing10 />
+                  <NomadSpacing10 />
                   <Text style={[styles.textLabel2, stylesHook.textLabel2]}>{loc.wallets.details_advanced.toLowerCase()}</Text>
                   <View style={styles.hardware}>
-                    <BlueText>{loc.wallets.details_use_with_hardware_wallet}</BlueText>
+                    <NomadText>{loc.wallets.details_use_with_hardware_wallet}</NomadText>
                     <Switch
                       value={walletUseWithHardwareWallet}
                       onValueChange={async (value: boolean) => {
@@ -606,10 +606,10 @@ const WalletDetails: React.FC = () => {
                   <View style={styles.marginRight16}>
                     <Text style={[styles.textLabel2, stylesHook.textLabel2]}>{loc.wallets.details_master_fingerprint.toLowerCase()}</Text>
                     {isMasterFingerPrintVisible ? (
-                      <BlueText selectable>{masterFingerprint ?? <ActivityIndicator />}</BlueText>
+                      <NomadText selectable>{masterFingerprint ?? <ActivityIndicator />}</NomadText>
                     ) : (
                       <TouchableOpacity onPress={onViewMasterFingerPrintPress}>
-                        <BlueText>{loc.multisig.view}</BlueText>
+                        <NomadText>{loc.multisig.view}</NomadText>
                       </TouchableOpacity>
                     )}
                   </View>
@@ -618,25 +618,25 @@ const WalletDetails: React.FC = () => {
                 {derivationPath && (
                   <View>
                     <Text style={[styles.textLabel2, stylesHook.textLabel2]}>{loc.wallets.details_derivation_path}</Text>
-                    <BlueText selectable testID="DerivationPath">
+                    <NomadText selectable testID="DerivationPath">
                       {derivationPath}
-                    </BlueText>
+                    </NomadText>
                   </View>
                 )}
               </View>
             </View>
-          </BlueCard>
+          </NomadCard>
           {(wallet instanceof AbstractHDElectrumWallet || (wallet.type === WatchOnlyWallet.type && wallet.isHd && wallet.isHd())) && (
             <ListItem onPress={navigateToAddresses} title={loc.wallets.details_show_addresses} chevron />
           )}
           {isContactsVisible ? <ListItem onPress={navigateToContacts} title={loc.bip47.contacts} chevron /> : null}
-          <BlueCard style={styles.address}>
+          <NomadCard style={styles.address}>
             <View>
-              <BlueSpacing20 />
+              <NomadSpacing20 />
               <Button onPress={navigateToWalletExport} testID="WalletExport" title={loc.wallets.details_export_backup} />
               {wallet.type === MultisigHDWallet.type && (
                 <>
-                  <BlueSpacing20 />
+                  <NomadSpacing20 />
                   <SecondButton
                     onPress={navigateToMultisigCoordinationSetup}
                     testID="MultisigCoordinationSetup"
@@ -647,27 +647,27 @@ const WalletDetails: React.FC = () => {
 
               {wallet.type === MultisigHDWallet.type && (
                 <>
-                  <BlueSpacing20 />
+                  <NomadSpacing20 />
                   <SecondButton onPress={navigateToViewEditCosigners} testID="ViewEditCosigners" title={loc.multisig.view_edit_cosigners} />
                 </>
               )}
 
               {wallet.allowXpub && wallet.allowXpub() && (
                 <>
-                  <BlueSpacing20 />
+                  <NomadSpacing20 />
                   <SecondButton onPress={navigateToXPub} testID="XPub" title={loc.wallets.details_show_xpub} />
                 </>
               )}
               {wallet.allowSignVerifyMessage && wallet.allowSignVerifyMessage() && (
                 <>
-                  <BlueSpacing20 />
+                  <NomadSpacing20 />
                   <SecondButton onPress={navigateToSignVerify} testID="SignVerify" title={loc.addresses.sign_title} />
                 </>
               )}
-              <BlueSpacing20 />
-              <BlueSpacing20 />
+              <NomadSpacing20 />
+              <NomadSpacing20 />
             </View>
-          </BlueCard>
+          </NomadCard>
         </View>
       )}
     </ScrollView>

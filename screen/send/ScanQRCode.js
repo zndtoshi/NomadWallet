@@ -9,8 +9,8 @@ import { launchImageLibrary } from 'react-native-image-picker';
 
 import Base43 from '../../blue_modules/base43';
 import * as fs from '../../blue_modules/fs';
-import { BlueURDecoder, decodeUR, extractSingleWorkload } from '../../blue_modules/ur';
-import { BlueLoading, BlueSpacing40, BlueText } from '../../BlueComponents';
+import { NomadURDecoder, decodeUR, extractSingleWorkload } from '../../blue_modules/ur';
+import { NomadLoading, NomadSpacing40, NomadText } from '../../NomadComponents';
 import { openPrivacyDesktopSettings } from '../../class/camera';
 import presentAlert from '../../components/Alert';
 import Button from '../../components/Button';
@@ -132,7 +132,7 @@ const ScanQRCode = () => {
   );
 
   const _onReadUniformResourceV2 = part => {
-    if (!decoder) decoder = new BlueURDecoder();
+    if (!decoder) decoder = new NomadURDecoder();
     try {
       decoder.receivePart(part);
       if (decoder.isComplete()) {
@@ -350,13 +350,13 @@ const ScanQRCode = () => {
   };
 
   const render = isLoading ? (
-    <BlueLoading />
+    <NomadLoading />
   ) : (
     <>
       {!cameraStatusGranted ? (
         <View style={[styles.openSettingsContainer, stylesHook.openSettingsContainer]}>
-          <BlueText>{loc.send.permission_camera_message}</BlueText>
-          <BlueSpacing40 />
+          <NomadText>{loc.send.permission_camera_message}</NomadText>
+          <NomadSpacing40 />
           <Button title={loc.send.open_settings} onPress={openPrivacyDesktopSettings} />
         </View>
       ) : isFocused ? (
@@ -392,15 +392,15 @@ const ScanQRCode = () => {
       )}
       {urTotal > 0 && (
         <View style={[styles.progressWrapper, stylesHook.progressWrapper]} testID="UrProgressBar">
-          <BlueText>{loc.wallets.please_continue_scanning}</BlueText>
-          <BlueText>
+          <NomadText>{loc.wallets.please_continue_scanning}</NomadText>
+          <NomadText>
             {urHave} / {urTotal}
-          </BlueText>
+          </NomadText>
         </View>
       )}
       {backdoorVisible && (
         <View style={styles.backdoorInputWrapper}>
-          <BlueText>Provide QR code contents manually:</BlueText>
+          <NomadText>Provide QR code contents manually:</NomadText>
           <TextInput
             testID="scanQrBackdoorInput"
             multiline

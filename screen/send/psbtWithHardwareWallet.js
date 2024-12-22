@@ -5,9 +5,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Linking, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
 import RNFS from 'react-native-fs';
-import * as BlueElectrum from '../../blue_modules/BlueElectrum';
+import * as NomadElectrum from '../../blue_modules/NomadElectrum';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueCard, BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadCard, NomadSpacing20, NomadText } from '../../NomadComponents';
 import presentAlert from '../../components/Alert';
 import CopyToClipboardButton from '../../components/CopyToClipboardButton';
 import { DynamicQRCode } from '../../components/DynamicQRCode';
@@ -129,8 +129,8 @@ const PsbtWithHardwareWallet = () => {
       }
     }
     try {
-      await BlueElectrum.ping();
-      await BlueElectrum.waitTillConnected();
+      await NomadElectrum.ping();
+      await NomadElectrum.waitTillConnected();
       const result = await wallet.broadcastTx(txHex);
       if (result) {
         setIsLoading(false);
@@ -166,8 +166,8 @@ const PsbtWithHardwareWallet = () => {
   const _renderBroadcastHex = () => {
     return (
       <View style={[styles.rootPadding, stylesHook.rootPadding]}>
-        <BlueCard style={[styles.hexWrap, stylesHook.hexWrap]}>
-          <BlueText style={[styles.hexLabel, stylesHook.hexLabel]}>{loc.send.create_this_is_hex}</BlueText>
+        <NomadCard style={[styles.hexWrap, stylesHook.hexWrap]}>
+          <NomadText style={[styles.hexLabel, stylesHook.hexLabel]}>{loc.send.create_this_is_hex}</NomadText>
           <TextInput style={[styles.hexInput, stylesHook.hexInput]} height={112} multiline editable value={txHex} />
 
           <TouchableOpacity accessibilityRole="button" style={styles.hexTouch} onPress={copyHexToClipboard}>
@@ -176,14 +176,14 @@ const PsbtWithHardwareWallet = () => {
           <TouchableOpacity accessibilityRole="button" style={styles.hexTouch} onPress={handleOnVerifyPressed}>
             <Text style={[styles.hexText, stylesHook.hexText]}>{loc.send.create_verify}</Text>
           </TouchableOpacity>
-          <BlueSpacing20 />
+          <NomadSpacing20 />
           <SecondButton
             disabled={isElectrumDisabled}
             onPress={broadcast}
             title={loc.send.confirm_sendNow}
             testID="PsbtWithHardwareWalletBroadcastTransactionButton"
           />
-        </BlueCard>
+        </NomadCard>
       </View>
     );
   };
@@ -230,14 +230,14 @@ const PsbtWithHardwareWallet = () => {
     <ActivityIndicator />
   ) : (
     <View style={styles.container}>
-      <BlueCard>
-        <BlueText testID="TextHelperForPSBT">{loc.send.psbt_this_is_psbt}</BlueText>
-        <BlueSpacing20 />
+      <NomadCard>
+        <NomadText testID="TextHelperForPSBT">{loc.send.psbt_this_is_psbt}</NomadText>
+        <NomadSpacing20 />
         <Text testID="PSBTHex" style={styles.hidden}>
           {psbt.toHex()}
         </Text>
         <DynamicQRCode value={psbt.toHex()} ref={dynamicQRCode} />
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <SecondButton
           testID="PsbtTxScanButton"
           icon={{
@@ -249,7 +249,7 @@ const PsbtWithHardwareWallet = () => {
           ref={openScannerButton}
           title={loc.send.psbt_tx_scan}
         />
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <SecondButton
           icon={{
             name: 'login',
@@ -259,7 +259,7 @@ const PsbtWithHardwareWallet = () => {
           onPress={openSignedTransaction}
           title={loc.send.psbt_tx_open}
         />
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <SaveFileButton
           fileName={`${Date.now()}.psbt`}
           fileContent={typeof psbt === 'string' ? psbt : psbt.toBase64()}
@@ -276,11 +276,11 @@ const PsbtWithHardwareWallet = () => {
             title={loc.send.psbt_tx_export}
           />
         </SaveFileButton>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <View style={styles.copyToClipboard}>
           <CopyToClipboardButton stringToCopy={typeof psbt === 'string' ? psbt : psbt.toBase64()} displayText={loc.send.psbt_clipboard} />
         </View>
-      </BlueCard>
+      </NomadCard>
     </View>
   );
 

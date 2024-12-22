@@ -5,7 +5,7 @@ import { getApplicationName, getBuildNumber, getBundleId, getUniqueIdSync, getVe
 import { Icon } from '@rneui/themed';
 import Rate, { AndroidMarket } from 'react-native-rate';
 import A from '../../blue_modules/analytics';
-import { BlueCard, BlueSpacing20, BlueTextCentered } from '../../BlueComponents';
+import { NomadCard, NomadSpacing20, NomadTextCentered } from '../../NomadComponents';
 import { HDSegwitBech32Wallet } from '../../class';
 import presentAlert from '../../components/Alert';
 import Button from '../../components/Button';
@@ -67,7 +67,7 @@ const About: React.FC = () => {
   };
 
   const handleOnGithubPress = () => {
-    Linking.openURL('https://github.com/BlueWallet/BlueWallet');
+    Linking.openURL('https://github.com/NomadWallet/NomadWallet');
   };
 
   const handleOnRatePress = () => {
@@ -88,7 +88,7 @@ const About: React.FC = () => {
 
   return (
     <ScrollView testID="AboutScrollView" contentInsetAdjustmentBehavior="automatic" automaticallyAdjustContentInsets>
-      <BlueCard>
+      <NomadCard>
         <View style={styles.center}>
           <Image style={styles.logo} source={require('../../img/bluebeast.png')} />
           <Text style={styles.textFree}>{loc.settings.about_free}</Text>
@@ -97,7 +97,7 @@ const About: React.FC = () => {
             <Button onPress={handleOnRatePress} title={loc.settings.about_review + ' ⭐🙏'} />
           )}
         </View>
-      </BlueCard>
+      </NomadCard>
       <ListItem
         leftIcon={{
           name: 'twitter',
@@ -125,22 +125,22 @@ const About: React.FC = () => {
         onPress={handleOnDiscordPress}
         title={loc.settings.about_sm_discord}
       />
-      <BlueCard>
+      <NomadCard>
         <View style={[styles.buildWith, stylesHook.buildWith]}>
-          <BlueSpacing20 />
-          <BlueTextCentered>{loc.settings.about_awesome} 👍</BlueTextCentered>
-          <BlueSpacing20 />
-          <BlueTextCentered>React Native</BlueTextCentered>
-          <BlueTextCentered>bitcoinjs-lib</BlueTextCentered>
-          <BlueTextCentered>Nodejs</BlueTextCentered>
-          <BlueTextCentered>Electrum server</BlueTextCentered>
-          <BlueSpacing20 />
+          <NomadSpacing20 />
+          <NomadTextCentered>{loc.settings.about_awesome} 👍</NomadTextCentered>
+          <NomadSpacing20 />
+          <NomadTextCentered>React Native</NomadTextCentered>
+          <NomadTextCentered>bitcoinjs-lib</NomadTextCentered>
+          <NomadTextCentered>Nodejs</NomadTextCentered>
+          <NomadTextCentered>Electrum server</NomadTextCentered>
+          <NomadSpacing20 />
           <TouchableOpacity accessibilityRole="button" onPress={handleOnGithubPress} style={[styles.buttonLink, stylesHook.buttonLink]}>
             <Icon size={22} name="github" type="font-awesome-5" color={colors.foregroundColor} />
             <Text style={[styles.textLink, stylesHook.textLink]}>{formatStringAddTwoWhiteSpaces(loc.settings.about_sm_github)}</Text>
           </TouchableOpacity>
         </View>
-      </BlueCard>
+      </NomadCard>
       <ListItem
         leftIcon={{
           name: 'book',
@@ -197,17 +197,17 @@ const About: React.FC = () => {
         }}
         title={loc.settings.run_performance_test}
       />
-      <BlueSpacing20 />
-      <BlueSpacing20 />
-      <BlueTextCentered>
+      <NomadSpacing20 />
+      <NomadSpacing20 />
+      <NomadTextCentered>
         {getApplicationName()} ver {getVersion()} (build {getBuildNumber() + ' ' + branch})
-      </BlueTextCentered>
-      <BlueTextCentered>{new Date(Number(getBuildNumber()) * 1000).toUTCString()}</BlueTextCentered>
-      <BlueTextCentered>{getBundleId()}</BlueTextCentered>
-      <BlueTextCentered>
+      </NomadTextCentered>
+      <NomadTextCentered>{new Date(Number(getBuildNumber()) * 1000).toUTCString()}</NomadTextCentered>
+      <NomadTextCentered>{getBundleId()}</NomadTextCentered>
+      <NomadTextCentered>
         w, h = {width}, {height}
-      </BlueTextCentered>
-      <BlueTextCentered>Unique ID: {getUniqueIdSync()}</BlueTextCentered>
+      </NomadTextCentered>
+      <NomadTextCentered>Unique ID: {getUniqueIdSync()}</NomadTextCentered>
       <View style={styles.copyToClipboard}>
         <TouchableOpacity
           accessibilityRole="button"
@@ -220,8 +220,8 @@ const About: React.FC = () => {
           <Text style={styles.copyToClipboardText}>{loc.transactions.details_copy}</Text>
         </TouchableOpacity>
       </View>
-      <BlueSpacing20 />
-      <BlueSpacing20 />
+      <NomadSpacing20 />
+      <NomadSpacing20 />
     </ScrollView>
   );
 };

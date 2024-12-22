@@ -5,7 +5,7 @@ import { I18nManager, Image, ScrollView, StyleSheet, Text, TouchableOpacity, Vie
 import { Icon } from '@rneui/themed';
 import { btcToSatoshi, fiatToBTC, satoshiToBTC, satoshiToLocalCurrency } from '../../blue_modules/currency';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueCard, BlueLoading, BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadCard, NomadLoading, NomadSpacing20, NomadText } from '../../NomadComponents';
 import Lnurl from '../../class/lnurl';
 import presentAlert from '../../components/Alert';
 import AmountInput from '../../components/AmountInput';
@@ -199,7 +199,7 @@ const LnurlPay: React.FC = () => {
     return (
       <SafeArea>
         <ScrollView contentContainerStyle={styles.scrollviewContainer}>
-          <BlueCard>
+          <NomadCard>
             <AmountInput
               isLoading={isLoading}
               amount={amount}
@@ -210,25 +210,25 @@ const LnurlPay: React.FC = () => {
               inputAccessoryViewID={DismissKeyboardInputAccessoryViewID}
             />
             <DismissKeyboardInputAccessory />
-            <BlueText style={styles.alignSelfCenter}>
+            <NomadText style={styles.alignSelfCenter}>
               {loc.formatString(loc.lndViewInvoice.please_pay_between_and, {
                 min: formatBalance(payload?.min, unit),
                 max: formatBalance(payload?.max, unit),
               })}
-            </BlueText>
-            <BlueSpacing20 />
+            </NomadText>
+            <NomadSpacing20 />
             {payload?.image && (
               <>
                 <Image style={styles.img} source={{ uri: payload?.image }} />
-                <BlueSpacing20 />
+                <NomadSpacing20 />
               </>
             )}
-            <BlueText style={styles.alignSelfCenter}>{payload?.description}</BlueText>
-            <BlueText style={styles.alignSelfCenter}>{payload?.domain}</BlueText>
-            <BlueSpacing20 />
-            {payButtonDisabled ? <BlueLoading /> : <Button title={loc.lnd.payButton} onPress={pay} />}
-            <BlueSpacing20 />
-          </BlueCard>
+            <NomadText style={styles.alignSelfCenter}>{payload?.description}</NomadText>
+            <NomadText style={styles.alignSelfCenter}>{payload?.domain}</NomadText>
+            <NomadSpacing20 />
+            {payButtonDisabled ? <NomadLoading /> : <Button title={loc.lnd.payButton} onPress={pay} />}
+            <NomadSpacing20 />
+          </NomadCard>
         </ScrollView>
         {renderWalletSelectionButton}
       </SafeArea>
@@ -237,7 +237,7 @@ const LnurlPay: React.FC = () => {
 
   return isLoading || !wallet || amount === undefined ? (
     <View style={[styles.root, stylesHook.root]}>
-      <BlueLoading />
+      <NomadLoading />
     </View>
   ) : (
     renderGotPayload()

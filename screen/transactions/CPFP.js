@@ -3,14 +3,14 @@ import { ActivityIndicator, Linking, ScrollView, StyleSheet, TextInput, Touchabl
 import Clipboard from '@react-native-clipboard/clipboard';
 import PropTypes from 'prop-types';
 import { Text } from '@rneui/themed';
-import * as BlueElectrum from '../../blue_modules/BlueElectrum';
+import * as NomadElectrum from '../../blue_modules/NomadElectrum';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueCard, BlueSpacing, BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadCard, NomadSpacing, NomadSpacing20, NomadText } from '../../NomadComponents';
 import { HDSegwitBech32Transaction, HDSegwitBech32Wallet } from '../../class';
 import presentAlert, { AlertType } from '../../components/Alert';
 import Button from '../../components/Button';
 import SafeArea from '../../components/SafeArea';
-import { BlueCurrentTheme } from '../../components/themes';
+import { NomadCurrentTheme } from '../../components/themes';
 import loc from '../../loc';
 import { StorageContext } from '../../components/Context/StorageProvider';
 import { popToTop } from '../../NavigationService';
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   hex: {
-    color: BlueCurrentTheme.colors.buttonAlternativeTextColor,
+    color: NomadCurrentTheme.colors.buttonAlternativeTextColor,
     fontWeight: '500',
   },
   hexInput: {
@@ -77,8 +77,8 @@ export default class CPFP extends Component {
   broadcast = () => {
     this.setState({ isLoading: true }, async () => {
       try {
-        await BlueElectrum.ping();
-        await BlueElectrum.waitTillConnected();
+        await NomadElectrum.ping();
+        await NomadElectrum.waitTillConnected();
         const result = await this.state.wallet.broadcastTx(this.state.txhex);
         if (result) {
           this.onSuccessBroadcast();
@@ -152,18 +152,18 @@ export default class CPFP extends Component {
   renderStage1(text) {
     return (
       <SafeArea style={styles.root}>
-        <BlueSpacing />
-        <BlueCard style={styles.center}>
-          <BlueText>{text}</BlueText>
-          <BlueSpacing20 />
+        <NomadSpacing />
+        <NomadCard style={styles.center}>
+          <NomadText>{text}</NomadText>
+          <NomadSpacing20 />
           <ReplaceFeeSuggestions onFeeSelected={fee => this.setState({ newFeeRate: fee })} transactionMinimum={this.state.feeRate} />
-          <BlueSpacing />
+          <NomadSpacing />
           <Button
             disabled={this.state.newFeeRate <= this.state.feeRate}
             onPress={() => this.createTransaction()}
             title={loc.transactions.cpfp_create}
           />
-        </BlueCard>
+        </NomadCard>
       </SafeArea>
     );
   }
@@ -171,8 +171,8 @@ export default class CPFP extends Component {
   renderStage2() {
     return (
       <View style={styles.root}>
-        <BlueCard style={styles.center}>
-          <BlueText style={styles.hex}>{loc.send.create_this_is_hex}</BlueText>
+        <NomadCard style={styles.center}>
+          <NomadText style={styles.hex}>{loc.send.create_this_is_hex}</NomadText>
           <TextInput style={styles.hexInput} height={112} multiline editable value={this.state.txhex} />
 
           <TouchableOpacity accessibilityRole="button" style={styles.action} onPress={() => Clipboard.setString(this.state.txhex)}>
@@ -186,7 +186,7 @@ export default class CPFP extends Component {
             <Text style={styles.actionText}>{loc.send.create_verify}</Text>
           </TouchableOpacity>
           <Button disabled={this.context.isElectrumDisabled} onPress={this.broadcast} title={loc.send.confirm_sendNow} />
-        </BlueCard>
+        </NomadCard>
       </View>
     );
   }
@@ -207,13 +207,13 @@ export default class CPFP extends Component {
     if (this.state.nonReplaceable) {
       return (
         <SafeArea style={styles.root}>
-          <BlueSpacing20 />
-          <BlueSpacing20 />
-          <BlueSpacing20 />
-          <BlueSpacing20 />
-          <BlueSpacing20 />
+          <NomadSpacing20 />
+          <NomadSpacing20 />
+          <NomadSpacing20 />
+          <NomadSpacing20 />
+          <NomadSpacing20 />
 
-          <BlueText h4>{loc.transactions.cpfp_no_bump}</BlueText>
+          <NomadText h4>{loc.transactions.cpfp_no_bump}</NomadText>
         </SafeArea>
       );
     }

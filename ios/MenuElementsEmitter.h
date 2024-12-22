@@ -1,6 +1,6 @@
 //
 //  MenuElementsEmitter.h
-//  BlueWallet
+//  NomadWallet
 //
 
 #import <React/RCTEventEmitter.h>

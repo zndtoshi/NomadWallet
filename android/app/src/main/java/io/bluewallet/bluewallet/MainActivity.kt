@@ -15,7 +15,7 @@ class MainActivity : ReactActivity() {
      * This is used to schedule rendering of the component.
      */
     override fun getMainComponentName(): String {
-        return "BlueWallet"
+        return "NomadWallet"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

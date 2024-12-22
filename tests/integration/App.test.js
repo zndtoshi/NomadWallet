@@ -6,7 +6,7 @@ import { Header } from '../../components/Header';
 import SelfTest from '../../screen/settings/SelfTest';
 import Settings from '../../screen/settings/Settings';
 
-jest.mock('../../blue_modules/BlueElectrum', () => {
+jest.mock('../../blue_modules/NomadElectrum', () => {
   return {
     connectMain: jest.fn(),
   };

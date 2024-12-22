@@ -1,9 +1,9 @@
 //
 //  Handoff.swift
-//  BlueWalletWatch Extension
+//  NomadWalletWatch Extension
 //
 //  Created by Admin on 9/27/21.
-//  Copyright © 2021 BlueWallet. All rights reserved.
+//  Copyright © 2021 NomadWallet. All rights reserved.
 //
 
 import Foundation

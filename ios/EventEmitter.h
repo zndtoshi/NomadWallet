@@ -1,9 +1,9 @@
 //
 //  EventEmitter.h
-//  BlueWallet
+//  NomadWallet
 //
 //  Created by Marcos Rodriguez on 12/25/20.
-//  Copyright © 2020 BlueWallet. All rights reserved.
+//  Copyright © 2020 NomadWallet. All rights reserved.
 //
 
 #import <React/RCTBridgeModule.h>

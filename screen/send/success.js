@@ -5,7 +5,7 @@ import LottieView from 'lottie-react-native';
 import PropTypes from 'prop-types';
 import { StyleSheet, View } from 'react-native';
 import { Text } from '@rneui/themed';
-import { BlueCard } from '../../BlueComponents';
+import { NomadCard } from '../../NomadComponents';
 import Button from '../../components/Button';
 import SafeArea from '../../components/SafeArea';
 import { useTheme } from '../../components/themes';
@@ -92,7 +92,7 @@ export const SuccessView = ({ amount, amountUnit, fee, invoiceDescription, shoul
   return (
     <View style={styles.root}>
       {amount || fee > 0 ? (
-        <BlueCard style={styles.amount}>
+        <NomadCard style={styles.amount}>
           <View style={styles.view}>
             {amount ? (
               <>
@@ -109,7 +109,7 @@ export const SuccessView = ({ amount, amountUnit, fee, invoiceDescription, shoul
           <Text numberOfLines={0} style={styles.feeText}>
             {invoiceDescription}
           </Text>
-        </BlueCard>
+        </NomadCard>
       ) : null}
 
       <View style={styles.ready}>

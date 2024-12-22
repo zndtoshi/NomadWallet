@@ -3,9 +3,9 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { ActivityIndicator, BackHandler, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Icon } from '@rneui/themed';
-import * as BlueElectrum from '../../blue_modules/BlueElectrum';
+import * as NomadElectrum from '../../blue_modules/NomadElectrum';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueCard, BlueLoading, BlueSpacing10, BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadCard, NomadLoading, NomadSpacing10, NomadSpacing20, NomadText } from '../../NomadComponents';
 import { HDSegwitBech32Transaction, HDSegwitBech32Wallet } from '../../class';
 import { Transaction, TWallet } from '../../class/wallets/types';
 import Button from '../../components/Button';
@@ -219,7 +219,7 @@ const TransactionStatus: React.FC<TransactionStatusProps> = ({ transaction, txid
         setIntervalMs(31000); // upon first execution we increase poll interval;
 
         console.debug('checking tx', hash, 'for confirmations...');
-        const transactions = await BlueElectrum.multiGetTransactionByTxid([hash], true, 10);
+        const transactions = await NomadElectrum.multiGetTransactionByTxid([hash], true, 10);
         const txFromElectrum = transactions[hash];
         if (!txFromElectrum) {
           console.error(`Transaction from Electrum with hash ${hash} not found.`);
@@ -235,7 +235,7 @@ const TransactionStatus: React.FC<TransactionStatusProps> = ({ transaction, txid
         }
 
         if (!txFromElectrum.confirmations && txFromElectrum.vsize) {
-          const txsM = await BlueElectrum.getMempoolTransactionsByAddress(address);
+          const txsM = await NomadElectrum.getMempoolTransactionsByAddress(address);
           let txFromMempool;
           // searching for a correct tx in case this address has several pending txs:
           for (const tempTxM of txsM) {
@@ -252,7 +252,7 @@ const TransactionStatus: React.FC<TransactionStatusProps> = ({ transaction, txid
           console.debug('txFromMempool=', txFromMempool);
 
           const satPerVbyte = txFromMempool.fee && txFromElectrum.vsize ? Math.round(txFromMempool.fee / txFromElectrum.vsize) : 0;
-          const fees = await BlueElectrum.estimateFees();
+          const fees = await NomadElectrum.estimateFees();
           console.debug('fees=', fees, 'satPerVbyte=', satPerVbyte);
           if (satPerVbyte >= fees.fast) {
             setEta(loc.formatString(loc.transactions.eta_10m));
@@ -419,14 +419,14 @@ const TransactionStatus: React.FC<TransactionStatusProps> = ({ transaction, txid
       return (
         <>
           <ActivityIndicator />
-          <BlueSpacing20 />
+          <NomadSpacing20 />
         </>
       );
     } else if (isCPFPPossible === ButtonStatus.Possible) {
       return (
         <>
           <Button onPress={navigateToCPFP} title={loc.transactions.status_bump} />
-          <BlueSpacing10 />
+          <NomadSpacing10 />
         </>
       );
     }
@@ -447,7 +447,7 @@ const TransactionStatus: React.FC<TransactionStatusProps> = ({ transaction, txid
               {loc.transactions.status_cancel}
             </Text>
           </TouchableOpacity>
-          <BlueSpacing10 />
+          <NomadSpacing10 />
         </>
       );
     }
@@ -458,14 +458,14 @@ const TransactionStatus: React.FC<TransactionStatusProps> = ({ transaction, txid
       return (
         <>
           <ActivityIndicator />
-          <BlueSpacing20 />
+          <NomadSpacing20 />
         </>
       );
     } else if (isRBFBumpFeePossible === ButtonStatus.Possible) {
       return (
         <>
           <Button onPress={navigateToRBFBumpFee} title={loc.transactions.status_bump} />
-          <BlueSpacing10 />
+          <NomadSpacing10 />
         </>
       );
     }
@@ -508,7 +508,7 @@ const TransactionStatus: React.FC<TransactionStatusProps> = ({ transaction, txid
                 counterparty,
               })}
         </Text>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
       </View>
     );
   };
@@ -518,7 +518,7 @@ const TransactionStatus: React.FC<TransactionStatusProps> = ({ transaction, txid
       // Fetch transaction details using txid
       const fetchTransaction = async () => {
         try {
-          const transactions = await BlueElectrum.multiGetTransactionByTxid([txid], true, 10);
+          const transactions = await NomadElectrum.multiGetTransactionByTxid([txid], true, 10);
           const fetchedTx = transactions[txid];
           if (fetchedTx) {
             setTX(fetchedTx);
@@ -558,13 +558,13 @@ const TransactionStatus: React.FC<TransactionStatusProps> = ({ transaction, txid
   return (
     <SafeArea>
       {loadingError ? (
-        <BlueCard>
-          <BlueText>{loc.transactions.transaction_loading_error}</BlueText>
-        </BlueCard>
+        <NomadCard>
+          <NomadText>{loc.transactions.transaction_loading_error}</NomadText>
+        </NomadCard>
       ) : isLoading || !tx || wallet === undefined ? (
-        <BlueLoading />
+        <NomadLoading />
       ) : !transaction && !tx ? (
-        <BlueText>{loc.transactions.transaction_not_available}</BlueText>
+        <NomadText>{loc.transactions.transaction_not_available}</NomadText>
       ) : (
         <>
           <HandOffComponent
@@ -574,7 +574,7 @@ const TransactionStatus: React.FC<TransactionStatusProps> = ({ transaction, txid
           />
 
           <View style={styles.container}>
-            <BlueCard>
+            <NomadCard>
               <View style={styles.center}>
                 <Text style={[styles.value, stylesHook.value]} selectable>
                   {wallet && formatBalanceWithoutSuffix(tx.value, wallet.preferredBalanceUnit, true)}
@@ -619,11 +619,11 @@ const TransactionStatus: React.FC<TransactionStatusProps> = ({ transaction, txid
 
               {tx.fee && (
                 <View style={styles.fee}>
-                  <BlueText style={styles.feeText}>
+                  <NomadText style={styles.feeText}>
                     {`${loc.send.create_fee.toLowerCase()} `}
                     {formatBalanceWithoutSuffix(tx.fee, wallet?.preferredBalanceUnit ?? BitcoinUnit.BTC, true)}
                     {wallet?.preferredBalanceUnit !== BitcoinUnit.LOCAL_CURRENCY && wallet?.preferredBalanceUnit}
-                  </BlueText>
+                  </NomadText>
                 </View>
               )}
 
@@ -636,11 +636,11 @@ const TransactionStatus: React.FC<TransactionStatusProps> = ({ transaction, txid
               </View>
               {eta ? (
                 <View style={styles.eta}>
-                  <BlueSpacing10 />
+                  <NomadSpacing10 />
                   <Text style={styles.confirmationsText}>{eta}</Text>
                 </View>
               ) : null}
-            </BlueCard>
+            </NomadCard>
 
             <View style={styles.actions}>
               {renderCPFP()}

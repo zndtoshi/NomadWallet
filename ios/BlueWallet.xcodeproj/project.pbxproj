@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		17CDA0718F42DB2CE856C872 /* libPods-BlueWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 040819EDF8BD9C50A9C83E24 /* libPods-BlueWallet.a */; };
+		17CDA0718F42DB2CE856C872 /* libPods-NomadWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 040819EDF8BD9C50A9C83E24 /* libPods-NomadWallet.a */; };
 		32B5A32A2334450100F8D608 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B5A3292334450100F8D608 /* Bridge.swift */; };
 		32F0A29A2311DBB20095C559 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0A2992311DBB20095C559 /* ComplicationController.swift */; };
 		6D2A6464258BA92D0092292B /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D2A6463258BA92D0092292B /* Stickers.xcassets */; };
@@ -48,10 +48,10 @@
 		84E05A842721191B001A0D3A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84E05A832721191B001A0D3A /* Settings.bundle */; };
 		B40D4E34225841EC00428FCC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B40D4E32225841EC00428FCC /* Interface.storyboard */; };
 		B40D4E36225841ED00428FCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B40D4E35225841ED00428FCC /* Assets.xcassets */; };
-		B40D4E3D225841ED00428FCC /* BlueWalletWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B40D4E3C225841ED00428FCC /* BlueWalletWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B40D4E3D225841ED00428FCC /* NomadWalletWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B40D4E3C225841ED00428FCC /* NomadWalletWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B40D4E44225841ED00428FCC /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40D4E43225841ED00428FCC /* ExtensionDelegate.swift */; };
 		B40D4E46225841ED00428FCC /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40D4E45225841ED00428FCC /* NotificationController.swift */; };
-		B40D4E4D225841ED00428FCC /* BlueWalletWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B40D4E30225841EC00428FCC /* BlueWalletWatch.app */; platformFilter = ios; };
+		B40D4E4D225841ED00428FCC /* NomadWalletWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B40D4E30225841EC00428FCC /* NomadWalletWatch.app */; platformFilter = ios; };
 		B40D4E5D2258425500428FCC /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40D4E552258425400428FCC /* InterfaceController.swift */; };
 		B40D4E5E2258425500428FCC /* NumericKeypadInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40D4E562258425400428FCC /* NumericKeypadInterfaceController.swift */; };
 		B40D4E602258425500428FCC /* SpecifyInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40D4E582258425400428FCC /* SpecifyInterfaceController.swift */; };
@@ -192,14 +192,14 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B40D4E3B225841ED00428FCC;
-			remoteInfo = "BlueWalletWatch Extension";
+			remoteInfo = "NomadWalletWatch Extension";
 		};
 		B40D4E4B225841ED00428FCC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B40D4E2F225841EC00428FCC;
-			remoteInfo = BlueWalletWatch;
+			remoteInfo = NomadWalletWatch;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -222,7 +222,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				B40D4E4D225841ED00428FCC /* BlueWalletWatch.app in Embed Watch Content */,
+				B40D4E4D225841ED00428FCC /* NomadWalletWatch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,7 +233,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B40D4E3D225841ED00428FCC /* BlueWalletWatch Extension.appex in Embed App Extensions */,
+				B40D4E3D225841ED00428FCC /* NomadWalletWatch Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,22 +243,22 @@
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		040819EDF8BD9C50A9C83E24 /* libPods-BlueWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlueWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* BlueWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BlueWallet/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BlueWallet/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BlueWallet/main.m; sourceTree = "<group>"; };
-		1AE7FA8B4A18928E917F42D1 /* Pods-BlueWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueWallet.debug.xcconfig"; path = "Target Support Files/Pods-BlueWallet/Pods-BlueWallet.debug.xcconfig"; sourceTree = "<group>"; };
+		040819EDF8BD9C50A9C83E24 /* libPods-NomadWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NomadWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* NomadWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NomadWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = NomadWallet/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NomadWallet/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = NomadWallet/main.m; sourceTree = "<group>"; };
+		1AE7FA8B4A18928E917F42D1 /* Pods-NomadWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NomadWallet.debug.xcconfig"; path = "Target Support Files/Pods-NomadWallet/Pods-NomadWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		1DD63E4B5C8344BB9880C9EC /* libReactNativePermissions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePermissions.a; sourceTree = "<group>"; };
 		253243E162CE4822BF3A3B7D /* libRNRandomBytes-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNRandomBytes-tvOS.a"; sourceTree = "<group>"; };
 		2654894D4DE44A4C8F71773D /* CoreData.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3271B0AA236E2E0700DA766F /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		32B5A3282334450100F8D608 /* BlueWallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlueWallet-Bridging-Header.h"; sourceTree = "<group>"; };
+		32B5A3282334450100F8D608 /* NomadWallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NomadWallet-Bridging-Header.h"; sourceTree = "<group>"; };
 		32B5A3292334450100F8D608 /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
-		32C7944323B8879D00BE2AFA /* BlueWalletRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = BlueWalletRelease.entitlements; path = BlueWallet/BlueWalletRelease.entitlements; sourceTree = "<group>"; };
-		32F0A24F2310B0700095C559 /* BlueWalletWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BlueWalletWatch Extension.entitlements"; sourceTree = "<group>"; };
-		32F0A2502310B0910095C559 /* BlueWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = BlueWallet.entitlements; path = BlueWallet/BlueWallet.entitlements; sourceTree = "<group>"; };
+		32C7944323B8879D00BE2AFA /* NomadWalletRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = NomadWalletRelease.entitlements; path = NomadWallet/NomadWalletRelease.entitlements; sourceTree = "<group>"; };
+		32F0A24F2310B0700095C559 /* NomadWalletWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NomadWalletWatch Extension.entitlements"; sourceTree = "<group>"; };
+		32F0A2502310B0910095C559 /* NomadWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = NomadWallet.entitlements; path = NomadWallet/NomadWallet.entitlements; sourceTree = "<group>"; };
 		32F0A2992311DBB20095C559 /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		334051161886419EA186F4BA /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		3703B10AAB374CF896CCC2EA /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 		4F12F501B686459183E0BE0D /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		5A8F67CF29564E41882ECEF8 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		6A65D81712444D37BA152B06 /* libRNRandomBytes.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNRandomBytes.a; sourceTree = "<group>"; };
-		6D203C2025D4ED2500493AD1 /* BlueWalletWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BlueWalletWatch.entitlements; sourceTree = "<group>"; };
+		6D203C2025D4ED2500493AD1 /* NomadWalletWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NomadWalletWatch.entitlements; sourceTree = "<group>"; };
 		6D294A7324D510AC0039E22B /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = af.lproj/Interface.strings; sourceTree = "<group>"; };
 		6D294A7524D510D60039E22B /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Interface.strings; sourceTree = "<group>"; };
 		6D294A7724D510E60039E22B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Interface.strings"; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 		6D32C5C52596CE3A008C077C /* EventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventEmitter.m; sourceTree = "<group>"; };
 		6D333B3A252FE1A3004D72DF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		6D333B3C252FE1A3004D72DF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		6D4AF18225D215D0009DD853 /* BlueWalletWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlueWalletWatch-Bridging-Header.h"; sourceTree = "<group>"; };
+		6D4AF18225D215D0009DD853 /* NomadWalletWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NomadWalletWatch-Bridging-Header.h"; sourceTree = "<group>"; };
 		6D4AF18325D215D1009DD853 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		6D641F17255226DA003792DF /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
 		6D641F2225525053003792DF /* WalletInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInformationView.swift; sourceTree = "<group>"; };
@@ -329,18 +329,18 @@
 		84E05A832721191B001A0D3A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		8637D4B5E14D443A9031DA95 /* libRNFS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFS.a; sourceTree = "<group>"; };
 		90F86BC5194548CA87D729A9 /* libToolTipMenu.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libToolTipMenu.a; sourceTree = "<group>"; };
-		93D74F9C8EE7B4443A49594C /* Pods-BlueWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueWallet.release.xcconfig"; path = "Target Support Files/Pods-BlueWallet/Pods-BlueWallet.release.xcconfig"; sourceTree = "<group>"; };
+		93D74F9C8EE7B4443A49594C /* Pods-NomadWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NomadWallet.release.xcconfig"; path = "Target Support Files/Pods-NomadWallet/Pods-NomadWallet.release.xcconfig"; sourceTree = "<group>"; };
 		94565BFC6A0C4235B3EC7B01 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
 		95208B2A05884A76B5BB99C0 /* libRCTGoogleAnalyticsBridge.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTGoogleAnalyticsBridge.a; sourceTree = "<group>"; };
 		9DF4E6C040764E4BA1ACC1EB /* libTcpSockets.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libTcpSockets.a; sourceTree = "<group>"; };
 		9F1F51A83D044F3BB26A35FC /* libRNSVG-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNSVG-tvOS.a"; sourceTree = "<group>"; };
 		A7C4B1FDAD264618BAF8C335 /* libRNCWebView.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCWebView.a; sourceTree = "<group>"; };
 		AB2325650CE04F018697ACFE /* libRNReactNativeHapticFeedback.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNReactNativeHapticFeedback.a; sourceTree = "<group>"; };
-		B40D4E30225841EC00428FCC /* BlueWalletWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueWalletWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B40D4E30225841EC00428FCC /* NomadWalletWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NomadWalletWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40D4E33225841EC00428FCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		B40D4E35225841ED00428FCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B40D4E37225841ED00428FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B40D4E3C225841ED00428FCC /* BlueWalletWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BlueWalletWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B40D4E3C225841ED00428FCC /* NomadWalletWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NomadWalletWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40D4E43225841ED00428FCC /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		B40D4E45225841ED00428FCC /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		B40D4E49225841ED00428FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -376,21 +376,21 @@
 		B45010A52C1507DE00619044 /* CustomSegmentedControlManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSegmentedControlManager.m; sourceTree = "<group>"; };
 		B45010A92C15080500619044 /* CustomSegmentedControlManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSegmentedControlManager.h; sourceTree = "<group>"; };
 		B4549F352B82B10D002E3153 /* ci_post_clone.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
-		B461B850299599F800E431AA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BlueWallet/AppDelegate.h; sourceTree = "<group>"; };
-		B461B851299599F800E431AA /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = BlueWallet/AppDelegate.mm; sourceTree = "<group>"; };
+		B461B850299599F800E431AA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = NomadWallet/AppDelegate.h; sourceTree = "<group>"; };
+		B461B851299599F800E431AA /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = NomadWallet/AppDelegate.mm; sourceTree = "<group>"; };
 		B4742E962CCDBE8300380EEE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B4742E9C2CCDC31300380EEE /* en_US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en_US; path = en_US.lproj/Interface.strings; sourceTree = "<group>"; };
 		B4793DBA2CEDACBD00C92C2E /* Chain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		B4793DBE2CEDACDA00C92C2E /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		B4793DC02CEDACE700C92C2E /* WalletType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletType.swift; sourceTree = "<group>"; };
 		B4793DC22CEDAD4400C92C2E /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
-		B47B21EB2B2128B8001F6690 /* BlueWalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueWalletUITests.swift; sourceTree = "<group>"; };
+		B47B21EB2B2128B8001F6690 /* NomadWalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadWalletUITests.swift; sourceTree = "<group>"; };
 		B48630D02CCEE3B300A8425C /* PriceIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceIntent.swift; sourceTree = "<group>"; };
 		B48630D52CCEE67100A8425C /* PriceWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceWidgetProvider.swift; sourceTree = "<group>"; };
 		B48630DC2CCEE7AC00A8425C /* PriceWidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceWidgetEntry.swift; sourceTree = "<group>"; };
 		B48630DF2CCEE7C800A8425C /* PriceWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceWidgetEntryView.swift; sourceTree = "<group>"; };
 		B48630EB2CCEEEA700A8425C /* WalletAppShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAppShortcuts.swift; sourceTree = "<group>"; };
-		B49038D82B8FBAD300A8164A /* BlueWalletUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueWalletUITest.swift; sourceTree = "<group>"; };
+		B49038D82B8FBAD300A8164A /* NomadWalletUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomadWalletUITest.swift; sourceTree = "<group>"; };
 		B49A28BA2CD18999006B08E4 /* CompactPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactPriceView.swift; sourceTree = "<group>"; };
 		B49A28BD2CD189B0006B08E4 /* FiatUnitEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatUnitEnum.swift; sourceTree = "<group>"; };
 		B4AB225C2B02AD12001F4328 /* XMLParserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParserDelegate.swift; sourceTree = "<group>"; };
@@ -428,7 +428,7 @@
 				782F075B5DD048449E2DECE9 /* libz.tbd in Frameworks */,
 				764B49B1420D4AEB8109BF62 /* libsqlite3.0.tbd in Frameworks */,
 				C978A716948AB7DEC5B6F677 /* (null) in Frameworks */,
-				17CDA0718F42DB2CE856C872 /* libPods-BlueWallet.a in Frameworks */,
+				17CDA0718F42DB2CE856C872 /* libPods-NomadWallet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,14 +468,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* BlueWalletTests */ = {
+		00E356EF1AD99517003FC87E /* NomadWalletTests */ = {
 			isa = PBXGroup;
 			children = (
 				00E356F01AD99517003FC87E /* Supporting Files */,
-				B49038D82B8FBAD300A8164A /* BlueWalletUITest.swift */,
+				B49038D82B8FBAD300A8164A /* NomadWalletUITest.swift */,
 				B4EFF73A2C3F6C5E0095D655 /* MockData.swift */,
 			);
-			path = BlueWalletTests;
+			path = NomadWalletTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -486,27 +486,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* BlueWallet */ = {
+		13B07FAE1A68108700A75B9A /* NomadWallet */ = {
 			isa = PBXGroup;
 			children = (
 				B4C0752B2CDDB3CC00322A84 /* MenuElementsEmitter */,
 				B461B850299599F800E431AA /* AppDelegate.h */,
 				B461B851299599F800E431AA /* AppDelegate.mm */,
-				32C7944323B8879D00BE2AFA /* BlueWalletRelease.entitlements */,
-				32F0A2502310B0910095C559 /* BlueWallet.entitlements */,
+				32C7944323B8879D00BE2AFA /* NomadWalletRelease.entitlements */,
+				32F0A2502310B0910095C559 /* NomadWallet.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				32B5A3292334450100F8D608 /* Bridge.swift */,
-				32B5A3282334450100F8D608 /* BlueWallet-Bridging-Header.h */,
+				32B5A3282334450100F8D608 /* NomadWallet-Bridging-Header.h */,
 				6DF25A9E249DB97E001D06F5 /* LaunchScreen.storyboard */,
 				6D32C5C42596CE2F008C077C /* EventEmitter.h */,
 				6D32C5C52596CE3A008C077C /* EventEmitter.m */,
 				84E05A832721191B001A0D3A /* Settings.bundle */,
 				B4742E962CCDBE8300380EEE /* Localizable.xcstrings */,
 			);
-			name = BlueWallet;
+			name = NomadWallet;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -524,7 +524,7 @@
 				3271B0AA236E2E0700DA766F /* NotificationCenter.framework */,
 				6D333B3A252FE1A3004D72DF /* WidgetKit.framework */,
 				6D333B3C252FE1A3004D72DF /* SwiftUI.framework */,
-				040819EDF8BD9C50A9C83E24 /* libPods-BlueWallet.a */,
+				040819EDF8BD9C50A9C83E24 /* libPods-NomadWallet.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -623,7 +623,7 @@
 			children = (
 				B49A28BD2CD189B0006B08E4 /* FiatUnitEnum.swift */,
 				6DEB4DD82552260200E9F9AA /* Views */,
-				6D4AF18225D215D0009DD853 /* BlueWalletWatch-Bridging-Header.h */,
+				6D4AF18225D215D0009DD853 /* NomadWalletWatch-Bridging-Header.h */,
 				B40FC3F829CCD1AC0007EBAC /* SwiftTCPClient.swift */,
 			);
 			path = Shared;
@@ -647,13 +647,13 @@
 				B44033C82BCC34AC00162242 /* Shared */,
 				B41C2E552BB3DCB8000FE097 /* PrivacyInfo.xcprivacy */,
 				B4549F2E2B80FEA1002E3153 /* ci_scripts */,
-				13B07FAE1A68108700A75B9A /* BlueWallet */,
-				00E356EF1AD99517003FC87E /* BlueWalletTests */,
-				B40D4E31225841EC00428FCC /* BlueWalletWatch */,
-				B40D4E40225841ED00428FCC /* BlueWalletWatch Extension */,
+				13B07FAE1A68108700A75B9A /* NomadWallet */,
+				00E356EF1AD99517003FC87E /* NomadWalletTests */,
+				B40D4E31225841EC00428FCC /* NomadWalletWatch */,
+				B40D4E40225841ED00428FCC /* NomadWalletWatch Extension */,
 				6D2A6462258BA92C0092292B /* Stickers */,
 				6DD4109F266CADF10087DE03 /* Widgets */,
-				B47B21EA2B2128B8001F6690 /* BlueWalletUITests */,
+				B47B21EA2B2128B8001F6690 /* NomadWalletUITests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				B40FE50A21FAD228005D5578 /* Recovered References */,
@@ -668,30 +668,30 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* BlueWallet.app */,
-				B40D4E30225841EC00428FCC /* BlueWalletWatch.app */,
-				B40D4E3C225841ED00428FCC /* BlueWalletWatch Extension.appex */,
+				13B07F961A680F5B00A75B9A /* NomadWallet.app */,
+				B40D4E30225841EC00428FCC /* NomadWalletWatch.app */,
+				B40D4E3C225841ED00428FCC /* NomadWalletWatch Extension.appex */,
 				6D2A6461258BA92C0092292B /* Stickers.appex */,
 				6DD4109C266CADF10087DE03 /* WidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B40D4E31225841EC00428FCC /* BlueWalletWatch */ = {
+		B40D4E31225841EC00428FCC /* NomadWalletWatch */ = {
 			isa = PBXGroup;
 			children = (
-				6D203C2025D4ED2500493AD1 /* BlueWalletWatch.entitlements */,
+				6D203C2025D4ED2500493AD1 /* NomadWalletWatch.entitlements */,
 				B40D4E32225841EC00428FCC /* Interface.storyboard */,
 				B40D4E35225841ED00428FCC /* Assets.xcassets */,
 				B40D4E37225841ED00428FCC /* Info.plist */,
 			);
-			path = BlueWalletWatch;
+			path = NomadWalletWatch;
 			sourceTree = "<group>";
 		};
-		B40D4E40225841ED00428FCC /* BlueWalletWatch Extension */ = {
+		B40D4E40225841ED00428FCC /* NomadWalletWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				32F0A24F2310B0700095C559 /* BlueWalletWatch Extension.entitlements */,
+				32F0A24F2310B0700095C559 /* NomadWalletWatch Extension.entitlements */,
 				B43D03242258474500FBAA95 /* Objects */,
 				32F0A2992311DBB20095C559 /* ComplicationController.swift */,
 				B40D4E43225841ED00428FCC /* ExtensionDelegate.swift */,
@@ -706,7 +706,7 @@
 				B40D4E4A225841ED00428FCC /* PushNotificationPayload.apns */,
 				B4D0B2612C1DEA11006B6B1B /* ReceivePageInterfaceController.swift */,
 			);
-			path = "BlueWalletWatch Extension";
+			path = "NomadWalletWatch Extension";
 			sourceTree = "<group>";
 		};
 		B40FE50A21FAD228005D5578 /* Recovered References */ = {
@@ -821,12 +821,12 @@
 			path = ci_scripts;
 			sourceTree = "<group>";
 		};
-		B47B21EA2B2128B8001F6690 /* BlueWalletUITests */ = {
+		B47B21EA2B2128B8001F6690 /* NomadWalletUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B47B21EB2B2128B8001F6690 /* BlueWalletUITests.swift */,
+				B47B21EB2B2128B8001F6690 /* NomadWalletUITests.swift */,
 			);
-			path = BlueWalletUITests;
+			path = NomadWalletUITests;
 			sourceTree = "<group>";
 		};
 		B4C0752B2CDDB3CC00322A84 /* MenuElementsEmitter */ = {
@@ -841,8 +841,8 @@
 		FAA856B639C61E61D2CF90A8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1AE7FA8B4A18928E917F42D1 /* Pods-BlueWallet.debug.xcconfig */,
-				93D74F9C8EE7B4443A49594C /* Pods-BlueWallet.release.xcconfig */,
+				1AE7FA8B4A18928E917F42D1 /* Pods-NomadWallet.debug.xcconfig */,
+				93D74F9C8EE7B4443A49594C /* Pods-NomadWallet.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -850,9 +850,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* BlueWallet */ = {
+		13B07F861A680F5B00A75B9A /* NomadWallet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BlueWallet" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "NomadWallet" */;
 			buildPhases = (
 				3B467A525D105B531AB91B81 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -874,9 +874,9 @@
 				6D2A6467258BA92D0092292B /* PBXTargetDependency */,
 				6DD410A6266CADF40087DE03 /* PBXTargetDependency */,
 			);
-			name = BlueWallet;
+			name = NomadWallet;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* BlueWallet.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* NomadWallet.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6D2A6460258BA92C0092292B /* Stickers */ = {
@@ -913,9 +913,9 @@
 			productReference = 6DD4109C266CADF10087DE03 /* WidgetsExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		B40D4E2F225841EC00428FCC /* BlueWalletWatch */ = {
+		B40D4E2F225841EC00428FCC /* NomadWalletWatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B40D4E52225841ED00428FCC /* Build configuration list for PBXNativeTarget "BlueWalletWatch" */;
+			buildConfigurationList = B40D4E52225841ED00428FCC /* Build configuration list for PBXNativeTarget "NomadWalletWatch" */;
 			buildPhases = (
 				B40D4E2E225841EC00428FCC /* Resources */,
 				B40D4E51225841ED00428FCC /* Embed App Extensions */,
@@ -926,14 +926,14 @@
 			dependencies = (
 				B40D4E3F225841ED00428FCC /* PBXTargetDependency */,
 			);
-			name = BlueWalletWatch;
-			productName = BlueWalletWatch;
-			productReference = B40D4E30225841EC00428FCC /* BlueWalletWatch.app */;
+			name = NomadWalletWatch;
+			productName = NomadWalletWatch;
+			productReference = B40D4E30225841EC00428FCC /* NomadWalletWatch.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		B40D4E3B225841ED00428FCC /* BlueWalletWatch Extension */ = {
+		B40D4E3B225841ED00428FCC /* NomadWalletWatch Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B40D4E4E225841ED00428FCC /* Build configuration list for PBXNativeTarget "BlueWalletWatch Extension" */;
+			buildConfigurationList = B40D4E4E225841ED00428FCC /* Build configuration list for PBXNativeTarget "NomadWalletWatch Extension" */;
 			buildPhases = (
 				B40D4E38225841ED00428FCC /* Sources */,
 				B40D4E39225841ED00428FCC /* Frameworks */,
@@ -943,14 +943,14 @@
 			);
 			dependencies = (
 			);
-			name = "BlueWalletWatch Extension";
+			name = "NomadWalletWatch Extension";
 			packageProductDependencies = (
 				6DFC806F24EA0B6C007B8700 /* EFQRCode */,
 				B41B76842B66B2FF002C48D5 /* Bugsnag */,
 				B41B76862B66B2FF002C48D5 /* BugsnagNetworkRequestPlugin */,
 			);
-			productName = "BlueWalletWatch Extension";
-			productReference = B40D4E3C225841ED00428FCC /* BlueWalletWatch Extension.appex */;
+			productName = "NomadWalletWatch Extension";
+			productReference = B40D4E3C225841ED00428FCC /* NomadWalletWatch Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
@@ -961,7 +961,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = BlueWallet;
+				ORGANIZATIONNAME = NomadWallet;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1030;
@@ -992,7 +992,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BlueWallet" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "NomadWallet" */;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en_US;
 			hasScannedForEncodings = 0;
@@ -1034,9 +1034,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* BlueWallet */,
-				B40D4E2F225841EC00428FCC /* BlueWalletWatch */,
-				B40D4E3B225841ED00428FCC /* BlueWalletWatch Extension */,
+				13B07F861A680F5B00A75B9A /* NomadWallet */,
+				B40D4E2F225841EC00428FCC /* NomadWalletWatch */,
+				B40D4E3B225841ED00428FCC /* NomadWalletWatch Extension */,
 				6D2A6460258BA92C0092292B /* Stickers */,
 				6DD4109B266CADF10087DE03 /* WidgetsExtension */,
 			);
@@ -1131,7 +1131,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BlueWallet-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-NomadWallet-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1179,15 +1179,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BlueWallet/Pods-BlueWallet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-NomadWallet/Pods-NomadWallet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BlueWallet/Pods-BlueWallet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-NomadWallet/Pods-NomadWallet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlueWallet/Pods-BlueWallet-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NomadWallet/Pods-NomadWallet-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CF0725821442A3000F20E874 /* Upload Bugsnag dSYM */ = {
@@ -1217,15 +1217,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BlueWallet/Pods-BlueWallet-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-NomadWallet/Pods-NomadWallet-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BlueWallet/Pods-BlueWallet-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-NomadWallet/Pods-NomadWallet-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlueWallet/Pods-BlueWallet-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NomadWallet/Pods-NomadWallet-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1395,13 +1395,13 @@
 		};
 		B40D4E3F225841ED00428FCC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B40D4E3B225841ED00428FCC /* BlueWalletWatch Extension */;
+			target = B40D4E3B225841ED00428FCC /* NomadWalletWatch Extension */;
 			targetProxy = B40D4E3E225841ED00428FCC /* PBXContainerItemProxy */;
 		};
 		B40D4E4C225841ED00428FCC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			platformFilter = ios;
-			target = B40D4E2F225841EC00428FCC /* BlueWalletWatch */;
+			target = B40D4E2F225841EC00428FCC /* NomadWalletWatch */;
 			targetProxy = B40D4E4B225841ED00428FCC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1444,11 +1444,11 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AE7FA8B4A18928E917F42D1 /* Pods-BlueWallet.debug.xcconfig */;
+			baseConfigurationReference = 1AE7FA8B4A18928E917F42D1 /* Pods-NomadWallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = BlueWallet/BlueWallet.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NomadWallet/NomadWallet.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -1466,7 +1466,7 @@
 					"FB_SONARKIT_ENABLED=1",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = BlueWallet/Info.plist;
+				INFOPLIST_FILE = NomadWallet/Info.plist;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_BUNDLE_IDENTIFIER).ComplicationController";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = io.bluewallet.bluewallet;
@@ -1489,7 +1489,7 @@
 				);
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.bluewallet.bluewallet;
-				PRODUCT_NAME = BlueWallet;
+				PRODUCT_NAME = NomadWallet;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore io.bluewallet.bluewallet";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match Development io.bluewallet.bluewallet catalyst";
@@ -1497,7 +1497,7 @@
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "BlueWallet-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "NomadWallet-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
@@ -1507,11 +1507,11 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93D74F9C8EE7B4443A49594C /* Pods-BlueWallet.release.xcconfig */;
+			baseConfigurationReference = 93D74F9C8EE7B4443A49594C /* Pods-NomadWallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = BlueWallet/BlueWalletRelease.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NomadWallet/NomadWalletRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
@@ -1524,7 +1524,7 @@
 				ENABLE_BITCODE = NO;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = BlueWallet/Info.plist;
+				INFOPLIST_FILE = NomadWallet/Info.plist;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_BUNDLE_IDENTIFIER).ComplicationController";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = io.bluewallet.bluewallet;
@@ -1547,7 +1547,7 @@
 				);
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.bluewallet.bluewallet;
-				PRODUCT_NAME = BlueWallet;
+				PRODUCT_NAME = NomadWallet;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore io.bluewallet.bluewallet";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "match AppStore io.bluewallet.bluewallet catalyst";
@@ -1555,7 +1555,7 @@
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "BlueWallet-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "NomadWallet-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1901,7 +1901,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "BlueWalletWatch Extension/BlueWalletWatch Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "NomadWalletWatch Extension/NomadWalletWatch Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -1911,7 +1911,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = A7W54YZ4WU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "BlueWalletWatch Extension/Info.plist";
+				INFOPLIST_FILE = "NomadWalletWatch Extension/Info.plist";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_BUNDLE_IDENTIFIER).ComplicationController";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = io.bluewallet.bluewallet;
 				INFOPLIST_KEY_WKExtensionDelegateClassName = "$(PRODUCT_BUNDLE_IDENTIFIER).ExtensionDelegate";
@@ -1953,7 +1953,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "BlueWalletWatch Extension/BlueWalletWatch Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "NomadWalletWatch Extension/NomadWalletWatch Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -1964,7 +1964,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = A7W54YZ4WU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "BlueWalletWatch Extension/Info.plist";
+				INFOPLIST_FILE = "NomadWalletWatch Extension/Info.plist";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_BUNDLE_IDENTIFIER).ComplicationController";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = io.bluewallet.bluewallet;
 				INFOPLIST_KEY_WKExtensionDelegateClassName = "$(PRODUCT_BUNDLE_IDENTIFIER).ExtensionDelegate";
@@ -2006,7 +2006,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = BlueWalletWatch/BlueWalletWatch.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NomadWalletWatch/NomadWalletWatch.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2016,8 +2016,8 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = A7W54YZ4WU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				IBSC_MODULE = BlueWalletWatch_Extension;
-				INFOPLIST_FILE = BlueWalletWatch/Info.plist;
+				IBSC_MODULE = NomadWalletWatch_Extension;
+				INFOPLIST_FILE = NomadWalletWatch/Info.plist;
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = io.bluewallet.bluewallet;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SDKROOT)/usr/lib/swift",
@@ -2035,7 +2035,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "WalletInformationWidget/Widgets/Shared/BlueWalletWatch-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "WalletInformationWidget/Widgets/Shared/NomadWalletWatch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -2054,7 +2054,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = BlueWalletWatch/BlueWalletWatch.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NomadWalletWatch/NomadWalletWatch.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -2065,8 +2065,8 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = A7W54YZ4WU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				IBSC_MODULE = BlueWalletWatch_Extension;
-				INFOPLIST_FILE = BlueWalletWatch/Info.plist;
+				IBSC_MODULE = NomadWalletWatch_Extension;
+				INFOPLIST_FILE = NomadWalletWatch/Info.plist;
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = io.bluewallet.bluewallet;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SDKROOT)/usr/lib/swift",
@@ -2083,7 +2083,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_BRIDGING_HEADER = "WalletInformationWidget/Widgets/Shared/BlueWalletWatch-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "WalletInformationWidget/Widgets/Shared/NomadWalletWatch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -2094,7 +2094,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BlueWallet" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "NomadWallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -2121,7 +2121,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BlueWallet" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "NomadWallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
@@ -2130,7 +2130,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B40D4E4E225841ED00428FCC /* Build configuration list for PBXNativeTarget "BlueWalletWatch Extension" */ = {
+		B40D4E4E225841ED00428FCC /* Build configuration list for PBXNativeTarget "NomadWalletWatch Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B40D4E4F225841ED00428FCC /* Debug */,
@@ -2139,7 +2139,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B40D4E52225841ED00428FCC /* Build configuration list for PBXNativeTarget "BlueWalletWatch" */ = {
+		B40D4E52225841ED00428FCC /* Build configuration list for PBXNativeTarget "NomadWalletWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B40D4E53225841ED00428FCC /* Debug */,

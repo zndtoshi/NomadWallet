@@ -1,6 +1,6 @@
 //
 //  MenuElementsEmitter.m
-//  BlueWallet
+//  NomadWallet
 //
 
 #import "MenuElementsEmitter.h"

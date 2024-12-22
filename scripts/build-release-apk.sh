@@ -20,9 +20,9 @@ VERSION_NAME=$(grep versionName app/build.gradle | awk '{print $2}' | tr -d '"')
 ./gradlew assembleRelease
 
 # Rename the APK file to include the dynamic version and build number with parentheses
-mv ./app/build/outputs/apk/release/app-release-unsigned.apk "./app/build/outputs/apk/release/BlueWallet-${VERSION_NAME}($BUILD_NUMBER).apk"
+mv ./app/build/outputs/apk/release/app-release-unsigned.apk "./app/build/outputs/apk/release/NomadWallet-${VERSION_NAME}($BUILD_NUMBER).apk"
 
 echo wheres waldo?
 find $ANDROID_HOME | grep apksigner | grep -v jar
 
-$ANDROID_HOME/build-tools/34.0.0/apksigner sign --ks ./bluewallet-release-key.keystore --ks-pass=pass:$KEYSTORE_PASSWORD "./app/build/outputs/apk/release/BlueWallet-${VERSION_NAME}($BUILD_NUMBER).apk"
+$ANDROID_HOME/build-tools/34.0.0/apksigner sign --ks ./bluewallet-release-key.keystore --ks-pass=pass:$KEYSTORE_PASSWORD "./app/build/outputs/apk/release/NomadWallet-${VERSION_NAME}($BUILD_NUMBER).apk"

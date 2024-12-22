@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { ActivityIndicator, FlatList, LayoutAnimation, StyleSheet, View } from 'react-native';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueButtonLink, BlueFormLabel, BlueSpacing10, BlueSpacing20, BlueSpacing40, BlueText } from '../../BlueComponents';
+import { NomadButtonLink, NomadFormLabel, NomadSpacing10, NomadSpacing20, NomadSpacing40, NomadText } from '../../NomadComponents';
 import { HDSegwitBech32Wallet, WatchOnlyWallet } from '../../class';
 import startImport, { TImport } from '../../class/wallet-import';
 import presentAlert from '../../components/Alert';
@@ -174,12 +174,12 @@ const ImportWalletDiscovery: React.FC = () => {
           <>
             {isElectrumDisabled && (
               <>
-                <BlueFormLabel>{loc.wallets.import_discovery_offline}</BlueFormLabel>
-                <BlueSpacing20 />
+                <NomadFormLabel>{loc.wallets.import_discovery_offline}</NomadFormLabel>
+                <NomadSpacing20 />
               </>
             )}
-            <BlueFormLabel>{loc.wallets.import_discovery_subtitle}</BlueFormLabel>
-            <BlueSpacing10 />
+            <NomadFormLabel>{loc.wallets.import_discovery_subtitle}</NomadFormLabel>
+            <NomadSpacing10 />
           </>
         ) : null}
       </>
@@ -192,16 +192,16 @@ const ImportWalletDiscovery: React.FC = () => {
       <View style={styles.noWallets}>
         {loading ? (
           <>
-            <BlueSpacing40 />
+            <NomadSpacing40 />
             <ActivityIndicator testID="Loading" />
-            <BlueSpacing20 />
-            <BlueFormLabel>{progress}</BlueFormLabel>
-            <BlueSpacing40 />
+            <NomadSpacing20 />
+            <NomadFormLabel>{progress}</NomadFormLabel>
+            <NomadSpacing40 />
           </>
         ) : (
           <>
-            <BlueText style={styles.center}>{loc.wallets.import_discovery_no_wallets}</BlueText>
-            <BlueSpacing20 />
+            <NomadText style={styles.center}>{loc.wallets.import_discovery_no_wallets}</NomadText>
+            <NomadSpacing20 />
           </>
         )}
       </View>
@@ -223,13 +223,13 @@ const ImportWalletDiscovery: React.FC = () => {
       />
       <View style={[styles.center, stylesHook.center]}>
         {bip39 && (
-          <BlueButtonLink
+          <NomadButtonLink
             title={loc.wallets.import_discovery_derivation}
             testID="CustomDerivationPathButton"
             onPress={handleCustomDerivation}
           />
         )}
-        <BlueSpacing10 />
+        <NomadSpacing10 />
         <View style={styles.buttonContainer}>
           <Button disabled={wallets?.length === 0} title={loc.wallets.import_do_import} onPress={handleSave} />
         </View>

@@ -7,7 +7,7 @@ import { element } from 'detox';
 /**
  * this testsuite is for test cases that require no wallets to be present
  */
-describe('BlueWallet UI Tests - no wallets', () => {
+describe('NomadWallet UI Tests - no wallets', () => {
   it('selftest passes', async () => {
     const lockFile = '/tmp/travislock.' + hashIt('t1');
     if (process.env.TRAVIS) {

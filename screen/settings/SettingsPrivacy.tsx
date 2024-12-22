@@ -8,7 +8,7 @@ import { useTheme } from '../../components/themes';
 import loc from '../../loc';
 import { useStorage } from '../../hooks/context/useStorage';
 import { useSettings } from '../../hooks/context/useSettings';
-import { BlueSpacing20 } from '../../BlueComponents';
+import { NomadSpacing20 } from '../../NomadComponents';
 import { isDesktop } from '../../blue_modules/environment';
 
 enum SettingsPrivacySection {
@@ -184,7 +184,7 @@ const SettingsPrivacy: React.FC = () => {
 
       {Platform.OS === 'ios' && (
         <>
-          <BlueSpacing20 />
+          <NomadSpacing20 />
           <Header leftText={loc.settings.widgets} />
           <ListItem
             title={loc.settings.total_balance}

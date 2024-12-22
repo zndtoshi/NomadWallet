@@ -17,7 +17,7 @@ import { Icon } from '@rneui/themed';
 import { parse } from 'url'; // eslint-disable-line n/no-deprecated-api
 import { btcToSatoshi, fiatToBTC, satoshiToBTC } from '../../blue_modules/currency';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueLoading } from '../../BlueComponents';
+import { NomadLoading } from '../../NomadComponents';
 import Lnurl from '../../class/lnurl';
 import presentAlert from '../../components/Alert';
 import AmountInput from '../../components/AmountInput';
@@ -375,7 +375,7 @@ const LNDCreateInvoice = () => {
   if (!wallet.current) {
     return (
       <View style={[styles.root, styleHooks.root]}>
-        <BlueLoading />
+        <NomadLoading />
       </View>
     );
   }

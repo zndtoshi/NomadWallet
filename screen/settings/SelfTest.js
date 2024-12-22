@@ -4,14 +4,14 @@ import * as bip39 from 'bip39';
 import * as bitcoin from 'bitcoinjs-lib';
 import React, { Component } from 'react';
 import { Linking, ScrollView, StyleSheet, View } from 'react-native';
-import BlueCrypto from 'react-native-blue-crypto';
+import NomadCrypto from 'react-native-blue-crypto';
 import wif from 'wif';
 
-import * as BlueElectrum from '../../blue_modules/BlueElectrum';
+import * as NomadElectrum from '../../blue_modules/NomadElectrum';
 import * as encryption from '../../blue_modules/encryption';
 import * as fs from '../../blue_modules/fs';
 import ecc from '../../blue_modules/noble_ecc';
-import { BlueLoading, BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadLoading, NomadSpacing20, NomadText } from '../../NomadComponents';
 import {
   HDAezeedWallet,
   HDSegwitBech32Wallet,
@@ -78,15 +78,15 @@ export default class SelfTest extends Component {
       //
 
       if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
-        await BlueElectrum.ping();
-        await BlueElectrum.waitTillConnected();
+        await NomadElectrum.ping();
+        await NomadElectrum.waitTillConnected();
         const addr4elect = '3GCvDBAktgQQtsbN6x5DYiQCMmgZ9Yk8BK';
-        const electrumBalance = await BlueElectrum.getBalanceByAddress(addr4elect);
+        const electrumBalance = await NomadElectrum.getBalanceByAddress(addr4elect);
         if (electrumBalance.confirmed !== 51432)
-          throw new Error('BlueElectrum getBalanceByAddress failure, got ' + JSON.stringify(electrumBalance));
+          throw new Error('NomadElectrum getBalanceByAddress failure, got ' + JSON.stringify(electrumBalance));
 
-        const electrumTxs = await BlueElectrum.getTransactionsByAddress(addr4elect);
-        if (electrumTxs.length !== 1) throw new Error('BlueElectrum getTransactionsByAddress failure, got ' + JSON.stringify(electrumTxs));
+        const electrumTxs = await NomadElectrum.getTransactionsByAddress(addr4elect);
+        if (electrumTxs.length !== 1) throw new Error('NomadElectrum getTransactionsByAddress failure, got ' + JSON.stringify(electrumTxs));
       } else {
         // skipping RN-specific test'
       }
@@ -223,9 +223,9 @@ export default class SelfTest extends Component {
         // skipping RN-specific test
       }
 
-      // BlueCrypto test
+      // NomadCrypto test
       if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
-        const hex = await BlueCrypto.scrypt('717765727479', '4749345a22b23cf3', 64, 8, 8, 32); // using non-default parameters to speed it up (not-bip38 compliant)
+        const hex = await NomadCrypto.scrypt('717765727479', '4749345a22b23cf3', 64, 8, 8, 32); // using non-default parameters to speed it up (not-bip38 compliant)
         if (hex.toUpperCase() !== 'F36AB2DC12377C788D61E6770126D8A01028C8F6D8FE01871CE0489A1F696A90')
           throw new Error('react-native-blue-crypto is not ok');
       }
@@ -243,8 +243,8 @@ export default class SelfTest extends Component {
           'KxqRtpd9vFju297ACPKHrGkgXuberTveZPXbRDiQ3MXZycSQYtjc',
           'bip38 failed',
         );
-        // bip38 with BlueCrypto doesn't support progress callback
-        assertStrictEqual(callbackWasCalled, false, "bip38 doesn't use BlueCrypto");
+        // bip38 with NomadCrypto doesn't support progress callback
+        assertStrictEqual(callbackWasCalled, false, "bip38 doesn't use NomadCrypto");
       }
 
       // slip39 test
@@ -260,7 +260,7 @@ export default class SelfTest extends Component {
       //
 
       if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
-        assertStrictEqual(await Linking.canOpenURL('https://github.com/BlueWallet/BlueWallet/'), true, 'Linking can not open https url');
+        assertStrictEqual(await Linking.canOpenURL('https://github.com/NomadWallet/NomadWallet/'), true, 'Linking can not open https url');
       } else {
         // skipping RN-specific test'
       }
@@ -286,38 +286,38 @@ export default class SelfTest extends Component {
   render() {
     return (
       <ScrollView automaticallyAdjustContentInsets contentInsetAdjustmentBehavior="automatic">
-        <BlueSpacing20 />
+        <NomadSpacing20 />
 
         {this.state.isLoading ? (
-          <BlueLoading />
+          <NomadLoading />
         ) : (
           (() => {
             if (this.state.isOk) {
               return (
                 <View style={styles.center}>
-                  <BlueText testID="SelfTestOk" h4>
+                  <NomadText testID="SelfTestOk" h4>
                     OK
-                  </BlueText>
-                  <BlueSpacing20 />
-                  <BlueText>{loc.settings.about_selftest_ok}</BlueText>
+                  </NomadText>
+                  <NomadSpacing20 />
+                  <NomadText>{loc.settings.about_selftest_ok}</NomadText>
                 </View>
               );
             } else {
               return (
                 <View style={styles.center}>
-                  <BlueText h4 numberOfLines={0}>
+                  <NomadText h4 numberOfLines={0}>
                     {this.state.errorMessage}
-                  </BlueText>
+                  </NomadText>
                 </View>
               );
             }
           })()
         )}
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <SaveFileButton fileName="bluewallet-selftest.txt" fileContent={'Success on ' + new Date().toUTCString()}>
           <Button title="Test Save to Storage" />
         </SaveFileButton>
-        <BlueSpacing20 />
+        <NomadSpacing20 />
         <Button title="Test File Import" onPress={this.onPressImportDocument} />
       </ScrollView>
     );

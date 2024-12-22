@@ -1,7 +1,7 @@
 import { RouteProp, useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import React, { useCallback, useMemo, useReducer, useRef } from 'react';
 import { ActivityIndicator, InteractionManager, ScrollView, StyleSheet, TextInput, View } from 'react-native';
-import { BlueSpacing20, BlueText } from '../../BlueComponents';
+import { NomadSpacing20, NomadText } from '../../NomadComponents';
 import { TWallet } from '../../class/wallets/types';
 import { DynamicQRCode } from '../../components/DynamicQRCode';
 import SaveFileButton from '../../components/SaveFileButton';
@@ -155,11 +155,11 @@ const ExportMultisigCoordinationSetup: React.FC = () => {
   const renderView = wallet ? (
     <>
       <View>
-        <BlueText style={[styles.type, stylesHook.type]}>{label}</BlueText>
+        <NomadText style={[styles.type, stylesHook.type]}>{label}</NomadText>
       </View>
-      <BlueSpacing20 />
+      <NomadSpacing20 />
       {qrCodeContents && <DynamicQRCode value={qrCodeContents} ref={dynamicQRCode} />}
-      <BlueSpacing20 />
+      <NomadSpacing20 />
       {isShareButtonTapped ? (
         <ActivityIndicator />
       ) : (
@@ -177,7 +177,7 @@ const ExportMultisigCoordinationSetup: React.FC = () => {
         )
       )}
 
-      <BlueSpacing20 />
+      <NomadSpacing20 />
       <TextInput multiline editable={false} style={[styles.secret, stylesHook.secret]}>
         {xpub}
       </TextInput>

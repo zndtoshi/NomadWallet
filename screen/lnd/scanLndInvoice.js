@@ -5,7 +5,7 @@ import { Icon } from '@rneui/themed';
 
 import { btcToSatoshi, fiatToBTC } from '../../blue_modules/currency';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
-import { BlueCard, BlueLoading } from '../../BlueComponents';
+import { NomadCard, NomadLoading } from '../../NomadComponents';
 import Lnurl from '../../class/lnurl';
 import AddressInput from '../../components/AddressInput';
 import presentAlert from '../../components/Alert';
@@ -284,7 +284,7 @@ const ScanLndInvoice = () => {
   if (wallet === undefined || !wallet) {
     return (
       <View style={[styles.loadingIndicator, stylesHook.root]}>
-        <BlueLoading />
+        <NomadLoading />
       </View>
     );
   }
@@ -312,7 +312,7 @@ const ScanLndInvoice = () => {
             />
           </View>
 
-          <BlueCard>
+          <NomadCard>
             <AddressInput
               onChangeText={text => {
                 text = text.trim();
@@ -341,7 +341,7 @@ const ScanLndInvoice = () => {
                 )}
               </View>
             )}
-            <BlueCard>
+            <NomadCard>
               {isLoading ? (
                 <View>
                   <ActivityIndicator />
@@ -351,8 +351,8 @@ const ScanLndInvoice = () => {
                   <Button title={loc.lnd.payButton} onPress={pay} disabled={shouldDisablePayButton()} />
                 </View>
               )}
-            </BlueCard>
-          </BlueCard>
+            </NomadCard>
+          </NomadCard>
 
           {renderWalletSelectionButton()}
         </ScrollView>

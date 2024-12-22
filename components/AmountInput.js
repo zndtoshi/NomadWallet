@@ -14,7 +14,7 @@ import {
   satoshiToBTC,
   updateExchangeRate,
 } from '../blue_modules/currency';
-import { BlueText } from '../BlueComponents';
+import { NomadText } from '../NomadComponents';
 import confirm from '../helpers/confirm';
 import loc, { formatBalancePlain, formatBalanceWithoutSuffix, removeTrailingZeros } from '../loc';
 import { BitcoinUnit } from '../models/bitcoinUnits';
@@ -324,9 +324,9 @@ class AmountInput extends Component {
             <View style={styles.outdatedRateContainer}>
               <Badge status="warning" />
               <View style={styles.spacing8} />
-              <BlueText>
+              <NomadText>
                 {loc.formatString(loc.send.outdated_rate, { date: dayjs(this.state.mostRecentFetchedRate.LastUpdated).format('l LT') })}
-              </BlueText>
+              </NomadText>
               <View style={styles.spacing8} />
               <TouchableOpacity
                 accessibilityRole="button"

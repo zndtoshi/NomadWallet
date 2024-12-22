@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { I18nManager, Keyboard, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { Icon } from '@rneui/themed';
-import { BlueLoading, BlueSpacing, BlueText } from '../../BlueComponents';
+import { NomadLoading, NomadSpacing, NomadText } from '../../NomadComponents';
 import Azteco from '../../class/azteco';
 import presentAlert from '../../components/Alert';
 import Button from '../../components/Button';
@@ -145,7 +145,7 @@ export default class AztecoRedeem extends Component {
     if (this.state.isLoading || typeof this.state.toWallet === 'undefined') {
       return (
         <View style={styles.loading}>
-          <BlueLoading />
+          <NomadLoading />
         </View>
       );
     }
@@ -154,12 +154,12 @@ export default class AztecoRedeem extends Component {
         <View>
           <View style={styles.root}>
             <Text>{loc.azteco.codeIs}</Text>
-            <BlueText style={styles.code}>
+            <NomadText style={styles.code}>
               {this.state.c1}-{this.state.c2}-{this.state.c3}-{this.state.c4}
-            </BlueText>
+            </NomadText>
             {this.renderWalletSelectionButton()}
             <Button onPress={this.redeem} title={loc.azteco.redeemButton} />
-            <BlueSpacing />
+            <NomadSpacing />
           </View>
         </View>
       </TouchableWithoutFeedback>
