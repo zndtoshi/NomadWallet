@@ -1,18 +1,18 @@
 //
 //  UserDefaultsGroupKeys.swift
-//  BlueWallet
+//  NomadWallet
 //
 //  Created by Marcos Rodriguez on 4/14/24.
-//  Copyright © 2024 BlueWallet. All rights reserved.
+//  Copyright © 2024 NomadWallet. All rights reserved.
 //
 
 import Foundation
 
 enum UserDefaultsGroupKey: String {
-  case GroupName = "group.io.bluewallet.bluewallet"
+  case GroupName = "group.io.nomadwallet.nomadwallet"
   case PreferredCurrency = "preferredCurrency"
-  case WatchAppBundleIdentifier = "io.bluewallet.bluewallet.watch"
-  case BundleIdentifier = "io.bluewallet.bluewallet"
+  case WatchAppBundleIdentifier = "io.nomadwallet.nomadwallet.watch"
+  case BundleIdentifier = "io.nomadwallet.nomadwallet"
   case ElectrumSettingsHost = "electrum_host"
   case ElectrumSettingsTCPPort = "electrum_tcp_port"
   case ElectrumSettingsSSLPort = "electrum_ssl_port"

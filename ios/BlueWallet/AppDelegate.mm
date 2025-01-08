@@ -10,7 +10,7 @@
 #import "MenuElementsEmitter.h"
 #import <React/RCTRootView.h>
 #import <Bugsnag/Bugsnag.h>
-#import "BlueWallet-Swift.h"
+#import "NomadWallet-Swift.h"
 #import "CustomSegmentedControlManager.h"
 
 @interface AppDelegate() <UNUserNotificationCenterDelegate>
@@ -26,7 +26,7 @@
   [MenuElementsEmitter sharedInstance];
   [CustomSegmentedControlManager registerIfNecessary];
   [self clearFilesIfNeeded];
-  self.userDefaultsGroup = [[NSUserDefaults alloc] initWithSuiteName:@"group.io.bluewallet.bluewallet"];
+  self.userDefaultsGroup = [[NSUserDefaults alloc] initWithSuiteName:@"group.io.nomadwallet.nomadwallet"];
   
   NSString *isDoNotTrackEnabled = [self.userDefaultsGroup stringForKey:@"donottrack"];
   if (![isDoNotTrackEnabled isEqualToString:@"1"]) {
@@ -47,7 +47,7 @@
     [NSUserDefaults.standardUserDefaults setValue:@"" forKey:@"deviceUIDCopy"];
   }
 
-  self.moduleName = @"BlueWallet";
+  self.moduleName = @"NomadWallet";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
@@ -158,9 +158,9 @@
   [self.userDefaultsGroup setValue:userActivityData forKey:@"onUserActivityOpen"];
   
   // Check if the activity type matches the allowed types
-  if ([userActivity.activityType isEqualToString:@"io.bluewallet.bluewallet.receiveonchain"] ||
-      [userActivity.activityType isEqualToString:@"io.bluewallet.bluewallet.xpub"] ||
-      [userActivity.activityType isEqualToString:@"io.bluewallet.bluewallet.blockexplorer"]) {
+  if ([userActivity.activityType isEqualToString:@"io.nomadwallet.nomadwallet.receiveonchain"] ||
+      [userActivity.activityType isEqualToString:@"io.nomadwallet.nomadwallet.xpub"] ||
+      [userActivity.activityType isEqualToString:@"io.nomadwallet.nomadwallet.blockexplorer"]) {
     
     [EventEmitter.sharedInstance sendUserActivity:userActivityData];
     return YES;
@@ -234,7 +234,7 @@
         [builder replaceMenuForIdentifier:UIMenuFile withMenu:newFileMenu];
     }
     
-    // BlueWallet -> Settings (Command + ,)
+    // NomadWallet -> Settings (Command + ,)
     UIKeyCommand *settingsCommand = [UIKeyCommand keyCommandWithInput:@"," modifierFlags:UIKeyModifierCommand action:@selector(openSettings:)];
     [settingsCommand setTitle:@"Settings..."];
     UIMenu *settings = [UIMenu menuWithTitle:@"" image:nil identifier:nil options:UIMenuOptionsDisplayInline children:@[settingsCommand]];
@@ -266,7 +266,7 @@
 }
 
 - (void)showHelp:(id)sender {
-  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://bluewallet.io/docs"] options:@{} completionHandler:nil];
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://nomadwallet.io/docs"] options:@{} completionHandler:nil];
 }
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
@@ -294,7 +294,7 @@
              withCompletionHandler:(void (^)(void))completionHandler
 {
     NSDictionary *userInfo = response.notification.request.content.userInfo;
-  NSString *blockExplorer = [[[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.io.bluewallet.bluewallet"] stringForKey:@"blockExplorer"];
+  NSString *blockExplorer = [[[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.io.nomadwallet.nomadwallet"] stringForKey:@"blockExplorer"];
     if (blockExplorer == nil || [blockExplorer length] == 0) {
         blockExplorer = @"https://www.mempool.space";
     }

@@ -3,7 +3,7 @@
 //  MarketWidgetExtension
 //
 //  Created by Marcos Rodriguez on 10/31/20.
-//  Copyright © 2020 BlueWallet. All rights reserved.
+//  Copyright © 2020 NomadWallet. All rights reserved.
 //
 
 import Foundation
@@ -25,7 +25,7 @@ let hardcodedPeers = DefaultElectrumPeers.map { settings in
 let DefaultElectrumPeers = [
  UserDefaultsElectrumSettings(host: "mainnet.foundationdevices.com", port: 50001, sslPort: 50002),
     // UserDefaultsElectrumSettings(host: "electrum.jochen-hoenicke.de", port: 50001, sslPort: 50006),
-    UserDefaultsElectrumSettings(host: "electrum1.bluewallet.io", port: 50001, sslPort: 443),
+    UserDefaultsElectrumSettings(host: "electrum1.nomadwallet.io", port: 50001, sslPort: 443),
     UserDefaultsElectrumSettings(host: "electrum.acinq.co", port: 50001, sslPort: 50002),
     UserDefaultsElectrumSettings(host: "electrum.bitaroo.net", port: 50001, sslPort: 50002),
 ]

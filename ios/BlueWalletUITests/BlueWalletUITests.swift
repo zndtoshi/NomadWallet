@@ -1,14 +1,14 @@
 //
-//  BlueWalletUITests.swift
-//  BlueWalletUITests
+//  NomadWalletUITests.swift
+//  NomadWalletUITests
 //
 //  Created by Marcos Rodriguez on 12/6/23.
-//  Copyright © 2023 BlueWallet. All rights reserved.
+//  Copyright © 2023 NomadWallet. All rights reserved.
 //
 
 import XCTest
 
-class BlueWalletUITests: XCTestCase {
+class NomadWalletUITests: XCTestCase {
 
     var app: XCUIApplication!
 

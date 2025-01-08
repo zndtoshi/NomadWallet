@@ -144,7 +144,7 @@ export const AddressInputScanButton = ({
       actions={actions}
       isButton
       onPressMenuItem={onMenuItemPressed}
-      testID="BlueAddressInputScanQrButton"
+      testID="NomadAddressInputScanQrButton"
       disabled={isLoading}
       onPress={toolTipOnPress}
       buttonStyle={buttonStyle}

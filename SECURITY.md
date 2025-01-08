@@ -2,4 +2,4 @@
 
 ## Reporting a Vulnerability
 
-bluewallet at bluewallet dot io
+nomadwallet at nomadwallet dot io

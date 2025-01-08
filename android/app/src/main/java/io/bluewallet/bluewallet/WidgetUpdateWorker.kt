@@ -1,4 +1,4 @@
-package io.bluewallet.bluewallet
+package io.nomadwallet.nomadwallet
 
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
@@ -40,7 +40,7 @@ class WidgetUpdateWorker(context: Context, workerParams: WorkerParameters) : Wor
     override fun doWork(): Result {
         Log.d(TAG, "Widget update worker running")
 
-        sharedPref = applicationContext.getSharedPreferences("group.io.bluewallet.bluewallet", Context.MODE_PRIVATE)
+        sharedPref = applicationContext.getSharedPreferences("group.io.nomadwallet.nomadwallet", Context.MODE_PRIVATE)
         registerPreferenceChangeListener()
 
         val appWidgetManager = AppWidgetManager.getInstance(applicationContext)

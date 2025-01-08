@@ -1,15 +1,15 @@
 //
 //  MenuElementsEmitter.h
-//  BlueWallet
+//  NomadWallet
 //
 //  Created by Marcos Rodriguez on 11/7/24.
-//  Copyright © 2024 BlueWallet. All rights reserved.
+//  Copyright © 2024 NomadWallet. All rights reserved.
 //
 
 
 //
 //  MenuElementsEmitter.h
-//  BlueWallet
+//  NomadWallet
 //
 
 #import <React/RCTEventEmitter.h>

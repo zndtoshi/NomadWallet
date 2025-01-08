@@ -7,7 +7,7 @@ jest.mock('../../blue_modules/currency', () => {
   };
 });
 
-jest.mock('../../blue_modules/BlueElectrum', () => {
+jest.mock('../../blue_modules/NomadElectrum', () => {
   return {
     connectMain: jest.fn(),
   };

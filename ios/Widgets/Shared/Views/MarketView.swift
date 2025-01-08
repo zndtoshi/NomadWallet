@@ -1,9 +1,9 @@
 //
 //  MarketView.swift
-//  BlueWallet
+//  NomadWallet
 //
 //  Created by Marcos Rodriguez on 11/3/20.
-//  Copyright © 2020 BlueWallet. All rights reserved.
+//  Copyright © 2020 NomadWallet. All rights reserved.
 //
 
 import SwiftUI

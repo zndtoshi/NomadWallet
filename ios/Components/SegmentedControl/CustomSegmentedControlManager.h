@@ -1,9 +1,9 @@
 //
 //  SegmentedControlManager.h
-//  BlueWallet
+//  NomadWallet
 //
 //  Created by Marcos Rodriguez on 6/8/24.
-//  Copyright © 2024 BlueWallet. All rights reserved.
+//  Copyright © 2024 NomadWallet. All rights reserved.
 //
 
 #import <React/RCTViewManager.h>

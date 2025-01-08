@@ -1,9 +1,9 @@
 //
 //  EventEmitter.m
-//  BlueWallet
+//  NomadWallet
 //
 //  Created by Marcos Rodriguez on 12/25/20.
-//  Copyright © 2020 BlueWallet. All rights reserved.
+//  Copyright © 2020 NomadWallet. All rights reserved.
 //
 
 #import "EventEmitter.h"
@@ -47,7 +47,7 @@ RCT_EXPORT_MODULE();
 RCT_EXPORT_METHOD(getMostRecentUserActivity:(RCTPromiseResolveBlock)resolve
                                  rejecter:(RCTPromiseRejectBlock)reject)
 {
-    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.io.bluewallet.bluewallet"];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.io.nomadwallet.nomadwallet"];
     resolve([defaults valueForKey:@"onUserActivityOpen"]);
 }
 

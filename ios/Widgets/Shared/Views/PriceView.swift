@@ -1,9 +1,9 @@
 //
 //  PriceView.swift
-//  BlueWallet
+//  NomadWallet
 //
 //  Created by Marcos Rodriguez on 11/8/20.
-//  Copyright © 2020 BlueWallet. All rights reserved.
+//  Copyright © 2020 NomadWallet. All rights reserved.
 //
 
 import SwiftUI
@@ -75,7 +75,7 @@ struct PriceView: View {
           .foregroundColor(priceChangePercentage.contains("-") ? .red : .green)
       }
     }
-    .widgetURL(URL(string: "bluewallet://marketprice"))
+    .widgetURL(URL(string: "nomadwallet://marketprice"))
   }
   
   private var accessoryInlineView: some View {

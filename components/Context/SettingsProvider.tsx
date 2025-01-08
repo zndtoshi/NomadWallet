@@ -3,7 +3,7 @@ import DefaultPreference from 'react-native-default-preference';
 import { isReadClipboardAllowed, setReadClipboardAllowed } from '../../blue_modules/clipboard';
 import { getPreferredCurrency, GROUP_IO_BLUEWALLET, initCurrencyDaemon, setPreferredCurrency } from '../../blue_modules/currency';
 import { clearUseURv1, isURv1Enabled, setUseURv1 } from '../../blue_modules/ur';
-import { BlueApp } from '../../class';
+import { NomadApp } from '../../class';
 import { saveLanguage, STORAGE_KEY } from '../../loc';
 import { FiatUnit, TFiatUnit } from '../../models/fiatUnit';
 import {
@@ -15,14 +15,14 @@ import { useStorage } from '../../hooks/context/useStorage';
 import { BitcoinUnit } from '../../models/bitcoinUnits';
 import { TotalWalletsBalanceKey, TotalWalletsBalancePreferredUnit } from '../TotalWalletsBalance';
 import { BLOCK_EXPLORERS, getBlockExplorerUrl, saveBlockExplorer, BlockExplorer, normalizeUrl } from '../../models/blockExplorer';
-import * as BlueElectrum from '../../blue_modules/BlueElectrum';
+import * as NomadElectrum from '../../blue_modules/NomadElectrum';
 import { isBalanceDisplayAllowed, setBalanceDisplayAllowed } from '../../hooks/useWidgetCommunication';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const getDoNotTrackStorage = async (): Promise<boolean> => {
   try {
     await DefaultPreference.setName(GROUP_IO_BLUEWALLET);
-    const doNotTrack = await DefaultPreference.get(BlueApp.DO_NOT_TRACK);
+    const doNotTrack = await DefaultPreference.get(NomadApp.DO_NOT_TRACK);
     return doNotTrack === '1';
   } catch {
     console.error('Error getting DoNotTrack');
@@ -163,7 +163,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = React.m
       }
 
       const promises: Promise<void>[] = [
-        BlueElectrum.isDisabled().then(disabled => {
+        NomadElectrum.isDisabled().then(disabled => {
           setIsElectrumDisabled(disabled);
         }),
         getIsHandOffUseEnabled().then(handOff => {
@@ -225,7 +225,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = React.m
 
   useEffect(() => {
     if (walletsInitialized) {
-      isElectrumDisabled ? BlueElectrum.forceDisconnect() : BlueElectrum.connectMain();
+      isElectrumDisabled ? NomadElectrum.forceDisconnect() : NomadElectrum.connectMain();
     }
   }, [isElectrumDisabled, walletsInitialized]);
 
@@ -251,9 +251,9 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = React.m
     try {
       await DefaultPreference.setName(GROUP_IO_BLUEWALLET);
       if (value) {
-        await DefaultPreference.set(BlueApp.DO_NOT_TRACK, '1');
+        await DefaultPreference.set(NomadApp.DO_NOT_TRACK, '1');
       } else {
-        await DefaultPreference.clear(BlueApp.DO_NOT_TRACK);
+        await DefaultPreference.clear(NomadApp.DO_NOT_TRACK);
       }
       setIsDoNotTrackEnabled(value);
     } catch (e) {

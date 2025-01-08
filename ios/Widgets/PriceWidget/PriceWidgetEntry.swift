@@ -1,9 +1,9 @@
 //
 //  PriceWidgetEntry.swift
-//  BlueWallet
+//  NomadWallet
 //
 //  Created by Marcos Rodriguez on 10/27/24.
-//  Copyright © 2024 BlueWallet. All rights reserved.
+//  Copyright © 2024 NomadWallet. All rights reserved.
 //
 
 import AppIntents

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6D2A6460258BA92C0092292B"
+               NomadprintIdentifier = "6D2A6460258BA92C0092292B"
                BuildableName = "Stickers.appex"
-               BlueprintName = "Stickers"
-               ReferencedContainer = "container:BlueWallet.xcodeproj">
+               NomadprintName = "Stickers"
+               ReferencedContainer = "container:NomadWallet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "BlueWallet.app"
-               BlueprintName = "BlueWallet"
-               ReferencedContainer = "container:BlueWallet.xcodeproj">
+               NomadprintIdentifier = "13B07F861A680F5B00A75B9A"
+               BuildableName = "NomadWallet.app"
+               NomadprintName = "NomadWallet"
+               ReferencedContainer = "container:NomadWallet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,10 +48,10 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B47B21E82B2128B8001F6690"
-               BuildableName = "BlueWalletUITests.xctest"
-               BlueprintName = "BlueWalletUITests"
-               ReferencedContainer = "container:BlueWallet.xcodeproj">
+               NomadprintIdentifier = "B47B21E82B2128B8001F6690"
+               BuildableName = "NomadWalletUITests.xctest"
+               NomadprintName = "NomadWalletUITests"
+               ReferencedContainer = "container:NomadWallet.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -72,10 +72,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "BlueWallet.app"
-            BlueprintName = "BlueWallet"
-            ReferencedContainer = "container:BlueWallet.xcodeproj">
+            NomadprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "NomadWallet.app"
+            NomadprintName = "NomadWallet"
+            ReferencedContainer = "container:NomadWallet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -91,10 +91,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "BlueWallet.app"
-            BlueprintName = "BlueWallet"
-            ReferencedContainer = "container:BlueWallet.xcodeproj">
+            NomadprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "NomadWallet.app"
+            NomadprintName = "NomadWallet"
+            ReferencedContainer = "container:NomadWallet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

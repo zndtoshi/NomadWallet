@@ -1,4 +1,4 @@
-package io.bluewallet.bluewallet
+package io.nomadwallet.nomadwallet
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
@@ -28,8 +28,8 @@ class BitcoinPriceWidget : AppWidgetProvider() {
     }
 
     private fun clearCache(context: Context) {
-        val sharedPref = context.getSharedPreferences("group.io.bluewallet.bluewallet", Context.MODE_PRIVATE)
+        val sharedPref = context.getSharedPreferences("group.io.nomadwallet.nomadwallet", Context.MODE_PRIVATE)
         sharedPref.edit().clear().apply() // Clear all preferences in the group
-        Log.d("BitcoinPriceWidget", "Cache cleared from group.io.bluewallet.bluewallet")
+        Log.d("BitcoinPriceWidget", "Cache cleared from group.io.nomadwallet.nomadwallet")
     }
 }

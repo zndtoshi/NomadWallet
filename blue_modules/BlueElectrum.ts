@@ -85,12 +85,12 @@ export const ELECTRUM_SSL_PORT = 'electrum_ssl_port';
 export const ELECTRUM_SERVER_HISTORY = 'electrum_server_history';
 const ELECTRUM_CONNECTION_DISABLED = 'electrum_disabled';
 const storageKey = 'ELECTRUM_PEERS';
-const defaultPeer = { host: 'electrum1.bluewallet.io', ssl: '443' };
+const defaultPeer = { host: 'electrum1.nomadwallet.io', ssl: '443' };
 export const hardcodedPeers: Peer[] = [
   { host: 'mainnet.foundationdevices.com', ssl: '50002' },
   // { host: 'bitcoin.lukechilds.co', ssl: '50002' },
   // { host: 'electrum.jochen-hoenicke.de', ssl: '50006' },
-  { host: 'electrum1.bluewallet.io', ssl: '443' },
+  { host: 'electrum1.nomadwallet.io', ssl: '443' },
   { host: 'electrum.acinq.co', ssl: '50002' },
   { host: 'electrum.bitaroo.net', ssl: '50002' },
 ];
@@ -236,7 +236,7 @@ export async function connectMain(): Promise<void> {
         setTimeout(connectMain, usingPeer.host.endsWith('.onion') ? 4000 : 500);
       }
     };
-    const ver = await mainClient.initElectrum({ client: 'bluewallet', version: '1.4' });
+    const ver = await mainClient.initElectrum({ client: 'nomadwallet', version: '1.4' });
     if (ver && ver[0]) {
       console.log('connected to ', ver);
       serverName = ver[0];
@@ -336,7 +336,7 @@ const presentNetworkErrorAlert = async (usingPeer?: Peer) => {
                   await AsyncStorage.setItem(ELECTRUM_TCP_PORT, '');
                   await AsyncStorage.setItem(ELECTRUM_SSL_PORT, '');
                   try {
-                    await DefaultPreference.setName('group.io.bluewallet.bluewallet');
+                    await DefaultPreference.setName('group.io.nomadwallet.nomadwallet');
                     await DefaultPreference.clear(ELECTRUM_HOST);
                     await DefaultPreference.clear(ELECTRUM_SSL_PORT);
                     await DefaultPreference.clear(ELECTRUM_TCP_PORT);

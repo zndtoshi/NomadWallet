@@ -1,23 +1,23 @@
 import { Platform } from 'react-native';
 
-import { BlueApp as BlueAppClass } from '../class/';
+import { NomadApp as NomadAppClass } from '../class/';
 import prompt from '../helpers/prompt';
 import { showKeychainWipeAlert } from '../hooks/useBiometrics';
 import loc from '../loc';
 
-const BlueApp = BlueAppClass.getInstance();
+const NomadApp = NomadAppClass.getInstance();
 // If attempt reaches 10, a wipe keychain option will be provided to the user.
 let unlockAttempt = 0;
 
 export const startAndDecrypt = async (retry?: boolean): Promise<boolean> => {
   console.log('startAndDecrypt');
-  if (BlueApp.getWallets().length > 0) {
+  if (NomadApp.getWallets().length > 0) {
     console.log('App already has some wallets, so we are in already started state, exiting startAndDecrypt');
     return true;
   }
-  await BlueApp.migrateKeys();
+  await NomadApp.migrateKeys();
   let password: undefined | string;
-  if (await BlueApp.storageIsEncrypted()) {
+  if (await NomadApp.storageIsEncrypted()) {
     do {
       password = await prompt((retry && loc._.bad_password) || loc._.enter_password, loc._.storage_is_encrypted, false);
     } while (!password);
@@ -25,7 +25,7 @@ export const startAndDecrypt = async (retry?: boolean): Promise<boolean> => {
   let success = false;
   let wasException = false;
   try {
-    success = await BlueApp.loadFromDisk(password);
+    success = await NomadApp.loadFromDisk(password);
   } catch (error) {
     // in case of exception reading from keystore, lets retry instead of assuming there is no storage and
     // proceeding with no wallets
@@ -37,7 +37,7 @@ export const startAndDecrypt = async (retry?: boolean): Promise<boolean> => {
     // retrying, but only once
     try {
       await new Promise(resolve => setTimeout(resolve, 3000)); // sleep
-      success = await BlueApp.loadFromDisk(password);
+      success = await NomadApp.loadFromDisk(password);
     } catch (error) {
       console.warn('second exception loading from disk:', error);
     }
@@ -67,4 +67,4 @@ export const startAndDecrypt = async (retry?: boolean): Promise<boolean> => {
   }
 };
 
-export default BlueApp;
+export default NomadApp;

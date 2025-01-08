@@ -1,9 +1,9 @@
 //
 //  XMLParserDelegate.swift
-//  BlueWallet
+//  NomadWallet
 //
 //  Created by Marcos Rodriguez on 11/13/23.
-//  Copyright © 2023 BlueWallet. All rights reserved.
+//  Copyright © 2023 NomadWallet. All rights reserved.
 //
 
 import Foundation

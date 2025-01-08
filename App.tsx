@@ -1,18 +1,11 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import HomeScreen from './HomeScreen';
+import DrawerNavigator from './navigation/DrawerNavigator';
 
-const Drawer = createDrawerNavigator();
-
-const App = () => {
+export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
-      </Drawer.Navigator>
+      <DrawerNavigator />
     </NavigationContainer>
   );
-};
-
-export default App;
+}

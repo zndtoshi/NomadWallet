@@ -39,7 +39,7 @@
 
         <meta-data
             android:name="com.dieam.reactnativepushnotification.notification_channel_name"
-            android:value="BlueWallet notifications" />
+            android:value="NomadWallet notifications" />
         <meta-data
             android:name="com.dieam.reactnativepushnotification.notification_channel_description"
             android:value="Notifications about incoming payments" />
@@ -117,13 +117,13 @@
                 <data android:scheme="file" android:mimeType="image/jpg" />
             </intent-filter>
             
-            <!-- Intent filter for other custom schemes (bitcoin, bluewallet, etc.) -->
+            <!-- Intent filter for other custom schemes (bitcoin, nomadwallet, etc.) -->
             <intent-filter tools:ignore="AppLinkUrlError">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="bitcoin" />
                 <data android:scheme="lightning" />
-                <data android:scheme="bluewallet" />
+                <data android:scheme="nomadwallet" />
                 <data android:scheme="lapp" />
                 <data android:scheme="blue" />
                 <data android:scheme="http" />

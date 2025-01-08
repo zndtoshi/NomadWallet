@@ -15,7 +15,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { BlueSpacing10 } from '../BlueComponents';
+import { NomadSpacing10 } from '../NomadComponents';
 import { LightningCustodianWallet, MultisigHDWallet } from '../class';
 import WalletGradient from '../class/wallet-gradient';
 import { useIsLargeScreen } from '../hooks/useIsLargeScreen';
@@ -274,7 +274,7 @@ export const WalletCarouselItem: React.FC<WalletCarouselItemProps> = React.memo(
                   <View style={iStyles.balanceContainer}>
                     {item.hideBalance ? (
                       <>
-                        <BlueSpacing10 />
+                        <NomadSpacing10 />
                         <BlurredBalanceView />
                       </>
                     ) : (

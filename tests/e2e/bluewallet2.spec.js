@@ -23,7 +23,7 @@ beforeAll(async () => {
   await sleep(15000);
 }, 1200_000);
 
-describe('BlueWallet UI Tests - import BIP84 wallet', () => {
+describe('NomadWallet UI Tests - import BIP84 wallet', () => {
   it('can create a transaction; can scanQR with bip21; can switch units', async () => {
     const lockFile = '/tmp/travislock.' + hashIt('t21');
     if (process.env.TRAVIS) {
@@ -89,7 +89,7 @@ describe('BlueWallet UI Tests - import BIP84 wallet', () => {
     await device.pressBack();
     await device.pressBack();
     await element(by.id('changeAmountUnitButton')).tap(); // switched to SATS
-    await element(by.id('BlueAddressInputScanQrButton')).tap();
+    await element(by.id('NomadAddressInputScanQrButton')).tap();
 
     // tapping 5 times invisible button is a backdoor:
     for (let c = 0; c <= 5; c++) {
@@ -121,7 +121,7 @@ describe('BlueWallet UI Tests - import BIP84 wallet', () => {
     await element(by.id('changeAmountUnitButton')).tap(); // switched to SATS
     await element(by.id('changeAmountUnitButton')).tap(); // switched to FIAT
     await element(by.id('BitcoinAmountInput')).replaceText('1.1');
-    await element(by.id('BlueAddressInputScanQrButton')).tap();
+    await element(by.id('NomadAddressInputScanQrButton')).tap();
 
     // tapping 5 times invisible button is a backdoor:
     for (let c = 0; c <= 5; c++) {

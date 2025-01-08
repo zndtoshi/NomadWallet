@@ -1,6 +1,6 @@
 //
 //  PriceIntent.swift
-//  BlueWallet
+//  NomadWallet
 //
 
 import AppIntents

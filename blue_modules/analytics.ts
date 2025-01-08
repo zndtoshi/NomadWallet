@@ -1,9 +1,9 @@
 import Bugsnag from '@bugsnag/react-native';
 import { getUniqueId } from 'react-native-device-info';
 
-import { BlueApp as BlueAppClass } from '../class';
+import { NomadApp as NomadAppClass } from '../class';
 
-const BlueApp = BlueAppClass.getInstance();
+const NomadApp = NomadAppClass.getInstance();
 
 /**
  * in case Bugsnag was started, but user decided to opt out while using the app, we have this
@@ -14,7 +14,7 @@ let userHasOptedOut: boolean = false;
 
 (async () => {
   const uniqueID = await getUniqueId();
-  const doNotTrack = await BlueApp.isDoNotTrackEnabled();
+  const doNotTrack = await NomadApp.isDoNotTrackEnabled();
 
   if (doNotTrack) {
     // dont start Bugsnag at all

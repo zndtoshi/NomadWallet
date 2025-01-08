@@ -1,7 +1,7 @@
 import { DarkTheme, DefaultTheme, useTheme as useThemeBase } from '@react-navigation/native';
 import { Appearance } from 'react-native';
 
-export const BlueDefaultTheme = {
+export const NomadDefaultTheme = {
   ...DefaultTheme,
   closeImage: require('../img/close.png'),
   barStyle: 'dark-content',
@@ -23,7 +23,7 @@ export const BlueDefaultTheme = {
     inputBackgroundColor: '#f5f5f5',
     alternativeTextColor: '#9aa0aa',
     alternativeTextColor2: '#0f5cc0',
-    buttonBlueBackgroundColor: '#ccddf9',
+    buttonNomadBackgroundColor: '#ccddf9',
     buttonGrayBackgroundColor: '#EEEEEE',
     incomingBackgroundColor: '#d2f8d6',
     incomingForegroundColor: '#37c0a1',
@@ -62,7 +62,7 @@ export const BlueDefaultTheme = {
     successCheck: '#0f5cc0',
     msSuccessBG: '#37c0a1',
     msSuccessCheck: '#ffffff',
-    newBlue: '#007AFF',
+    newNomad: '#007AFF',
     redBG: '#F8D2D2',
     redText: '#D0021B',
     changeBackground: '#FDF2DA',
@@ -73,15 +73,15 @@ export const BlueDefaultTheme = {
   },
 };
 
-export type Theme = typeof BlueDefaultTheme;
+export type Theme = typeof NomadDefaultTheme;
 
-export const BlueDarkTheme: Theme = {
+export const NomadDarkTheme: Theme = {
   ...DarkTheme,
   closeImage: require('../img/close-white.png'),
   scanImage: require('../img/scan-white.png'),
   barStyle: 'light-content',
   colors: {
-    ...BlueDefaultTheme.colors,
+    ...NomadDefaultTheme.colors,
     ...DarkTheme.colors,
     customHeader: '#000000',
     brandingColor: '#000000',
@@ -113,12 +113,12 @@ export const BlueDarkTheme: Theme = {
     mainColor: '#0A84FF',
     success: '#202020',
     successCheck: '#0A84FF',
-    buttonBlueBackgroundColor: '#202020',
+    buttonNomadBackgroundColor: '#202020',
     scanLabel: 'rgba(255,255,255,.2)',
     labelText: '#ffffff',
     msSuccessBG: '#8EFFE5',
     msSuccessCheck: '#000000',
-    newBlue: '#007AFF',
+    newNomad: '#007AFF',
     redBG: '#5A4E4E',
     redText: '#FC6D6D',
     changeBackground: '#5A4E4E',
@@ -132,17 +132,17 @@ export const BlueDarkTheme: Theme = {
 // Casting theme value to get autocompletion
 export const useTheme = (): Theme => useThemeBase() as Theme;
 
-export class BlueCurrentTheme {
+export class NomadCurrentTheme {
   static colors: Theme['colors'];
   static closeImage: Theme['closeImage'];
   static scanImage: Theme['scanImage'];
 
   static updateColorScheme(): void {
     const isColorSchemeDark = Appearance.getColorScheme() === 'dark';
-    BlueCurrentTheme.colors = isColorSchemeDark ? BlueDarkTheme.colors : BlueDefaultTheme.colors;
-    BlueCurrentTheme.closeImage = isColorSchemeDark ? BlueDarkTheme.closeImage : BlueDefaultTheme.closeImage;
-    BlueCurrentTheme.scanImage = isColorSchemeDark ? BlueDarkTheme.scanImage : BlueDefaultTheme.scanImage;
+    NomadCurrentTheme.colors = isColorSchemeDark ? NomadDarkTheme.colors : NomadDefaultTheme.colors;
+    NomadCurrentTheme.closeImage = isColorSchemeDark ? NomadDarkTheme.closeImage : NomadDefaultTheme.closeImage;
+    NomadCurrentTheme.scanImage = isColorSchemeDark ? NomadDarkTheme.scanImage : NomadDefaultTheme.scanImage;
   }
 }
 
-BlueCurrentTheme.updateColorScheme();
+NomadCurrentTheme.updateColorScheme();

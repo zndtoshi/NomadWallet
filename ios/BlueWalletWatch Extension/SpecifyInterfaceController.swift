@@ -1,6 +1,6 @@
 //
 //  SpecifyInterfaceController.swift
-//  BlueWalletWatch Extension
+//  NomadWalletWatch Extension
 //
 //  Created by Marcos Rodriguez on 3/23/19.
 

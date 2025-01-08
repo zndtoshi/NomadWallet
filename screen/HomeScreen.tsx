@@ -1,62 +1,60 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { useTheme } from '../theme/useTheme';
 
-const HomeScreen = () => {
-  const handleImportWallet = () => {
-    console.log('Import Wallet');
-  };
-
-  const handleImportPSBT = () => {
-    console.log('Import signed PSBT');
-  };
+export default function HomeScreen() {
+  const theme = useTheme();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <Image
-        source={{ uri: 'https://example.com/dms-icon.png' }} // Replace with the correct image URL or asset path
-        style={styles.logo}
+        source={require('../assets/dms_logo.png')}
+        style={styles.image}
       />
-      <Text style={styles.text}>DMS info</Text>
-      <TouchableOpacity style={styles.button} onPress={handleImportWallet}>
-        <Text style={styles.buttonText}>↕ Import Wallet</Text>
+      <Text style={[styles.header, { color: theme.colors.text }]}>DMS info</Text>
+      <TouchableOpacity
+        style={[styles.button, { backgroundColor: theme.colors.button }]}
+      >
+        <Text style={[styles.buttonText, { color: theme.colors.buttonText }]}>
+          Import Wallet
+        </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={handleImportPSBT}>
-        <Text style={styles.buttonText}>↕ Import signed PSBT</Text>
+      <TouchableOpacity
+        style={[styles.button, { backgroundColor: theme.colors.button }]}
+      >
+        <Text style={[styles.buttonText, { color: theme.colors.buttonText }]}>
+          Import signed PSBT
+        </Text>
       </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    justifyContent: 'center',
+    padding: 16,
   },
-  logo: {
+  image: {
     width: 100,
     height: 100,
-    marginBottom: 20,
+    marginBottom: 16,
   },
-  text: {
+  header: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 30,
+    marginBottom: 32,
   },
   button: {
-    backgroundColor: '#6A1B9A',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 5,
-    marginVertical: 10,
+    width: '80%',
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 16,
+    alignItems: 'center',
   },
   buttonText: {
-    color: '#fff',
     fontSize: 16,
-    textAlign: 'center',
   },
 });
-
-export default HomeScreen;

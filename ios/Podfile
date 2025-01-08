@@ -18,7 +18,7 @@ require Pod::Executable.execute_command('node', ['-p',
     {paths: [process.argv[1]]},
   )', __dir__]).strip
 
-workspace 'BlueWallet'
+workspace 'NomadWallet'
 platform :ios, min_ios_version_supported
 prepare_react_native_project!
 setup_permissions(['Camera', 'Notifications'])
@@ -42,7 +42,7 @@ def configure_target()
 end
 
 
-target 'BlueWallet' do
+target 'NomadWallet' do
   configure_target()
 end
 
@@ -58,7 +58,7 @@ post_install do |installer|
       
       if ['React-Core-AccessibilityResources'].include? target.name 
         config.build_settings['CODE_SIGN_STYLE'] = "Manual"
-        config.build_settings['CODE_SIGN_IDENTITY'] = "Apple Distribution: Bluewallet Services, S. R. L. (A7W54YZ4WU)"
+        config.build_settings['CODE_SIGN_IDENTITY'] = "Apple Distribution: Nomadwallet Services, S. R. L. (A7W54YZ4WU)"
         config.build_settings['DEVELOPMENT_TEAM'] = "A7W54YZ4WU"
       end
     end

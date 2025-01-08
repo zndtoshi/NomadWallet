@@ -1,17 +1,17 @@
 //
 //  Handoff.swift
-//  BlueWalletWatch Extension
+//  NomadWalletWatch Extension
 //
 //  Created by Admin on 9/27/21.
-//  Copyright © 2021 BlueWallet. All rights reserved.
+//  Copyright © 2021 NomadWallet. All rights reserved.
 //
 
 import Foundation
 
 enum HandoffIdentifier: String {
-  case ReceiveOnchain = "io.bluewallet.bluewallet.receiveonchain"
-  case Xpub = "io.bluewallet.bluewallet.xpub"
-  case ViewInBlockExplorer = "io.bluewallet.bluewallet.blockexplorer"
+  case ReceiveOnchain = "io.nomadwallet.nomadwallet.receiveonchain"
+  case Xpub = "io.nomadwallet.nomadwallet.xpub"
+  case ViewInBlockExplorer = "io.nomadwallet.nomadwallet.blockexplorer"
 }
 
 enum HandOffUserInfoKey: String {

@@ -1,6 +1,6 @@
 //
 //  TransactionTableRow.swift
-//  BlueWalletWatch Extension
+//  NomadWalletWatch Extension
 //
 //  Created by Marcos Rodriguez on 3/10/19.
 
