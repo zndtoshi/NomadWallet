@@ -90,7 +90,7 @@ export const openSignedTransaction = async function (): Promise<string | false> 
     const res = await DocumentPicker.pickSingle({
       type:
         Platform.OS === 'ios'
-          ? ['io.bluewallet.psbt', 'io.bluewallet.psbt.txn', DocumentPicker.types.json]
+          ? ['io.nomadwallet.psbt', 'io.nomadwallet.psbt.txn', DocumentPicker.types.json]
           : [DocumentPicker.types.allFiles],
     });
 
@@ -156,9 +156,9 @@ export const showFilePickerAndReadFile = async function (): Promise<{ data: stri
       type:
         Platform.OS === 'ios'
           ? [
-              'io.bluewallet.psbt',
-              'io.bluewallet.psbt.txn',
-              'io.bluewallet.backup',
+              'io.nomadwallet.psbt',
+              'io.nomadwallet.psbt.txn',
+              'io.nomadwallet.backup',
               DocumentPicker.types.plainText,
               DocumentPicker.types.json,
               DocumentPicker.types.images,

@@ -8,18 +8,18 @@
 Thin Bitcoin Wallet.
 Built with React Native and Electrum.
 
-[![Appstore](https://bluewallet.io/uploads/app-store-badge-blue.svg)](https://itunes.apple.com/us/app/bluewallet-bitcoin-wallet/id1376878040?l=ru&ls=1&mt=8)
-[![Playstore](https://bluewallet.io/uploads/play-store-badge-blue.svg)](https://play.google.com/store/apps/details?id=io.bluewallet.bluewallet)
+[![Appstore](https://nomadwallet.io/uploads/app-store-badge-blue.svg)](https://itunes.apple.com/us/app/nomadwallet-bitcoin-wallet/id1376878040?l=ru&ls=1&mt=8)
+[![Playstore](https://nomadwallet.io/uploads/play-store-badge-blue.svg)](https://play.google.com/store/apps/details?id=io.nomadwallet.nomadwallet)
 
-Website: [bluewallet.io](https://bluewallet.io)
+Website: [nomadwallet.io](https://nomadwallet.io)
 
-Community: [telegram group](https://t.me/bluewallet)
+Community: [telegram group](https://t.me/nomadwallet)
 
 * Private keys never leave your device
 * Lightning Network supported
 * SegWit-first. Replace-By-Fee support
 * Encryption. Plausible deniability
-* And many more [features...](https://bluewallet.io/features)
+* And many more [features...](https://nomadwallet.io/features)
 
 
 <img src="https://i.imgur.com/hHYJnMj.png" width="100%">
@@ -101,11 +101,11 @@ MIT
 
 ## WANT TO CONTRIBUTE?
 
-Grab an issue from [the backlog](https://github.com/NomadWallet/NomadWallet/issues), try to start or submit a PR, any doubts we will try to guide you. Contributors have a private telegram group, request access by email bluewallet@bluewallet.io
+Grab an issue from [the backlog](https://github.com/NomadWallet/NomadWallet/issues), try to start or submit a PR, any doubts we will try to guide you. Contributors have a private telegram group, request access by email nomadwallet@nomadwallet.io
 
 ## Translations
 
-We accept translations via [Transifex](https://www.transifex.com/bluewallet/bluewallet/)
+We accept translations via [Transifex](https://www.transifex.com/nomadwallet/nomadwallet/)
 
 To participate you need to:
 1. Sign up to Transifex
@@ -130,5 +130,5 @@ Bugs reported via BugSnag
 
 ## RESPONSIBLE DISCLOSURE
 
-Found critical bugs/vulnerabilities? Please email them bluewallet@bluewallet.io
+Found critical bugs/vulnerabilities? Please email them nomadwallet@nomadwallet.io
 Thanks!

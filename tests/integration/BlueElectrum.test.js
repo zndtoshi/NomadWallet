@@ -91,8 +91,8 @@ describe('NomadElectrum', () => {
   });
 
   it('ElectrumClient can test connection', async () => {
-    assert.ok(!(await NomadElectrum.testConnection('electrum1.bluewallet.io', 444, false)));
-    assert.ok(!(await NomadElectrum.testConnection('electrum1.bluewallet.io', false, 444)));
+    assert.ok(!(await NomadElectrum.testConnection('electrum1.nomadwallet.io', 444, false)));
+    assert.ok(!(await NomadElectrum.testConnection('electrum1.nomadwallet.io', false, 444)));
     assert.ok(!(await NomadElectrum.testConnection('ya.ru', 444, false)));
     assert.ok(!(await NomadElectrum.testConnection('google.com', false, 80)));
     assert.ok(!(await NomadElectrum.testConnection('google.com', 80, false)));
@@ -103,8 +103,8 @@ describe('NomadElectrum', () => {
     assert.ok(!(await NomadElectrum.testConnection('joyreactor.cc', 80, false)));
     assert.ok(!(await NomadElectrum.testConnection('joyreactor.cc', false, 80)));
 
-    assert.ok(await NomadElectrum.testConnection('electrum1.bluewallet.io', '50001'));
-    assert.ok(await NomadElectrum.testConnection('electrum1.bluewallet.io', false, 443));
+    assert.ok(await NomadElectrum.testConnection('electrum1.nomadwallet.io', '50001'));
+    assert.ok(await NomadElectrum.testConnection('electrum1.nomadwallet.io', false, 443));
   });
 
   it('ElectrumClient can estimate fees', async () => {

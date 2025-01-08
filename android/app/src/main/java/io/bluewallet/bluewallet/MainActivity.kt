@@ -1,4 +1,4 @@
-package io.bluewallet.bluewallet
+package io.nomadwallet.nomadwallet
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle

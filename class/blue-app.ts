@@ -901,7 +901,7 @@ export class NomadApp {
       if (keyExists !== null) {
         const doNotTrackValue = !!keyExists;
         if (doNotTrackValue) {
-          await DefaultPreference.setName('group.io.bluewallet.bluewallet');
+          await DefaultPreference.setName('group.io.nomadwallet.nomadwallet');
           await DefaultPreference.set(NomadApp.DO_NOT_TRACK, '1');
           AsyncStorage.removeItem(NomadApp.DO_NOT_TRACK);
         } else {
@@ -914,7 +914,7 @@ export class NomadApp {
   };
 
   setDoNotTrack = async (value: boolean) => {
-    await DefaultPreference.setName('group.io.bluewallet.bluewallet');
+    await DefaultPreference.setName('group.io.nomadwallet.nomadwallet');
     if (value) {
       await DefaultPreference.set(NomadApp.DO_NOT_TRACK, '1');
     } else {

@@ -6,9 +6,9 @@
 #     $ xxd -plain test.txt > test.hex
 #     $ xxd -plain -revert test.hex test2.txt
 
-echo $KEYSTORE_FILE_HEX > bluewallet-release-key.keystore.hex
-xxd -plain -revert bluewallet-release-key.keystore.hex > ./android/bluewallet-release-key.keystore
-rm bluewallet-release-key.keystore.hex
+echo $KEYSTORE_FILE_HEX > nomadwallet-release-key.keystore.hex
+xxd -plain -revert nomadwallet-release-key.keystore.hex > ./android/nomadwallet-release-key.keystore
+rm nomadwallet-release-key.keystore.hex
 
 cd android
 # Use the BUILD_NUMBER environment variable set in the GitHub Actions workflow
@@ -25,4 +25,4 @@ mv ./app/build/outputs/apk/release/app-release-unsigned.apk "./app/build/outputs
 echo wheres waldo?
 find $ANDROID_HOME | grep apksigner | grep -v jar
 
-$ANDROID_HOME/build-tools/34.0.0/apksigner sign --ks ./bluewallet-release-key.keystore --ks-pass=pass:$KEYSTORE_PASSWORD "./app/build/outputs/apk/release/NomadWallet-${VERSION_NAME}($BUILD_NUMBER).apk"
+$ANDROID_HOME/build-tools/34.0.0/apksigner sign --ks ./nomadwallet-release-key.keystore --ks-pass=pass:$KEYSTORE_PASSWORD "./app/build/outputs/apk/release/NomadWallet-${VERSION_NAME}($BUILD_NUMBER).apk"
