@@ -1,32 +1,11 @@
-import 'react-native-gesture-handler'; // should be on top
-
-import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { useColorScheme } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { LargeScreenProvider } from './components/Context/LargeScreenProvider';
-import { SettingsProvider } from './components/Context/SettingsProvider';
-import { NomadDarkTheme, NomadDefaultTheme } from './components/themes';
-import MasterView from './navigation/MasterView';
-import { navigationRef } from './NavigationService';
-import { StorageProvider } from './components/Context/StorageProvider';
+import { NavigationContainer } from '@react-navigation/native';
+import DrawerNavigator from './navigation/DrawerNavigator';
 
-const App = () => {
-  const colorScheme = useColorScheme();
-
+export default function App() {
   return (
-    <LargeScreenProvider>
-      <NavigationContainer ref={navigationRef} theme={colorScheme === 'dark' ? NomadDarkTheme : NomadDefaultTheme}>
-        <SafeAreaProvider>
-          <StorageProvider>
-            <SettingsProvider>
-              <MasterView />
-            </SettingsProvider>
-          </StorageProvider>
-        </SafeAreaProvider>
-      </NavigationContainer>
-    </LargeScreenProvider>
+    <NavigationContainer>
+      <DrawerNavigator />
+    </NavigationContainer>
   );
-};
-
-export default App;
+}
