@@ -5,7 +5,7 @@ import { NomadApp as NomadAppClass, LegacyWallet, TCounterpartyMetadata, TTXMeta
 import type { TWallet } from '../../class/wallets/types';
 import presentAlert from '../../components/Alert';
 import loc from '../../loc';
-import * as NomadElectrum from '../../blue_modules/NomadElectrum';
+import * as BlueElectrum from '../../blue_modules/BlueElectrum';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
 import { startAndDecrypt } from '../../blue_modules/start-and-decrypt';
 import { majorTomToGroundControl } from '../../blue_modules/notifications';
@@ -134,7 +134,7 @@ export const StorageProvider = ({ children }: { children: React.ReactNode }) => 
         InteractionManager.runAfterInteractions(async () => {
           let noErr = true;
           try {
-            await NomadElectrum.waitTillConnected();
+            await BlueElectrum.waitTillConnected();
             if (showUpdateStatusIndicator) {
               setWalletTransactionUpdateStatus(WalletTransactionsStatus.ALL);
             }
@@ -187,7 +187,7 @@ export const StorageProvider = ({ children }: { children: React.ReactNode }) => 
           }
           _lastTimeTriedToRefetchWallet[walletID] = Date.now();
 
-          await NomadElectrum.waitTillConnected();
+          await BlueElectrum.waitTillConnected();
           setWalletTransactionUpdateStatus(walletID);
           const balanceStart = Date.now();
           await NomadApp.fetchWalletBalances(index);

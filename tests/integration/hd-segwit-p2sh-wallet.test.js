@@ -1,21 +1,21 @@
 import assert from 'assert';
 import * as bitcoin from 'bitcoinjs-lib';
 
-import * as NomadElectrum from '../../blue_modules/NomadElectrum';
+import * as BlueElectrum from '../../blue_modules/BlueElectrum';
 import { HDSegwitP2SHWallet } from '../../class';
 
 jest.setTimeout(300 * 1000);
 
 afterAll(() => {
   // after all tests we close socket so the test suite can actually terminate
-  NomadElectrum.forceDisconnect();
+  BlueElectrum.forceDisconnect();
 });
 
 beforeAll(async () => {
   // awaiting for Electrum to be connected. For RN Electrum would naturally connect
   // while app starts up, but for tests we need to wait for it
   try {
-    await NomadElectrum.connectMain();
+    await BlueElectrum.connectMain();
   } catch (Err) {
     console.log('failed to connect to Electrum:', Err);
     process.exit(2);

@@ -15,7 +15,7 @@ import { useStorage } from '../../hooks/context/useStorage';
 import { BitcoinUnit } from '../../models/bitcoinUnits';
 import { TotalWalletsBalanceKey, TotalWalletsBalancePreferredUnit } from '../TotalWalletsBalance';
 import { BLOCK_EXPLORERS, getBlockExplorerUrl, saveBlockExplorer, BlockExplorer, normalizeUrl } from '../../models/blockExplorer';
-import * as NomadElectrum from '../../blue_modules/NomadElectrum';
+import * as BlueElectrum from '../../blue_modules/BlueElectrum';
 import { isBalanceDisplayAllowed, setBalanceDisplayAllowed } from '../../hooks/useWidgetCommunication';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -163,7 +163,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = React.m
       }
 
       const promises: Promise<void>[] = [
-        NomadElectrum.isDisabled().then(disabled => {
+        BlueElectrum.isDisabled().then(disabled => {
           setIsElectrumDisabled(disabled);
         }),
         getIsHandOffUseEnabled().then(handOff => {
@@ -225,7 +225,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = React.m
 
   useEffect(() => {
     if (walletsInitialized) {
-      isElectrumDisabled ? NomadElectrum.forceDisconnect() : NomadElectrum.connectMain();
+      isElectrumDisabled ? BlueElectrum.forceDisconnect() : BlueElectrum.connectMain();
     }
   }, [isElectrumDisabled, walletsInitialized]);
 

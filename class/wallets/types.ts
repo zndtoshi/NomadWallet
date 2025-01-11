@@ -18,7 +18,7 @@ import { SLIP39LegacyP2PKHWallet, SLIP39SegwitBech32Wallet, SLIP39SegwitP2SHWall
 import { WatchOnlyWallet } from './watch-only-wallet';
 
 export type Utxo = {
-  // Returned by NomadElectrum
+  // Returned by BlueElectrum
   height: number;
   address: string;
   txid: string;

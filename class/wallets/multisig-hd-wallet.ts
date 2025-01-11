@@ -8,7 +8,7 @@ import createHash from 'create-hash';
 import { ECPairFactory } from 'ecpair';
 import * as mn from 'electrum-mnemonic';
 
-import * as NomadElectrum from '../../blue_modules/NomadElectrum';
+import * as BlueElectrum from '../../blue_modules/BlueElectrum';
 import ecc from '../../blue_modules/noble_ecc';
 import { decodeUR } from '../../blue_modules/ur';
 import { AbstractHDElectrumWallet } from './abstract-hd-electrum-wallet';
@@ -1071,7 +1071,7 @@ export class MultisigHDWallet extends AbstractHDElectrumWallet {
   async fetchUtxo() {
     await super.fetchUtxo();
     // now we need to fetch txhash for each input as required by PSBT
-    const txhexes = await NomadElectrum.multiGetTransactionByTxid(
+    const txhexes = await BlueElectrum.multiGetTransactionByTxid(
       this.getUtxo(true).map(x => x.txid),
       false,
     );

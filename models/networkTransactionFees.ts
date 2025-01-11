@@ -1,4 +1,4 @@
-import * as NomadElectrum from '../blue_modules/NomadElectrum';
+import * as BlueElectrum from '../blue_modules/BlueElectrum';
 
 export enum NetworkTransactionFeeType {
   FAST = 'Fast',
@@ -24,11 +24,11 @@ export class NetworkTransactionFee {
 export default class NetworkTransactionFees {
   static async recommendedFees(): Promise<NetworkTransactionFee> {
     try {
-      const isDisabled = await NomadElectrum.isDisabled();
+      const isDisabled = await BlueElectrum.isDisabled();
       if (isDisabled) {
         throw new Error('Electrum is disabled. Dont attempt to fetch fees');
       }
-      const response = await NomadElectrum.estimateFees();
+      const response = await BlueElectrum.estimateFees();
       return new NetworkTransactionFee(response.fast + 5, response.medium + 2, response.slow);
     } catch (err) {
       console.warn(err);

@@ -1325,6 +1325,27 @@ PODS:
     - React
   - react-native-secure-key-store (2.0.10):
     - React-Core
+  - react-native-slider (4.5.5):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-tcp-socket (6.2.0):
     - CocoaAsyncSocket
     - React-Core
@@ -1680,7 +1701,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNReanimated (3.16.5):
+  - RNReanimated (3.16.6):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1700,10 +1721,10 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNReanimated/reanimated (= 3.16.5)
-    - RNReanimated/worklets (= 3.16.5)
+    - RNReanimated/reanimated (= 3.16.6)
+    - RNReanimated/worklets (= 3.16.6)
     - Yoga
-  - RNReanimated/reanimated (3.16.5):
+  - RNReanimated/reanimated (3.16.6):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1723,9 +1744,9 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNReanimated/reanimated/apple (= 3.16.5)
+    - RNReanimated/reanimated/apple (= 3.16.6)
     - Yoga
-  - RNReanimated/reanimated/apple (3.16.5):
+  - RNReanimated/reanimated/apple (3.16.6):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1746,7 +1767,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNReanimated/worklets (3.16.5):
+  - RNReanimated/worklets (3.16.6):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1914,6 +1935,7 @@ DEPENDENCIES:
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-screen-capture (from `../node_modules/react-native-screen-capture`)
   - react-native-secure-key-store (from `../node_modules/react-native-secure-key-store`)
+  - "react-native-slider (from `../node_modules/@react-native-community/slider`)"
   - react-native-tcp-socket (from `../node_modules/react-native-tcp-socket`)
   - React-nativeconfig (from `../node_modules/react-native/ReactCommon`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
@@ -2074,6 +2096,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screen-capture"
   react-native-secure-key-store:
     :path: "../node_modules/react-native-secure-key-store"
+  react-native-slider:
+    :path: "../node_modules/@react-native-community/slider"
   react-native-tcp-socket:
     :path: "../node_modules/react-native-tcp-socket"
   React-nativeconfig:
@@ -2231,6 +2255,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 758e894ca5a9bd1868d2a9cfbca7326a2b6bf9dc
   react-native-screen-capture: 7b6121f529681ed2fde36cdedadd0bb39e9a3796
   react-native-secure-key-store: eb45b44bdec3f48e9be5cdfca0f49ddf64892ea6
+  react-native-slider: fc7f35c082abec47e341dfe43657a1c26f38db2f
   react-native-tcp-socket: 61379457d7e702e83e28c213b6e085ac079e480f
   React-nativeconfig: 8c83d992b9cc7d75b5abe262069eaeea4349f794
   React-NativeModulesApple: 97f606f09fd9840b3868333984d6a0e7bcc425b5
@@ -2275,7 +2300,7 @@ SPEC CHECKSUMS:
   RNQuickAction: c2c8f379e614428be0babe4d53a575739667744d
   RNRate: 7641919330e0d6688ad885a985b4bd697ed7d14c
   RNReactNativeHapticFeedback: 00ba111b82aa266bb3ee1aa576831c2ea9a9dfad
-  RNReanimated: ae56eba247f82fa0d8bbf52bb0e7a34a218482de
+  RNReanimated: 000b758cfbcd9c20c15b7ef305f98f036b288feb
   RNScreens: 35bb8e81aeccf111baa0ea01a54231390dbbcfd9
   RNShare: 6204e6a1987ba3e7c47071ef703e5449a0e3548a
   RNSVG: 3421710ac15f4f2dc47e5c122f2c2e4282116830
@@ -2286,6 +2311,6 @@ SPEC CHECKSUMS:
   Yoga: 055f92ad73f8c8600a93f0e25ac0b2344c3b07e6
   ZXingObjC: 8898711ab495761b2dbbdec76d90164a6d7e14c5
 
-PODFILE CHECKSUM: 95cd28e70ae47c36e1e0b30f60bba0bd6ffa77d8
+PODFILE CHECKSUM: 4f329164941c6ae15114dad4f26f29fff048d877
 
 COCOAPODS: 1.16.2

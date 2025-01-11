@@ -3,7 +3,7 @@ import assert from 'assert';
 
 import { NomadApp, HDSegwitBech32Wallet, SegwitP2SHWallet } from '../../class';
 
-jest.mock('../../blue_modules/NomadElectrum', () => {
+jest.mock('../../blue_modules/BlueElectrum', () => {
   return {
     connectMain: jest.fn(),
   };

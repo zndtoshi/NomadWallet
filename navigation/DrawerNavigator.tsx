@@ -1,6 +1,5 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import { useTheme } from '../theme/useTheme';
 import HomeScreen from '../screens/HomeScreen';
@@ -52,7 +51,6 @@ export default function DrawerNavigator() {
   };
 
   return (
-    <NavigationContainer>
       <Drawer.Navigator
         drawerContent={(props) => <CustomDrawerContent {...props} />}
         screenOptions={{
@@ -65,7 +63,6 @@ export default function DrawerNavigator() {
         <Drawer.Screen name="ImportWallet" component={ImportWalletScreen} />
         <Drawer.Screen name="CreateDMS" component={CreateDMSScreen} />
       </Drawer.Navigator>
-    </NavigationContainer>
   );
 }
 
