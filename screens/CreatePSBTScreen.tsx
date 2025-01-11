@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Slider, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { useTheme } from '../theme/useTheme';
+import Slider from '@react-native-community/slider';
 
 export default function CreatePSBTScreen() {
   const theme = useTheme();

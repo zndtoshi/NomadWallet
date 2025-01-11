@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useTheme } from '../theme/useTheme';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen() {
   const theme = useTheme();
+  const navigation = useNavigation();
 
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
@@ -14,6 +16,7 @@ export default function HomeScreen() {
       <Text style={[styles.header, { color: theme.colors.text }]}>DMS info</Text>
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.colors.button }]}
+        onPress={() => navigation.navigate('ImportWallet')}
       >
         <Text style={[styles.buttonText, { color: theme.colors.buttonText }]}>
           Import Wallet

@@ -28,20 +28,11 @@ export default function DrawerNavigator() {
     return (
       <View style={[styles.drawerContainer, { backgroundColor: theme.colors.background }]}>
         <View style={styles.headerContainer}>
-          <Image
-            source={require('../assets/dms_logo.png')}
-            style={styles.logo}
-          />
-          <Text style={[styles.headerText, { color: theme.colors.text }]}>
-            BitcoinDMS
-          </Text>
+          <Image source={require('../assets/dms_logo.png')} style={styles.logo} />
+          <Text style={[styles.headerText, { color: theme.colors.text }]}>BitcoinDMS</Text>
         </View>
         {menuItems.map((item, index) => (
-          <TouchableOpacity
-            key={index}
-            style={styles.menuItem}
-            onPress={() => navigation.navigate(item.screen)}
-          >
+          <TouchableOpacity key={index} style={styles.menuItem} onPress={() => navigation.navigate(item.screen)}>
             <Text style={[styles.menuIcon, { color: theme.colors.text }]}>{item.icon}</Text>
             <Text style={[styles.menuLabel, { color: theme.colors.text }]}>{item.label}</Text>
           </TouchableOpacity>
@@ -51,18 +42,18 @@ export default function DrawerNavigator() {
   };
 
   return (
-      <Drawer.Navigator
-        drawerContent={(props) => <CustomDrawerContent {...props} />}
-        screenOptions={{
-          headerStyle: { backgroundColor: theme.colors.button },
-          headerTintColor: theme.colors.buttonText,
-        }}
-      >
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="PSBTDetails" component={PSBTDetailsScreen} />
-        <Drawer.Screen name="ImportWallet" component={ImportWalletScreen} />
-        <Drawer.Screen name="CreateDMS" component={CreateDMSScreen} />
-      </Drawer.Navigator>
+    <Drawer.Navigator
+      drawerContent={props => <CustomDrawerContent {...props} />}
+      screenOptions={{
+        headerStyle: { backgroundColor: theme.colors.button },
+        headerTintColor: theme.colors.buttonText,
+      }}
+    >
+      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="PSBTDetails" component={PSBTDetailsScreen} />
+      <Drawer.Screen name="ImportWallet" component={ImportWalletScreen} />
+      <Drawer.Screen name="CreateDMS" component={CreateDMSScreen} />
+    </Drawer.Navigator>
   );
 }
 

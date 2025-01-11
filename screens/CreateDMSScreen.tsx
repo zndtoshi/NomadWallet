@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Slider, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useTheme } from '../theme/useTheme';
+import Slider from '@react-native-community/slider';
 
 export default function CreateDMSScreen() {
   const theme = useTheme();
