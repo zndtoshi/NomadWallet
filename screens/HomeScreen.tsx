@@ -4,27 +4,41 @@ import { useTheme } from '../theme/useTheme';
 import { useNavigation } from '@react-navigation/native';
 import { openSignedTransaction } from '../blue_modules/fs';
 import presentAlert from '../components/Alert';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { HomeStackParamList } from '../navigation/types'; // Ensure import
+
+type HomeScreenNavigationProp = NativeStackNavigationProp<HomeStackParamList, 'Home'>; // Updated type
 
 export default function HomeScreen() {
   const theme = useTheme();
-  const navigation = useNavigation();
-  
+  const navigation = useNavigation<HomeScreenNavigationProp>(); // Updated navigation hook
+
   const [modalVisible, setModalVisible] = useState(false);
+
+  const handleConnectHardwareWallet = () => {
+    // Implement connect hardware wallet functionality
+    setModalVisible(false);
+    navigation.navigate('ImportWalletScreen'); // Navigate within StackNavigator
+  };
+
+  const handleQRWalletXpub = () => {
+    // Implement QR wallet xpub functionality
+    setModalVisible(false);
+    navigation.navigate('ImportWalletScreen'); // Navigate within StackNavigator
+  };
+
+  const handleWalletFile = () => {
+    // Implement wallet file functionality
+    setModalVisible(false);
+    navigation.navigate('ImportWalletScreen'); // Navigate within StackNavigator
+  };
 
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
-      <Image
-        source={require('../assets/dms_logo.png')}
-        style={styles.image}
-      />
+      <Image source={require('../assets/dms_logo.png')} style={styles.image} />
       <Text style={[styles.header, { color: theme.colors.text }]}>DMS info</Text>
-      <TouchableOpacity
-        style={[styles.button, { backgroundColor: theme.colors.button }]}
-        onPress={() => setModalVisible(true)}
-      >
-        <Text style={[styles.buttonText, { color: theme.colors.buttonText }]}>
-          Import Wallet
-        </Text>
+      <TouchableOpacity style={[styles.button, { backgroundColor: theme.colors.button }]} onPress={() => setModalVisible(true)}>
+        <Text style={[styles.buttonText, { color: theme.colors.buttonText }]}>Import Wallet</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.colors.button }]}
@@ -35,50 +49,22 @@ export default function HomeScreen() {
           }
         }}
       >
-        <Text style={[styles.buttonText, { color: theme.colors.buttonText }]}>
-          Import signed PSBT
-        </Text>
+        <Text style={[styles.buttonText, { color: theme.colors.buttonText }]}>Import signed PSBT</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        style={[styles.button, { backgroundColor: theme.colors.button, marginTop: 16 }]}
-        onPress={() => navigation.navigate('ScanQRScreen')}
-      >
-        <Text style={[styles.buttonText, { color: theme.colors.buttonText }]}>
-          Import signed PSBT via QR Code
-        </Text>
-      </TouchableOpacity>
-
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-      >
+      <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={() => setModalVisible(false)}>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <TouchableOpacity
-              style={styles.modalButton}
-              onPress={handleConnectHardwareWallet}
-            >
+            <TouchableOpacity style={styles.modalButton} onPress={handleConnectHardwareWallet}>
               <Text style={styles.modalButtonText}>Connect hardware wallet</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.modalButton}
-              onPress={handleQRWalletXpub}
-            >
+            <TouchableOpacity style={styles.modalButton} onPress={handleQRWalletXpub}>
               <Text style={styles.modalButtonText}>QR wallet xpub</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.modalButton}
-              onPress={handleWalletFile}
-            >
+            <TouchableOpacity style={styles.modalButton} onPress={handleWalletFile}>
               <Text style={styles.modalButtonText}>Wallet file</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.closeButton}
-              onPress={() => setModalVisible(false)}
-            >
+            <TouchableOpacity style={styles.closeButton} onPress={() => setModalVisible(false)}>
               <Text style={styles.closeButtonText}>Cancel</Text>
             </TouchableOpacity>
           </View>
@@ -86,21 +72,6 @@ export default function HomeScreen() {
       </Modal>
     </View>
   );
-
-  const handleConnectHardwareWallet = () => {
-    // Implement connect hardware wallet functionality
-    setModalVisible(false);
-  };
-
-  const handleQRWalletXpub = () => {
-    // Implement QR wallet xpub functionality
-    setModalVisible(false);
-  };
-
-  const handleWalletFile = () => {
-    // Implement wallet file functionality
-    setModalVisible(false);
-  };
 }
 
 const styles = StyleSheet.create({

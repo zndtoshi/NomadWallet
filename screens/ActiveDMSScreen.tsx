@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useTheme } from '../theme/useTheme';
 
-export default function ActiveDMSScreen() {
+const ActiveDMSScreen: React.FC = () => {
   const theme = useTheme();
 
   return (
@@ -27,7 +27,9 @@ export default function ActiveDMSScreen() {
       </TouchableOpacity>
     </View>
   );
-}
+};
+
+export default ActiveDMSScreen;
 
 const styles = StyleSheet.create({
   container: {

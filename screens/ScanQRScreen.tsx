@@ -1,22 +1,26 @@
-
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTheme } from '../theme/useTheme';
-import { useNavigation } from '@react-navigation/native';
-import QRCodeScanner from 'react-native-qrcode-scanner';
-import { RNCamera } from 'react-native-camera';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { HomeStackParamList } from '../navigation/types'; // Changed import source
+import { CameraScreen } from 'react-native-camera-kit';
 import presentAlert from '../components/Alert';
 
-export default function ScanQRScreen() {
+type ScanQRScreenNavigationProp = NativeStackNavigationProp<HomeStackParamList, 'ScanQRScreen'>; // Updated type
+
+type Props = {
+  navigation: ScanQRScreenNavigationProp;
+};
+
+const ScanQRScreen: React.FC<Props> = ({ navigation }) => {
   const theme = useTheme();
-  const navigation = useNavigation();
   const [scanned, setScanned] = useState(false);
 
-  const onSuccess = (e: any) => {
+  const onReadCode = (event: any) => {
     if (!scanned) {
       setScanned(true);
       try {
-        const data = JSON.parse(e.data);
+        const data = JSON.parse(event.nativeEvent.codeStringValue);
         const { address, amount } = data;
         navigation.navigate('ShowQRPSBTScreen', { address, amount });
       } catch (error) {
@@ -28,27 +32,31 @@ export default function ScanQRScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
-      <QRCodeScanner
-        onRead={onSuccess}
-        flashMode={RNCamera.Constants.FlashMode.auto}
-        topContent={
-          <Text style={[styles.centerText, { color: theme.colors.text }]}>
-            Scan the QR code to import signed PSBT
-          </Text>
-        }
-        bottomContent={
-          <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-            <Text style={styles.buttonText}>Cancel</Text>
-          </TouchableOpacity>
-        }
+      <CameraScreen
+        showFrame={true}
+        scanBarcode={true}
+        laserColor={theme.colors.button}
+        frameColor={theme.colors.text}
+        onReadCode={onReadCode}
+        hideControls={false}
+        offsetForScannerFrame={10}
+        heightForScannerFrame={300}
+        colorForScannerFrame={theme.colors.button}
       />
+      <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
+        <Text style={styles.buttonText}>Cancel</Text>
+      </TouchableOpacity>
     </View>
   );
-}
+};
+
+export default ScanQRScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   centerText: {
     fontSize: 18,

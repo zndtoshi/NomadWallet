@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, FlatList, StyleSheet, CheckBox } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 import { useTheme } from '../theme/useTheme';
+import CheckBox from '@react-native-community/checkbox';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { HomeStackParamList } from '../navigation/types'; // Changed import source
+import { useNavigation } from '@react-navigation/native';
 
 const sampleData = [
   {
@@ -21,8 +25,11 @@ const sampleData = [
   },
 ];
 
-export default function WalletTransactionScreen() {
+type WalletTransactionScreenNavigationProp = NativeStackNavigationProp<HomeStackParamList, 'WalletTransactionScreen'>;
+
+const WalletTransactionScreen: React.FC = () => {
   const theme = useTheme();
+  const navigation = useNavigation<WalletTransactionScreenNavigationProp>();
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
   const handleSelect = (id: string) => {
@@ -70,6 +77,7 @@ export default function WalletTransactionScreen() {
         )}
       />
       <TouchableOpacity
+        onPress={() => navigation.navigate('CreatePSBTScreen')}
         style={[styles.button, { backgroundColor: theme.colors.button }]}
       >
         <Text style={[styles.buttonText, { color: theme.colors.buttonText }]}>
@@ -78,7 +86,9 @@ export default function WalletTransactionScreen() {
       </TouchableOpacity>
     </View>
   );
-}
+};
+
+export default WalletTransactionScreen;
 
 const styles = StyleSheet.create({
   container: {

@@ -2,14 +2,18 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import { useTheme } from '../theme/useTheme';
-import HomeScreen from '../screens/HomeScreen';
-import PSBTDetailsScreen from '../screens/PSBTDetailsScreen';
-import ImportWalletScreen from '../screens/ImportWalletScreen';
-import CreateDMSScreen from '../screens/CreateDMSScreen';
+import StackNavigator from './StackNavigator'; // Use StackNavigator for stack-based screens
 import ShowQRPSBTScreen from '../screens/ShowQRPSBTScreen';
+import ScanQRScreen from '../screens/ScanQRScreen';
+// Remove individual screen imports that are handled by StackNavigator
+// import PSBTDetailsScreen from '../screens/PSBTDetailsScreen';
+// import ImportWalletScreen from '../screens/ImportWalletScreen';
+// import CreateDMSScreen from '../screens/CreateDMSScreen';
+// import WalletTransactionScreen from '../screens/WalletTransactionScreen';
 
+import { DrawerParamList } from './types'; // Ensure importing from types.ts
 
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator<DrawerParamList>();
 
 export default function DrawerNavigator() {
   const theme = useTheme();
@@ -18,20 +22,21 @@ export default function DrawerNavigator() {
     const { navigation } = props;
 
     const menuItems = [
-      { label: 'Import signed PSBT', icon: '⬇️', screen: 'PSBTDetails' },
-      { label: 'Import Wallet', icon: '📥', screen: 'ImportWallet' },
-      { label: 'Import/export DMS setup', icon: '🔄', screen: 'DMSSetup' },
-      { label: 'Sync personal Nostr', icon: '🔗', screen: 'SyncNostr' },
-      { label: 'Create DMS', icon: '➕', screen: 'CreateDMS' },
-      { label: 'Create DMS', icon: '➕', screen: 'CreateDMS' },
-      { label: 'Reset App', icon: '🔄', screen: 'Reset' },
-      { label: 'Show QR PSBT', icon: '📸', screen: 'ShowQRPSBTScreen' }, // Added new menu item
-      { label: 'Scan QR Code', icon: '📷', screen: 'ScanQRScreen' }, // Added new menu item
+      { label: 'Home', icon: '🏠', screen: 'HomeStack' }, // Navigate to StackNavigator
+      // Remove menu items that are handled by StackNavigator
+      // { label: 'Import signed PSBT', icon: '⬇️', screen: 'PSBTDetailsScreen' },
+      // { label: 'Import Wallet', icon: '📥', screen: 'ImportWalletScreen' },
+      // { label: 'Import/export DMS setup', icon: '🔄', screen: 'CreateDMSScreen' },
+      // { label: 'Sync personal Nostr', icon: '🔗', screen: 'SyncNostr' },
+      // { label: 'Create DMS', icon: '➕', screen: 'CreateDMSScreen' },
+      // { label: 'Reset App', icon: '🔄', screen: 'Reset' },
+      { label: 'Show QR PSBT', icon: '📸', screen: 'ShowQRPSBTScreen' },
+      { label: 'Scan QR Code', icon: '📷', screen: 'ScanQRScreen' },
     ];
 
+    return (
       <View style={[styles.drawerContainer, { backgroundColor: theme.colors.background }]}>
         <View style={styles.headerContainer}>
-          <Image source={require('../assets/dms_logo.png')} style={styles.logo} />
           <Image source={require('../assets/dms_logo.png')} style={styles.logo} />
           <Text style={[styles.headerText, { color: theme.colors.text }]}>BitcoinDMS</Text>
         </View>
@@ -53,12 +58,14 @@ export default function DrawerNavigator() {
         headerTintColor: theme.colors.buttonText,
       }}
     >
-      <Drawer.Screen name="Home" component={HomeScreen} />
-      <Drawer.Screen name="PSBTDetails" component={PSBTDetailsScreen} />
-      <Drawer.Screen name="ImportWallet" component={ImportWalletScreen} />
-      <Drawer.Screen name="ShowQRPSBTScreen" component={ShowQRPSBTScreen} />
-      <Drawer.Screen name="CreateDMS" component={CreateDMSScreen} />
-      <Drawer.Screen name="ScanQRScreen" component={ScanQRScreen} />
+      <Drawer.Screen
+        name="HomeStack"
+        component={StackNavigator} // Use StackNavigator for Home
+        options={{ headerShown: false }}
+      />
+      {/* Optionally, keep other independent screens here if necessary */}
+      <Drawer.Screen name="ShowQRPSBTScreen" component={ShowQRPSBTScreen} options={{ headerShown: false }} />
+      <Drawer.Screen name="ScanQRScreen" component={ScanQRScreen} options={{ headerShown: false }} />
     </Drawer.Navigator>
   );
 }
@@ -95,6 +102,5 @@ const styles = StyleSheet.create({
   },
   menuLabel: {
     fontSize: 16,
-
   },
 });

@@ -1,20 +1,20 @@
-
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useTheme } from '../theme/useTheme';
 import QRCode from 'react-native-qrcode-svg';
 import { RouteProp } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { DrawerParamList, HomeStackParamList } from '../navigation/types'; // Changed import source
 
-type ShowQRPSBTScreenRouteProp = RouteProp<any, any>;
-type ShowQRPSBTScreenNavigationProp = StackNavigationProp<any, any>;
+type ShowQRPSBTScreenRouteProp = RouteProp<HomeStackParamList, 'ShowQRPSBTScreen'>;
+type ShowQRPSBTScreenNavigationProp = NativeStackNavigationProp<HomeStackParamList, 'ShowQRPSBTScreen'>;
 
 type Props = {
   route: ShowQRPSBTScreenRouteProp;
   navigation: ShowQRPSBTScreenNavigationProp;
 };
 
-export default function ShowQRPSBTScreen({ route }: Props) {
+const ShowQRPSBTScreen: React.FC<Props> = ({ route, navigation }) => {
   const theme = useTheme();
   const { address, amount } = route.params;
 
@@ -36,7 +36,9 @@ export default function ShowQRPSBTScreen({ route }: Props) {
       />
     </View>
   );
-}
+};
+
+export default ShowQRPSBTScreen;
 
 const styles = StyleSheet.create({
   container: {
