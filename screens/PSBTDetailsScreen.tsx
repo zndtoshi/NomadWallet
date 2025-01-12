@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useTheme } from '../theme/useTheme';
+import { openSignedTransaction } from '../blue_modules/fs';
+import presentAlert from '../components/Alert';
 
 export default function PSBTDetailsScreen() {
   const theme = useTheme();
@@ -28,6 +30,12 @@ export default function PSBTDetailsScreen() {
       </Text>
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.colors.button }]}
+        onPress={async () => {
+          const content = await openSignedTransaction();
+          if (content) {
+            presentAlert({ message: content });
+          }
+        }}
       >
         <Text style={[styles.buttonText, { color: theme.colors.buttonText }]}>
           Import signed PSBT

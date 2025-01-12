@@ -6,6 +6,7 @@ import HomeScreen from '../screens/HomeScreen';
 import PSBTDetailsScreen from '../screens/PSBTDetailsScreen';
 import ImportWalletScreen from '../screens/ImportWalletScreen';
 import CreateDMSScreen from '../screens/CreateDMSScreen';
+import ShowQRPSBTScreen from '../screens/ShowQRPSBTScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -23,6 +24,7 @@ export default function DrawerNavigator() {
       { label: 'Sync personal Nostr', icon: '🔗', screen: 'SyncNostr' },
       { label: 'Create DMS', icon: '➕', screen: 'CreateDMS' },
       { label: 'Reset App', icon: '🔄', screen: 'Reset' },
+      { label: 'Show QR PSBT', icon: '📸', screen: 'ShowQRPSBTScreen' }, // Added new menu item
     ];
 
     return (
@@ -52,6 +54,7 @@ export default function DrawerNavigator() {
       <Drawer.Screen name="Home" component={HomeScreen} />
       <Drawer.Screen name="PSBTDetails" component={PSBTDetailsScreen} />
       <Drawer.Screen name="ImportWallet" component={ImportWalletScreen} />
+      <Drawer.Screen name="ShowQRPSBTScreen" component={ShowQRPSBTScreen} />
       <Drawer.Screen name="CreateDMS" component={CreateDMSScreen} />
     </Drawer.Navigator>
   );

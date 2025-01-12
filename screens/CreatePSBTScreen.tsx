@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { useTheme } from '../theme/useTheme';
 import Slider from '@react-native-community/slider';
+import { useNavigation } from '@react-navigation/native';
 
 export default function CreatePSBTScreen() {
   const theme = useTheme();
+  const navigation = useNavigation();
   const [timeLock, setTimeLock] = useState(1);
 
   return (
@@ -50,6 +52,7 @@ export default function CreatePSBTScreen() {
       </View>
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.colors.button }]}
+        onPress={() => navigation.navigate('PSBTDetailScreen')}
       >
         <Text style={[styles.buttonText, { color: theme.colors.buttonText }]}>
           Save PSBT
@@ -57,6 +60,7 @@ export default function CreatePSBTScreen() {
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.colors.button }]}
+        onPress={() => navigation.navigate('ShowQRPSBTScreen', { address: '1BoatSLRHtKNngkdXEeobR76b53LETtpyT', amount: 0.1234 })}
       >
         <Text style={[styles.buttonText, { color: theme.colors.buttonText }]}>
           Show QR PSBT
