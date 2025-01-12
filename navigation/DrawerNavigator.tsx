@@ -8,6 +8,7 @@ import ImportWalletScreen from '../screens/ImportWalletScreen';
 import CreateDMSScreen from '../screens/CreateDMSScreen';
 import ShowQRPSBTScreen from '../screens/ShowQRPSBTScreen';
 
+
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNavigator() {
@@ -17,19 +18,20 @@ export default function DrawerNavigator() {
     const { navigation } = props;
 
     const menuItems = [
-      { label: 'Home', icon: '🏠', screen: 'Home' },
       { label: 'Import signed PSBT', icon: '⬇️', screen: 'PSBTDetails' },
       { label: 'Import Wallet', icon: '📥', screen: 'ImportWallet' },
       { label: 'Import/export DMS setup', icon: '🔄', screen: 'DMSSetup' },
       { label: 'Sync personal Nostr', icon: '🔗', screen: 'SyncNostr' },
       { label: 'Create DMS', icon: '➕', screen: 'CreateDMS' },
+      { label: 'Create DMS', icon: '➕', screen: 'CreateDMS' },
       { label: 'Reset App', icon: '🔄', screen: 'Reset' },
       { label: 'Show QR PSBT', icon: '📸', screen: 'ShowQRPSBTScreen' }, // Added new menu item
+      { label: 'Scan QR Code', icon: '📷', screen: 'ScanQRScreen' }, // Added new menu item
     ];
 
-    return (
       <View style={[styles.drawerContainer, { backgroundColor: theme.colors.background }]}>
         <View style={styles.headerContainer}>
+          <Image source={require('../assets/dms_logo.png')} style={styles.logo} />
           <Image source={require('../assets/dms_logo.png')} style={styles.logo} />
           <Text style={[styles.headerText, { color: theme.colors.text }]}>BitcoinDMS</Text>
         </View>
@@ -56,6 +58,7 @@ export default function DrawerNavigator() {
       <Drawer.Screen name="ImportWallet" component={ImportWalletScreen} />
       <Drawer.Screen name="ShowQRPSBTScreen" component={ShowQRPSBTScreen} />
       <Drawer.Screen name="CreateDMS" component={CreateDMSScreen} />
+      <Drawer.Screen name="ScanQRScreen" component={ScanQRScreen} />
     </Drawer.Navigator>
   );
 }
@@ -92,5 +95,6 @@ const styles = StyleSheet.create({
   },
   menuLabel: {
     fontSize: 16,
+
   },
 });
